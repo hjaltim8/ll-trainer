@@ -148,6 +148,11 @@ const getBarLocationsByCornerColors = (fl, fr, rf, rb) => {
     throw 'This should not be possible'
 }
 
+const areAdjacent = (color1, color2) => {
+    const colors = { 'F': 1, 'R': 2, 'B': 3, 'L': 4 }
+    return colors[color1] % 2 !== colors[color2] % 2
+}
+
 export const getPllFromColors = (fl, fc, fr, rf, rc, rb) => {
     const colors = { 'F': 1, 'R': 2, 'B': 3, 'L': 4 }
 
@@ -157,22 +162,90 @@ export const getPllFromColors = (fl, fc, fr, rf, rc, rb) => {
     // dictionary
     const patterns = getPatternsFromColors(fl, fc, fr, rf, rc, rb)
 
+    // If solved
     if (patterns.frontSide.solved && patterns.rightSide.solved) {
         return {
             pll: '',
             solved: true,
-            patterns: '',
+            patterns,
         }
     }
 
-
-
-    return patterns
-
-    // if 2 3bars
-    if (patterns.threeBar.count === 2) {
-        return 'Solved'    
+    // One side solved
+    if (patterns.frontSide.solved || patterns.rightSide.solved) {
+        // Front side
+        if (patterns.frontSide.solved) {
+            // Lights
+            if (patterns.rightSide.lights) {
+                return {
+                    pll: areAdjacent(patterns.rightSide.color1, patterns.rightSide.color2) ? 'Ua' : 'Ub',
+                    solved: false,
+                    solvedSide: patterns.caseData.lightsOrSolvedSides,
+                    patterns,
+                }
+            }
+            // 2-Bar
+            if (patterns.rightSide.innerBar) {
+                return {
+                    pll: 'Ja',
+                    solved: false,
+                    solvedSide: patterns.caseData.lightsOrSolvedSides,
+                    patterns,
+                }
+            } else if (patterns.rightSide.outerBar) {
+                return {
+                    pll: 'Jb',
+                    solved: false,
+                    solvedSide: patterns.caseData.lightsOrSolvedSides,
+                    patterns,
+                }
+            }
+            // F
+            return {
+                pll: 'F',
+                solved: false,
+                solvedSide: patterns.caseData.lightsOrSolvedSides,
+                patterns,
+            }
+        }
+        // Right side
+        if (patterns.rightSide.solved) {
+            // Lights
+            if (patterns.frontSide.lights) {
+                return {
+                    pll: areAdjacent(patterns.frontSide.color1, patterns.frontSide.color2) ? 'Ua' : 'Ub',
+                    solved: false,
+                    solvedSide: patterns.caseData.lightsOrSolvedSides,
+                    patterns,
+                }
+            }
+            // 2-Bar
+            if (patterns.frontSide.innerBar) {
+                return {
+                    pll: 'Jb',
+                    solved: false,
+                    solvedSide: patterns.caseData.lightsOrSolvedSides,
+                    patterns,
+                }
+            } else if (patterns.frontSide.outerBar) {
+                return {
+                    pll: 'Ja',
+                    solved: false,
+                    solvedSide: patterns.caseData.lightsOrSolvedSides,
+                    patterns,
+                }
+            }
+            // F
+            return {
+                pll: 'F',
+                solved: false,
+                solvedSide: patterns.caseData.lightsOrSolvedSides,
+                patterns,
+            }
+        }
     }
+    
+    return patterns
 
     // if 3bar
     if (patterns.threeBar.count === 1) {
@@ -390,10 +463,11 @@ const getPatternsFromColors = (fl, fc, fr, rf, rc, rb) => {
         color3: '',
     }
 
-    const patterns = {
-        bookends: false,
-        outerChecker: false,
-        innerChecker: false,
+    let bookends = false
+
+    const checkers = {
+        outer: false,
+        inner: false,
         checkerBoard: false,
         fromFront: {
             checker: 0,
@@ -484,35 +558,35 @@ const getPatternsFromColors = (fl, fc, fr, rf, rc, rb) => {
 
     colorCount.total = _.sum(_.values(counter))
 
-    patterns.bookends = fl === rb
-    patterns.checkerBoard = fl === fr && fl === rc && fc === rf && fc === rb
-    patterns.outerChecker = !patterns.checkerBoard && fl === rc && fc === rb
+    bookends = fl === rb
+    checkers.checkerBoard = fl === fr && fl === rc && fc === rf && fc === rb
+    checkers.outer = !checkers.checkerBoard && fl === rc && fc === rb
     
-    if (!patterns.checkerBoard && !patterns.outerChecker) {
+    if (!checkers.checkerBoard && !checkers.outer) {
         if (fl === fr && fc === rf) {
-            patterns.fromFront.checker = 4
+            checkers.fromFront.checker = 4
             if (fl === rc) {
-                patterns.fromFront.checker += 1
+                checkers.fromFront.checker += 1
             }
         } else if (rb === rf && rc === fr) {
-            patterns.fromRight.checker = 4
+            checkers.fromRight.checker = 4
             if (rb === fc) {
-                patterns.fromRight.checker += 1
+                checkers.fromRight.checker += 1
             }
         } else if (fc === rf && fr === rc) {
-            patterns.innerChecker = true
+            checkers.inner = true
         } else if (frontSide.lights && fl === rc) {
-            patterns.fromFront.oddChecker = true
+            checkers.fromFront.oddChecker = true
         } else if (rightSide.lights && rf === fc) {
-            patterns.fromRight.oddChecker = true
+            checkers.fromRight.oddChecker = true
         } else if (fl === rc && fl !== fr && fl % 2 === fr % 2 && fc === rf) {
-            patterns.fromFront.middleChecker = true
+            checkers.fromFront.middleChecker = true
         } else if (rb === fc && rb !== rf && rb % 2 === rf % 2 && rc === fr) {
-            patterns.fromRight.middleChecker = true
+            checkers.fromRight.middleChecker = true
         } else if (fc === rf) {
-            patterns.fromFront.checker = 3
+            checkers.fromFront.checker = 3
         } else if (rc === fr) {
-            patterns.fromRight.checker = 3
+            checkers.fromRight.checker = 3
         }
     }
 
@@ -559,196 +633,13 @@ const getPatternsFromColors = (fl, fc, fr, rf, rc, rb) => {
             true)
 
     return {
+        bookends,
         frontSide,
         rightSide,
         colorCount,
-        patterns,
+        checkers,
         caseData,
     }
-
-    // const solvedSides = {
-    //     left: false,
-    //     right: false,
-    //     count: 0
-    // }
-
-    // const bars = {
-    //     left: {
-    //         color: '',
-    //         position: '',
-    //         neighbourColor: '',
-    //     },
-    //     right: {
-    //         color: '',
-    //         position: '',
-    //         neighbourColor: '',
-    //     },
-    //     count: 0,
-    // }
-
-    // const lights = {
-    //     left: {
-    //         color: '',
-    //         containedColor: '',
-    //     }
-    // }
-
-    // const result = {
-    //     threeBar: {
-    //         left: false,
-    //         right: false,
-    //         count: 0,
-    //     },
-    //     headligths: {
-    //         left: {
-    //             has: false,
-    //             adjacent: false,
-    //         },
-    //         right: {
-    //             has: false,
-    //             adjacent: false,
-    //         },
-    //         count: 0
-    //     },
-    //     twoBar: {
-    //         left: {
-    //             inner: false,
-    //             outer: false,
-    //             adjacent: false,
-    //         },
-    //         right: {
-    //             inner: false,
-    //             outer: false,
-    //             adjacent: false,
-    //         },
-    //         count: 0,
-    //     },
-    //     bookends: false,
-    //     colorCount: {
-    //         total: 0,
-    //         corners: 0,
-    //         edges: 2
-    //     },
-    //     checkers: {
-    //         inner: false,
-    //         outer: false,
-    //         left: {
-    //             regular: false,
-    //             half: false,
-    //             oppositeMiddle: false,
-    //         },
-    //         right: {
-    //             regular: false,
-    //             half: false,
-    //             oppositeMiddle: false,
-    //         },
-    //         size: 0,
-    //     }
-    // }
-
-    // if (fl === fc && fl === fr) {
-    //     result.threeBar.left = true
-    //     result.threeBar.count += 1
-    // }
-
-    // if (rf === rc && rf === rb) {
-    //     result.threeBar.right = true
-    //     result.threeBar.count += 1
-    // }
-
-    // if (!result.threeBar.left && fl === fr) {
-    //     result.headligths.left.has = true
-    //     result.headligths.left.adjacent = colors[fl] % 2 !== colors[fc] % 2
-    //     result.headligths.count += 1
-    // }
-
-    // if (!result.threeBar.right && rf === rb) {
-    //     result.headligths.right.has = true
-    //     result.headligths.right.adjacent = colors[rf] % 2 !== colors[rc] % 2
-    //     result.headligths.count += 1
-    // }
-
-    // if (!result.threeBar.left && !result.headligths.left.has) {
-    //     if (fl === fc) {
-    //         result.twoBar.left.outer = true
-    //         result.twoBar.left.adjacent = colors[fl] % 2 !== colors[fr] % 2
-    //         result.twoBar.count += 1
-    //     } else if (fr === fc) {
-    //         result.twoBar.left.inner = true
-    //         result.twoBar.left.adjacent = colors[fl] % 2 !== colors[fr] % 2
-    //         result.twoBar.count += 1
-    //     }
-    // }
-
-    // if (!result.threeBar.right && !result.headligths.right.has) {
-    //     if (rb === rc) {
-    //         result.twoBar.right.outer = true
-    //         result.twoBar.right.adjacent = colors[rf] % 2 !== colors[rb] % 2
-    //         result.twoBar.count += 1
-    //     } else if (rf === rc) {
-    //         result.twoBar.right.inner = true
-    //         result.twoBar.right.adjacent = colors[rf] % 2 !== colors[rb] % 2
-    //         result.twoBar.count += 1
-    //     }
-    // }
-
-    // if (fl === rb) {
-    //     result.bookends = true
-    // }
-
-    // let counter = { F: 0, L: 0, R: 0, B: 0 }
-
-    // counter[fl] = 1
-    // counter[fr] = 1
-    // counter[rf] = 1
-    // counter[rb] = 1
-
-    // result.colorCount.corners = _.sum(_.values(counter))
-
-    // counter[fc] = 1
-    // counter[rc] = 1
-
-    // result.colorCount.total = _.sum(_.values(counter))
-
-    // if (result.headligths.left.has && fc === rf) {
-    //     result.checkers.size = 4
-    //     if (fr === rc) {
-    //         result.checkers.size = 5
-    //         if (fc === rb) {
-    //             result.checkers.size = 6
-    //         }
-    //     }
-    //     result.checkers.left.regular = true
-    // }
-
-    // if (result.headligths.right.has && rc === fr) {
-    //     result.checkers.size = 4
-    //     if (rf === fc) {
-    //         result.checkers.size = 5
-    //         if (rc === fl) {
-    //             result.checkers.size = 6
-    //         }
-    //     }
-    //     result.checkers.right.regular = true
-    // }
-
-    // // if (result.checkers.size === 0) {
-    //     if (fl === rc && fc === rb) {
-    //         result.checkers.outer = true
-    //     } else if (fc === rf && fr === rc) {
-    //         result.checkers.inner = true
-    //     } else if (result.headligths.left.has && fl === rc) {
-    //         result.checkers.left.half = true
-    //     } else if (result.headligths.right.has && rb === fc) {
-    //         result.checkers.right.half = true
-    //     } else if (fl === rc && fc === rf && fl !== fr && colors[fl] % 2 === colors[fr] % 2) {
-    //         result.checkers.left.oppositeMiddle = true
-    //     } else if (rb === fc && rc === fr && rb !== rf && colors[rb] % 2 === colors[rf] % 2) {
-    //         result.checkers.right.oppositeMiddle = true
-    //     }
-    // // }
-
-    // return result
 }
 
 window.getPatternsFromColors = getPatternsFromColors
