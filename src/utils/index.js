@@ -62,8 +62,8 @@ const getCasesByCornerColorCount = (count, detailed = false) => {
     return []
 }
 
-const getCasesByEdgeRelations = (solved, reversed, opposite, detailed = false) => {
-    if (solved) {
+const getCasesByEdgeRelations = (edgeRel, detailed = false) => {
+    if (edgeRel === edgeRelations.Solved) {
         if (detailed) {
             return [
                 ...Cpll.detailed,
@@ -79,7 +79,7 @@ const getCasesByEdgeRelations = (solved, reversed, opposite, detailed = false) =
             'U', 'H',
             'J', 'R',
             'V', 'Y']
-    } else if (reversed) {
+    } else if (edgeRel === edgeRelations.Reversed) {
         if (detailed) {
             return [
                 'Ua', 'Ub',
@@ -94,7 +94,7 @@ const getCasesByEdgeRelations = (solved, reversed, opposite, detailed = false) =
             ...AdjacentPll.simple,
             ...CyclingPll.simple,
             ...DiagonalPll.simple]
-    } else if (opposite) {
+    } else if (edgeRel === edgeRelations.Opposite) {
         if (detailed) {
             return [
                 'Ua', 'Ub',
@@ -110,9 +110,9 @@ const getCasesByEdgeRelations = (solved, reversed, opposite, detailed = false) =
     }
 }
 
-const getCasesByCornerColorCountAndEdgeRelations = (count, solved, reversed, opposite, detailed = false) => {
+const getCasesByCornerColorCountAndEdgeRelations = (count, edgeRel, detailed = false) => {
     const cornerCases = getCasesByCornerColorCount(count, detailed)
-    const edgeCases = getCasesByEdgeRelations(solved, reversed, opposite, detailed)
+    const edgeCases = getCasesByEdgeRelations(edgeRel, detailed)
     return _.intersection(cornerCases, edgeCases)
 }
 
@@ -424,6 +424,18 @@ const cubeColors = Object.freeze({
     Right: 4,
 })
 
+const cornerStatus = Object.freeze({
+    Solved: 1,
+    Adjacent: 2,
+    Diagonal: 3,
+})
+
+const edgeRelations = Object.freeze({
+    Solved: 1,
+    Reversed: 2,
+    Opposite: 3,
+})
+
 const colorRelation = Object.freeze({
     Adjacent: 1,
     Opposite: 2,
@@ -483,13 +495,9 @@ const getPatternsFromColors = (fl, fc, fr, rf, rc, rb) => {
     }
 
     const caseData = {
-        cornersSolved: false,
-        cornersAdjacent: false,
-        cornersDiagonal: false,
+        cornerStatus: {},
         lightsOn: '',
-        edgesSolved: false,
-        edgesReversed: false,
-        edgesOpposites: false,
+        edgesRelations: {},
         possibleCases: [],
         input: [],
     }
@@ -586,15 +594,19 @@ const getPatternsFromColors = (fl, fc, fr, rf, rc, rb) => {
         }
     }
 
-    caseData.cornersSolved = colorCount.corners === 2
-    caseData.cornersAdjacent = colorCount.corners === 3
-    caseData.cornersDiagonal = colorCount.corners === 4
+    if (colorCount.corners === 2) {
+        caseData.cornerStatus = cornerStatus.Solved
+    } else if (colorCount.corners === 3) {
+        caseData.cornerStatus = cornerStatus.Adjacent
+    } else {
+        caseData.cornerStatus = cornerStatus.Diagonal
+    }
 
-    if (caseData.cornersSolved) {
+    if (caseData.cornerStatus === cornerStatus.Solved) {
         caseData.lightsOn = 'All'
-    } else if (caseData.cornersDiagonal) {
+    } else if (caseData.cornerStatus === cornerStatus.Diagonal) {
         caseData.lightsOn = 'None'
-    } else if (caseData.cornersAdjacent) {
+    } else {
         if (frontSide.solved || frontSide.light) {
             caseData.lightsOn = 'Front'
         } else if (rightSide.solved || rightSide.light) {
@@ -609,23 +621,21 @@ const getPatternsFromColors = (fl, fc, fr, rf, rc, rb) => {
     caseData.possibleCases = getCasesByCornerColorCount(colorCount.corners, true)
 
     if (colors[fc] % 2 === colors[rc] % 2) {
-        caseData.edgesOpposites = true
+        caseData.edgesRelations = edgeRelations.Opposite
     } else if (colors[fc] + 1 === colors[rc]) {
-        caseData.edgesSolved = true
+        caseData.edgesRelations = edgeRelations.Solved
     } else if (colors[rc] + 1 === colors[fc]) {
-        caseData.edgesReversed = true
+        caseData.edgesRelations = edgeRelations.Reversed
     } else if (colors[fc] === 4 && colors[rc] === 1) {
-        caseData.edgesSolved = true
+        caseData.edgesRelations = edgeRelations.Solved
     } else if (colors[rc] === 4 && colors[fc] === 1) {
-        caseData.edgesReversed = true
+        caseData.edgesRelations = edgeRelations.Reversed
     }
 
     caseData.possibleCases =
         getCasesByCornerColorCountAndEdgeRelations(
             colorCount.corners,
-            caseData.edgesSolved,
-            caseData.edgesReversed,
-            caseData.edgesOpposites,
+            caseData.edgesRelations,
             true)
 
     caseData.input = [fl, fc, fr, rf, rc, rb]
