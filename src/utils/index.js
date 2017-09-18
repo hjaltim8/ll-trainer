@@ -166,7 +166,8 @@ export const getPllFromColors = (fl, fc, fr, rf, rc, rb) => {
     if (patterns.frontSide.solved && patterns.rightSide.solved) {
         return {
             pll: '',
-            solved: true,
+            lightsOn: 'All',
+            solvedOn: 'All',
             patterns,
         }
     }
@@ -179,8 +180,8 @@ export const getPllFromColors = (fl, fc, fr, rf, rc, rb) => {
             if (patterns.rightSide.lights) {
                 return {
                     pll: areAdjacent(patterns.rightSide.color1, patterns.rightSide.color2) ? 'Ua' : 'Ub',
-                    solved: false,
-                    solvedSide: patterns.caseData.lightsOrSolvedSides,
+                    lightsOn: patterns.caseData.lightsOn,
+                    solvedOn: 'Front',
                     patterns,
                 }
             }
@@ -188,24 +189,17 @@ export const getPllFromColors = (fl, fc, fr, rf, rc, rb) => {
             if (patterns.rightSide.innerBar) {
                 return {
                     pll: 'Ja',
-                    solved: false,
-                    solvedSide: patterns.caseData.lightsOrSolvedSides,
+                    lightsOn: patterns.caseData.lightsOn,
+                    solvedOn: 'Front',
                     patterns,
                 }
             } else if (patterns.rightSide.outerBar) {
                 return {
                     pll: 'Jb',
-                    solved: false,
-                    solvedSide: patterns.caseData.lightsOrSolvedSides,
+                    lightsOn: patterns.caseData.lightsOn,
+                    solvedOn: 'Front',
                     patterns,
                 }
-            }
-            // F
-            return {
-                pll: 'F',
-                solved: false,
-                solvedSide: patterns.caseData.lightsOrSolvedSides,
-                patterns,
             }
         }
         // Right side
@@ -213,9 +207,9 @@ export const getPllFromColors = (fl, fc, fr, rf, rc, rb) => {
             // Lights
             if (patterns.frontSide.lights) {
                 return {
-                    pll: areAdjacent(patterns.frontSide.color1, patterns.frontSide.color2) ? 'Ua' : 'Ub',
-                    solved: false,
-                    solvedSide: patterns.caseData.lightsOrSolvedSides,
+                    pll: areAdjacent(patterns.frontSide.color1, patterns.frontSide.color2) ? 'Ub' : 'Ua',
+                    lightsOn: patterns.caseData.lightsOn,
+                    solvedOn: 'Right',
                     patterns,
                 }
             }
@@ -223,28 +217,29 @@ export const getPllFromColors = (fl, fc, fr, rf, rc, rb) => {
             if (patterns.frontSide.innerBar) {
                 return {
                     pll: 'Jb',
-                    solved: false,
-                    solvedSide: patterns.caseData.lightsOrSolvedSides,
+                    lightsOn: patterns.caseData.lightsOn,
+                    solvedOn: 'Right',
                     patterns,
                 }
             } else if (patterns.frontSide.outerBar) {
                 return {
                     pll: 'Ja',
-                    solved: false,
-                    solvedSide: patterns.caseData.lightsOrSolvedSides,
+                    lightsOn: patterns.caseData.lightsOn,
+                    solvedOn: 'Right',
                     patterns,
                 }
             }
-            // F
-            return {
-                pll: 'F',
-                solved: false,
-                solvedSide: patterns.caseData.lightsOrSolvedSides,
-                patterns,
-            }
+        }
+        // F
+        return {
+            pll: 'F',
+            solved: false,
+            lightsOn: patterns.caseData.lightsOn,
+            solvedOn: patterns.frontSide.solved ? 'Front' : 'Right',
+            patterns,
         }
     }
-    
+
     return patterns
 
     // if 3bar
@@ -491,11 +486,12 @@ const getPatternsFromColors = (fl, fc, fr, rf, rc, rb) => {
         cornersSolved: false,
         cornersAdjacent: false,
         cornersDiagonal: false,
-        lightsOrSolvedSides: '',
+        lightsOn: '',
         edgesSolved: false,
         edgesReversed: false,
         edgesOpposites: false,
         possibleCases: [],
+        input: [],
     }
 
     frontSide.solved = fl === fc && fl === fr
@@ -536,7 +532,7 @@ const getPatternsFromColors = (fl, fc, fr, rf, rc, rb) => {
     }
     if (rightSide.lights) {
         rightSide.color1 = rf
-        rightSide.color2 = rb
+        rightSide.color2 = rc
     }
     if (rightSide.color1 === '') {
         rightSide.color1 = rf
@@ -595,18 +591,18 @@ const getPatternsFromColors = (fl, fc, fr, rf, rc, rb) => {
     caseData.cornersDiagonal = colorCount.corners === 4
 
     if (caseData.cornersSolved) {
-        caseData.lightsOrSolvedSides = 'All'
+        caseData.lightsOn = 'All'
     } else if (caseData.cornersDiagonal) {
-        caseData.lightsOrSolvedSides = 'None'
+        caseData.lightsOn = 'None'
     } else if (caseData.cornersAdjacent) {
         if (frontSide.solved || frontSide.light) {
-            caseData.lightsOrSolvedSides = 'Front'
+            caseData.lightsOn = 'Front'
         } else if (rightSide.solved || rightSide.light) {
-            caseData.lightsOrSolvedSides = 'Right'
+            caseData.lightsOn = 'Right'
         } else if (fl % 2 === fr % 2) {
-            caseData.lightsOrSolvedSides = 'Back'
+            caseData.lightsOn = 'Back'
         } else if (rf % 2 === rb % 2) {
-            caseData.lightsOrSolvedSides = 'Left'
+            caseData.lightsOn = 'Left'
         }
     }
 
@@ -631,6 +627,8 @@ const getPatternsFromColors = (fl, fc, fr, rf, rc, rb) => {
             caseData.edgesReversed,
             caseData.edgesOpposites,
             true)
+
+    caseData.input = [fl, fc, fr, rf, rc, rb]
 
     return {
         bookends,
