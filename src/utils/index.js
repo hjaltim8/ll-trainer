@@ -233,10 +233,101 @@ export const getPllFromColors = (fl, fc, fr, rf, rc, rb) => {
         // F
         return {
             pll: 'F',
-            solved: false,
             lightsOn: patterns.caseData.lightsOn,
             solvedOn: patterns.frontSide.solved ? 'Front' : 'Right',
             patterns,
+        }
+    }
+
+    // Lights on both sides
+    if (patterns.frontSide.lights && patterns.rightSide.lights) {
+        
+        // Checkerboard
+        if (patterns.checkers.checkerBoard) {
+            return {
+                pll: 'Z',
+                lightsOn: patterns.caseData.lightsOn,
+                solvedOn: 'None',
+                patterns,
+            }
+        }
+
+        // 3 colors and a 2:1 pattern
+        if (patterns.colorCount.total === 3) {
+            // Going left
+            if (fc === rf) {
+                return {
+                    pll: 'Ua',
+                    lightsOn: patterns.caseData.lightsOn,
+                    solvedOn: areAdjacent(rc, rb) ? 'Left' : 'Back',
+                    patterns,
+                }
+            // Going right
+            } else if (fr === rc) {
+                return {
+                    pll: 'Ub',
+                    lightsOn: patterns.caseData.lightsOn,
+                    solvedOn: areAdjacent(fc, fr) ? 'Back' : 'Left',
+                    patterns,
+                }
+            }
+        }
+
+        // 4 colors and both lights contain adjacent
+        if (patterns.colorCount.total === 4 && areAdjacent(fr, fc) && areAdjacent(rf, rc)) {
+            return {
+                pll: 'Z',
+                lightsOn: patterns.caseData.lightsOn,
+                solvedOn: 'None',
+                patterns,
+            }
+        }
+
+        // 4 colors and both lights contain opposite
+        if (patterns.colorCount.total === 4 && !areAdjacent(fr, fc) && !areAdjacent(rf, rc)) {
+            return {
+                pll: 'Z',
+                lightsOn: patterns.caseData.lightsOn,
+                solvedOn: 'None',
+                patterns,
+            }
+        }
+    }
+
+    // Lights on front + bar on right
+    if (patterns.frontSide.lights && (patterns.rightSide.innerBar || patterns.rightSide.outerBar)) {
+
+        // Inside bar & 3 colors
+        if (patterns.colorCount.total === 3 && patterns.rightSide.innerBar) {
+            return {
+                pll: 'T',
+                lightsOn: patterns.caseData.lightsOn,
+                solvedOn: 'None',
+                patterns,
+            }
+        }
+
+        // Inside bar & 4 colors
+        if (patterns.colorCount.total === 4 && patterns.rightSide.innerBar) {
+            return {
+                pll: 'Ra',
+                lightsOn: patterns.caseData.lightsOn,
+                solvedOn: 'None',
+                patterns,
+            }
+        }
+
+        // Outside bar & 3 colors
+        if (patterns.colorCount.total === 3 && patterns.rightSide.outerBar) {
+            return {
+                pll: 'Aa',
+                
+            }
+        }
+
+        // Outside bar & 4 colors
+        if (patterns.colorCount.total === 4 && patterns.rightSide.outerBar) {
+            // Ga / Gc
         }
     }
 
