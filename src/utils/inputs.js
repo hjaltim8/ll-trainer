@@ -145,7 +145,7 @@ function getSides(input) {
     return patterns[normalize(side)]
   }
   
-  function getSidePairPatterns(sides) {
+  function getSidePairPatterns(pair) {
     
     const patterns = {
       fff: { solved: true },
@@ -156,16 +156,154 @@ function getSides(input) {
       ffb: { bar: { left: true, opposite: true }},
       frr: { bar: { right: true, adjacent: true }},
       fbb: { bar: { right: true, opposite: true }},
-      frb: {},
-      fbr: {},
-      flb: {},
-      flr: {},
+      frb: { diverse: true },
+      fbr: { diverse: true },
+      flb: { diverse: true },
+      flr: { diverse: true },
     }
     
     // Make sure side is normalized
-    const n = normalize(sides)
+    const n = normalize(pair)
     console.log(n)
-    return patterns[n]
+    const sides = getSides(n)
+
+    p1 = patterns[sides[0]]
+    p2 = patterns[sides[1]]
+
+    const result = {}
+
+    if (p1.solved && p2.solved) {
+        result.solved = true
+    }
+
+    if (p1.solved && p2.lights) {
+        result.solved = 'left'
+        result.lights.right = true
+        if (p2.lights.opposite) {
+            result.lights.opposite = true
+        } else if (p2.lights.adjacent.right) {
+            result.lights.adjacent = 'right'
+        } else {
+            result.lights.adjacent = 'left'
+        }
+    }
+
+    if (p2.solved && p1.lights) {
+        result.solved = 'right'
+        result.lights.left = true
+        if (p1.lights.opposite) {
+            result.lights.opposite = true
+        } else if (p1.lights.adjacent.right) {
+            result.lights.adjacent = 'right'
+        } else {
+            result.lights.adjacent = 'left'
+        }
+    }
+
+    if (p1.solved && p2.bar) {
+        result.solved = 'left'
+        result.bar.right = true
+        if (p2.bar.left) {
+            result.bar.inner = true
+        } else {
+            result.bar.outer = true
+        }
+        if (p2.bar.adjacent) {
+            result.bar.adjacent = true
+        } else {
+            result.bar.opposite = true
+        }
+    }
+
+    if (p2.solved && p1.bar) {
+        result.solved = 'right'
+        result.bar.left = true
+        if (p1.bar.left) {
+            result.bar.outer = true
+        } else {
+            result.bar.inner = true
+        }
+        if (p1.bar.adjacent) {
+            result.bar.adjacent = true
+        } else {
+            result.bar.opposite = true
+        }
+    }
+
+    if (p1.lights && p2.lights) {
+        result.lights.double = true
+        if (p1.lights.adjacent) {
+            if (p1.lights.right) {
+                result.lights.left.adjacent = 'right'
+            } else {
+                result.lights.left.adjacent = 'left'
+            }
+        } else {
+            result.lights.left.opposite = true
+        }
+        if (p2.lights.adjacent) {
+            if (p2.lights.right) {
+                result.lights.right.adjacent = 'right'
+            } else {
+                result.lights.right.adjacent = 'left'
+            }
+        } else {
+            result.lights.right.opposite = true
+        }
+        if (result.lights.left.adjacent && result.lights.right.adjacent) {
+            result.lights.adjacent = result.lights.left.adjacent
+        } else if (result.lights.left.opposite && result.lights.opposite) {
+            result.lights.opposite = true
+        }
+    }
+
+    if (p1.lights && p2.bar) {
+
+    }
+
+    if (p2.lights && p1.bar) {
+
+    }
+
+    if (p1.lights && p2.diverse) {
+
+    }
+
+    if (p2.lights && p1.diverse) {
+        
+    }
+
+    if (p1.bar && p2.bar) {
+
+    }
+
+    if (p1.bar && p1.bar.left && p2.diverse) {
+
+    }
+
+    if (p2.bar && p2.bar.right && p1.diverse) {
+        
+    }
+
+    if (p1.bar && p1.bar.right && p2.diverse) {
+
+    }
+
+    if (p2.bar && p2.bar.left && p1.diverse) {
+        
+    }
+
+    if (p1.diverse && p2.diverse) {
+        result.diverse = true
+    }
+
+    const arr = pair.split('')
+
+    if (arr[0] === arr[5]) result.bookends = true
+
+    // add checkers and such...
+
+    return result
   }
   
   function workSomeMagic(input) {
