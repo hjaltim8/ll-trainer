@@ -58,7 +58,7 @@ function getSides(input) {
     return { id: neutralized, sides: neutralizedSides }
   }
   
-  function baseNormalize(neutralizedInput) {
+  function normalize(neutralizedInput) {
     const normalizationMaps = {
         f: { f: 'f', r: 'r', b: 'b', l: 'l'},
         r: { r: 'f', b: 'r', l: 'b', f: 'l'},
@@ -75,21 +75,7 @@ function getSides(input) {
     ).join('')
   }
 
-  function normalize(neutralizedInput) {
-    const normalized = baseNormalize(neutralizedInput)
-    const normalizedSides = getSides(normalized)
-    return { id: normalized, sides: normalizedSides }
-  }
-
-  function normalizeSide(side) {
-    return baseNormalize(side)
-  }
-  
-  function normalizeSidePair(sidePair) {
-    return baseNormalize(sidePair)
-  }
-
-  function baseDeNormalize(normalizedInput, startOn = 'f') {
+  function deNormalize(normalizedInput, startOn = 'f') {
     const deNormalizationMaps = {
         f: { f: 'f', r: 'r', b: 'b', l: 'l'},
         r: { f: 'r', r: 'b', b: 'l', l: 'f'},
@@ -105,20 +91,6 @@ function getSides(input) {
         return res
     }, []).join('')
   }
-  
-  function deNormalize(normalizedInput, startOn = 'f') {
-    const neutralized = baseDeNormalize(normalizedInput, startOn)
-    let sides = getSides(normalizedInput)
-    return { id: neutralized, sides: sides }
-  }
-
-  function deNormalizeSide(side, startOn = 'f') {
-    return baseDeNormalize(side, startOn)
-  }
-
-  function deNormalizeSidePair(normalizedInput, startOn = 'f') {
-      return baseDeNormalize(normalizedInput, startOn)
-    }
   
   function deNeutralize(neutralizedInput, baseColor, colorOnTop = 'Y') {
       const normalizationMaps = {
@@ -160,7 +132,7 @@ function getSides(input) {
     }
     
     // Make sure side is normalized
-    const n = normalizeSide(side)
+    const n = normalize (side)
     console.log(n)
     return patterns[n]
   }
@@ -183,7 +155,7 @@ function getSides(input) {
     }
     
     // Make sure side is normalized
-    const n = normalizeSide(sides)
+    const n = normalize(sides)
     console.log(n)
     return patterns[n]
   }
@@ -231,11 +203,11 @@ function getSides(input) {
     console.log('normalized', normalized)
     
     // Now deNormalize
-    const deNormalized = deNormalize(normalized.id)
+    const deNormalized = deNormalize(normalized)
     console.log('deNormalized', deNormalized)
     
     // Finally deNeutralize
-    const deNeutralized = deNeutralize(deNormalized.id, 'G', 'Y')
+    const deNeutralized = deNeutralize(deNormalized, 'G', 'Y')
     console.log('deNeutralized(G, Y)', deNeutralized)
     
     
@@ -244,7 +216,8 @@ function getSides(input) {
       flf: 1, flr: 1, flb: 1, fbf: 1, fbb: 1, fbr: 1
     }
       
-    const sidesAreLegal = normalized.sides.reduce((res, val) => {
+    const normalizedSides = getSides(normalized)
+    const sidesAreLegal = normalizedSides.reduce((res, val) => {
       res = res && (possibleSides[val] != null)
       return res
     }, true)
@@ -258,22 +231,22 @@ function getSides(input) {
       //colorOnTop: 'Y',
       //baseColor: list[0].toUpperCase(),
       neutralized: neutralized.id,
-      normalized: normalized.id,
+      normalized: normalized,
       // Neutralized can be created from normalized
       //   f on side 2 is the color to the right of normalized[2]
       //   f on side 3 is the color to the right of normalized[5]
       //   f on side 4 is the color to the right of normalized[8]
       sidePairs: {
-        [normalized.sides[0]+normalized.sides[1]]: 1,
-        [normalized.sides[1]+normalized.sides[2]]: 2,
-        [normalized.sides[2]+normalized.sides[3]]: 3,
-        [normalized.sides[3]+normalized.sides[0]]: 4,
+        [normalizedSides[0]+normalizedSides[1]]: 1,
+        [normalizedSides[1]+normalizedSides[2]]: 2,
+        [normalizedSides[2]+normalizedSides[3]]: 3,
+        [normalizedSides[3]+normalizedSides[0]]: 4,
       },
       sides: {
-        [normalized.sides[0]]: 1,
-        [normalized.sides[1]]: 2,
-        [normalized.sides[2]]: 3,
-        [normalized.sides[3]]: 4,
+        [normalizedSides[0]]: 1,
+        [normalizedSides[1]]: 2,
+        [normalizedSides[2]]: 3,
+        [normalizedSides[3]]: 4,
       }
     }
     
@@ -297,13 +270,13 @@ function getSides(input) {
   console.log(patterns)
   
   const side = 'rbr'
-  const nSide = normalizeSide(side)
-  const dSide = deNormalizeSide(nSide, 'r')
+  const nSide = normalize(side)
+  const dSide = deNormalize(nSide, 'r')
   console.log('side operations', side, nSide, dSide)
 
   const pair = 'rbrblb'
-  const nPair = normalizeSidePair(pair)
-  const dPair = deNormalizeSidePair(nPair, 'r')
+  const nPair = normalize(pair)
+  const dPair = deNormalize(nPair, 'r')
   console.log('side pair operations', pair, nPair, dPair) 
   
   
