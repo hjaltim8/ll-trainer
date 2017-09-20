@@ -148,8 +148,12 @@ for (let i = 0; i < 12; i++) {
         const s = _.reduce(plls, (result, data, pll) => {
             if (data.sides[sideKeys[i]]) {
               if (data.sides[sideKeys[i]].count > 1) {
-                //console.log(sideKeys[i], data.sides[sideKeys[i]], data.sides[sideKeys[i]].count)
-                result.push(pll)
+                if (data.sides[sideKeys[i]].positions.reduce((a, b) => a + b, 0) % 2 === 1) {
+                  //console.log(sideKeys[i], data.sides[sideKeys[i]], data.sides[sideKeys[i]].count)
+                  result.push(pll)
+                  // NOTE: this only works if count === 2, but count could be 3 or 4 as well...
+                }
+                
               }
             }
           return result
