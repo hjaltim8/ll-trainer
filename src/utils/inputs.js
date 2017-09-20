@@ -37,7 +37,7 @@ function getSides(input) {
     // need to know what color is on top, to know how the colors relate to one another
     // can probably create only one for each and then create the rest programmatically by shifting
     // the keys...
-    const normalizationMaps = {
+    const neutralizationMaps = {
       Y: {
         G: { G: 'f', O: 'r', B: 'b', R: 'l'},
         O: { O: 'f', B: 'r', R: 'b', G: 'l'},
@@ -52,10 +52,8 @@ function getSides(input) {
       },
       // Add for the other colors on top as well...
     }
-    let key = input[0].toUpperCase()
-    const neutralized = input.map(value => normalizationMaps[colorOnTop][key][value.toUpperCase()]).join('')
-    const neutralizedSides = getSides(neutralized)
-    return { id: neutralized, sides: neutralizedSides }
+    let key = input.charAt(0).toUpperCase()
+    return input.split('').map(value => neutralizationMaps[colorOnTop][key][value.toUpperCase()]).join('')
   }
   
   function normalize(neutralizedInput) {
@@ -92,8 +90,8 @@ function getSides(input) {
     }, []).join('')
   }
   
-  function deNeutralize(neutralizedInput, baseColor, colorOnTop = 'Y') {
-      const normalizationMaps = {
+  function deNeutralize(neutralizedInput, startOn, colorOnTop = 'Y') {
+      const deNeutralizationMaps = {
       Y: {
         G: { f: 'G', r: 'O', b: 'B', l: 'R'},
         O: { f: 'O', r: 'B', b: 'R', l: 'G'},
@@ -108,10 +106,29 @@ function getSides(input) {
       },
       // Add for the other colors on top as well...
     }
-    let key = baseColor
-    const neutralized = neutralizedInput.split('').map(value => normalizationMaps[colorOnTop][key][value]).join('')
-    const neutralizedSides = getSides(neutralized)
-    return { id: neutralized, sides: neutralizedSides }
+    let key = startOn
+    return neutralizedInput.split('').map(value => deNeutralizationMaps[colorOnTop][key][value]).join('')
+  }
+
+  function testProcess(input, colorOnTop = 'Y') {
+      const startOn = input.charAt(0).toUpperCase()
+      const upperCased = input.toUpperCase()
+      const neutralized = neutralize(input, colorOnTop)
+      const normalized = normalize(neutralized)
+      const deNormalized = deNormalize(normalized) // should be same as neutralized
+      const deNeutralized = deNeutralize(deNormalized, startOn, colorOnTop) // should be same as upperCased
+      return {
+          input,
+          startOn,
+          colorOnTop,
+          upperCased,
+          neutralized,
+          normalized,
+          deNormalized,
+          deNeutralized,
+          normalizationSuccessful: neutralized === deNormalized,
+          neutralizationSuccessful: upperCased === deNeutralized
+      }
   }
 
   function getSidePatterns(side) {
@@ -194,22 +211,15 @@ function getSides(input) {
       return `Invalid input (incorrect recurrence of colors) (${list}) | (${JSON.stringify(list)})`
     }
     
+    console.log(testProcess(list.join('')))
+
     // First neutralize the entire list
-    const neutralized = neutralize(list)
+    const neutralized = neutralize(list.join('')) // should take in a string instead of array??
     console.log('neutralized', neutralized)
     
     // Then normalize the neutralized input
-    const normalized = normalize(neutralized.id)
+    const normalized = normalize(neutralized)
     console.log('normalized', normalized)
-    
-    // Now deNormalize
-    const deNormalized = deNormalize(normalized)
-    console.log('deNormalized', deNormalized)
-    
-    // Finally deNeutralize
-    const deNeutralized = deNeutralize(deNormalized, 'G', 'Y')
-    console.log('deNeutralized(G, Y)', deNeutralized)
-    
     
     const possibleSides = {
       fff: 1, ffr: 1, ffb: 1, frr: 1, frb: 1, frf: 1,
@@ -230,7 +240,7 @@ function getSides(input) {
       //input: list,
       //colorOnTop: 'Y',
       //baseColor: list[0].toUpperCase(),
-      neutralized: neutralized.id,
+      neutralized: neutralized,
       normalized: normalized,
       // Neutralized can be created from normalized
       //   f on side 2 is the color to the right of normalized[2]
@@ -269,15 +279,8 @@ function getSides(input) {
   const patterns = getSidePatterns('rbr')
   console.log(patterns)
   
-  const side = 'rbr'
-  const nSide = normalize(side)
-  const dSide = deNormalize(nSide, 'r')
-  console.log('side operations', side, nSide, dSide)
-
-  const pair = 'rbrblb'
-  const nPair = normalize(pair)
-  const dPair = deNormalize(nPair, 'r')
-  console.log('side pair operations', pair, nPair, dPair) 
+console.log(testProcess('rbg'))
+console.log(testProcess('rbgorr'))
   
   
   
