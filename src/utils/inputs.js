@@ -58,7 +58,7 @@ function getSides(input) {
     return { id: neutralized, sides: neutralizedSides }
   }
   
-  function normalize(neutralizedInput) {
+  function baseNormalize(neutralizedInput) {
     const normalizationMaps = {
         f: { f: 'f', r: 'r', b: 'b', l: 'l'},
         r: { r: 'f', b: 'r', l: 'b', f: 'l'},
@@ -67,14 +67,26 @@ function getSides(input) {
     }
     let counter = 0
     let key
-    const normalized = neutralizedInput.split('').map(value => {
+    return neutralizedInput.split('').map(value => {
         counter += 1
         if (counter === 1 || counter === 4 || counter === 7 || counter === 10) key = value
         return normalizationMaps[key][value]
       }
     ).join('')
+  }
+
+  function normalize(neutralizedInput) {
+    const normalized = baseNormalize(neutralizedInput)
     const normalizedSides = getSides(normalized)
     return { id: normalized, sides: normalizedSides }
+  }
+
+  function normalizeSide(side) {
+    return baseNormalize(side)
+  }
+  
+  function normalizeSidePair(sidePair) {
+    return baseNormalize(sidePair)
   }
   
   function deNormalize(normalizedInput) {
@@ -124,21 +136,52 @@ function getSides(input) {
     return { id: neutralized, sides: neutralizedSides }
   }
   
-  function normalizeSide(side) {
-    const normalizationMaps = {
+  function deNormalizeSide(side, base) {
+    const deNormalizationMaps = {
         f: { f: 'f', r: 'r', b: 'b', l: 'l'},
-        r: { r: 'f', b: 'r', l: 'b', f: 'l'},
-        b: { b: 'f', l: 'r', f: 'b', r: 'l'},
-        l: { l: 'f', f: 'r', r: 'b', b: 'l'}
+        r: { f: 'r', r: 'b', b: 'l', l: 'f'},
+        b: { f: 'b', r: 'l', b: 'f', l: 'r'},
+        l: { f: 'l', r: 'f', b: 'r', l: 'b'}
     }
-    let key = side.split('')[0]
-    const normalized = side.split('').map(value => {
-        return normalizationMaps[key][value]
+    let key = base
+    const deNormalized = side.split('').map(value => {
+        return deNormalizationMaps[key][value]
       }
     ).join('')
-    return normalized
+    return deNormalized
   }
-  
+
+  function deNormalizeSidePair(normalizedInput, startOn = 'f') {
+    const deNormalizationMaps = {
+        f: { f: 'f', r: 'r', b: 'b', l: 'l'},
+        r: { f: 'r', r: 'b', b: 'l', l: 'f'},
+        b: { f: 'b', r: 'l', b: 'f', l: 'r'},
+        l: { f: 'l', r: 'f', b: 'r', l: 'b'}
+    }
+    let sides = getSides(normalizedInput)
+    console.log(sides)
+    let key = startOn
+    sides[0] = sides[0].split('').map(value => {
+        return deNormalizationMaps[key][value]
+    }).join('')
+    console.log(sides)
+    key = shiftRight(sides[0].split('')[2])
+    sides[1] = sides[1].split('').map(value => {
+        return deNormalizationMaps[key][value]
+    }).join('')
+    console.log(sides)
+    // key = shiftRight(sides[1].split('')[2])
+    // sides[2] = sides[2].split('').map(value => {
+    //     return deNormalizationMaps[key][value]
+    // }).join('')
+    // key = shiftRight(sides[2].split('')[2])
+    // sides[3] = sides[3].split('').map(value => {
+    //     return deNormalizationMaps[key][value]
+    // }).join('')
+    
+    return sides.reduce((res, val) => { return res + val }, '')
+    }
+
   function getSidePatterns(side) {
     
     const patterns = {
@@ -180,7 +223,7 @@ function getSides(input) {
     }
     
     // Make sure side is normalized
-    const n = normalizeSide(side)
+    const n = normalizeSide(sides)
     console.log(n)
     return patterns[n]
   }
@@ -293,7 +336,15 @@ function getSides(input) {
   const patterns = getSidePatterns('rbr')
   console.log(patterns)
   
-  
+  const side = 'rbr'
+  const nSide = normalizeSide(side)
+  const dSide = deNormalizeSide(nSide, 'r')
+  console.log('side operations', side, nSide, dSide)
+
+  const pair = 'rbrblb'
+  const nPair = normalizeSidePair(pair)
+  const dPair = deNormalizeSidePair(nPair, 'r')
+  console.log('side pair operations', pair, nPair, dPair) 
   
   
   
