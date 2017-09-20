@@ -11,24 +11,18 @@ import _ from 'lodash'
 
 function getSides(input) {
     return input.match(/.{1,3}/g)
-  }
+}
   
   function shiftRight(side) {
-    //console.log('shifting ' + side + ' right')
     const codes = ['f', 'r', 'b', 'l']
-    let a = codes.indexOf(side)
-    a += 1
+    let a = codes.indexOf(side) + 1
     if (a > 3) a = 0
     return codes[a]
-    //const result = codes[a]
-    //console.log('shifted to ' + result)
-    //return result
   }
   
   function shiftLeft(side) {
     const codes = ['f', 'r', 'b', 'l']
-    let a = codes.indexOf(side)
-    a -= 1
+    let a = codes.indexOf(side) - 1
     if (a < 0) a = 3
     return codes[a]
   }
@@ -148,10 +142,7 @@ function getSides(input) {
       flr: {},
     }
     
-    // Make sure side is normalized
-    const n = normalize (side)
-    console.log(n)
-    return patterns[n]
+    return patterns[normalize(side)]
   }
   
   function getSidePairPatterns(sides) {
@@ -177,18 +168,18 @@ function getSides(input) {
     return patterns[n]
   }
   
-  function workSomeMagic(list) {
+  function workSomeMagic(input) {
     
-    if (list == null) {
-      return `Invalid input (${list}) | (${JSON.stringify(list)})`
+    if (input == null) {
+      return `Invalid input (${input})`
     }
     
-    if (list.length === undefined || list.length !== 12) {
-      return `Invalid input (incorrect input length) (${list}) | (${JSON.stringify(list)})`
+    if (input.length === undefined || input.length !== 12) {
+      return `Invalid input (incorrect input length) (${input})`
     }
     
     // first reduce to this format { B: 3, G: 3, O: 3, R: 3 }
-    const sanityChecks = _.reduce(list, (result, value) => {
+    const sanityChecks = _.reduce(input.split(''), (result, value) => {
       const key = value.toUpperCase()
       if (result[key] === undefined) {
         result[key] = 0
@@ -199,7 +190,7 @@ function getSides(input) {
   
     //console.log(sanityChecks)
     if (_.keys(sanityChecks).length !== 4) {
-      return `Invalid input (incorrect amount of total colors) (${list}) | (${JSON.stringify(list)})`
+      return `Invalid input (incorrect amount of total colors) (${input})`
     }
     
     const colorsCorrectCounts = _.reduce(sanityChecks, (res, value, key) => {
@@ -208,18 +199,13 @@ function getSides(input) {
     }, true)
     
     if (!colorsCorrectCounts) {
-      return `Invalid input (incorrect recurrence of colors) (${list}) | (${JSON.stringify(list)})`
+      return `Invalid input (incorrect recurrence of colors) (${input})`
     }
     
-    console.log(testProcess(list.join('')))
+    console.log(testProcess(input))
 
-    // First neutralize the entire list
-    const neutralized = neutralize(list.join('')) // should take in a string instead of array??
-    console.log('neutralized', neutralized)
-    
-    // Then normalize the neutralized input
+    const neutralized = neutralize(input)
     const normalized = normalize(neutralized)
-    console.log('normalized', normalized)
     
     const possibleSides = {
       fff: 1, ffr: 1, ffb: 1, frr: 1, frb: 1, frf: 1,
@@ -233,7 +219,7 @@ function getSides(input) {
     }, true)
     
     if (!sidesAreLegal) {
-      return `Invalid input (illegal sides) (${list}) | (${JSON.stringify(list)})`
+      return `Invalid input (illegal sides) (${input})`
     }
     
     const resul = {
@@ -269,9 +255,9 @@ function getSides(input) {
   
   
   
-  const UaInput = ['G', 'G', 'G', 'O', 'B', 'O', 'B', 'R', 'B', 'R', 'O', 'r']
+  const UaInput = ['G', 'G', 'G', 'O', 'B', 'O', 'B', 'R', 'B', 'R', 'O', 'r'].join('')
   //const Ua = ['G', 'G', 'G', 'R', 'B', 'R', 'B', 'R', 'B', 'R', 'R', 'R']
-  const Impossible = ['G', 'G', 'G', 'O', 'R', 'O', 'B', 'B', 'B', 'R', 'O', 'r']
+  const Impossible = ['G', 'G', 'G', 'O', 'R', 'O', 'B', 'B', 'B', 'R', 'O', 'r'].join('')
   const Ua = workSomeMagic(UaInput)
   //console.log('result from func: ', JSON.stringify(Ua))
   console.log('Ua: ', Ua)
