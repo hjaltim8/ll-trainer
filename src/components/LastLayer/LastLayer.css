@@ -27,7 +27,35 @@
 }
 
 .leftBorder {
+    border-left: 5px solid grey;
+}
+
+.leftBorder.strongBorder {
     border-left: 5px solid black;
+}
+
+.topBorder {
+    border-top: 5px solid grey;
+}
+
+.topBorder.strongBorder {
+    border-top: 5px solid black;
+}
+
+.rightBorder {
+    border-right: 5px solid grey;
+}
+
+.rightBorder.strongBorder {
+    border-right: 5px solid black;
+}
+
+.bottomBorder {
+    border-bottom: 5px solid grey;
+}
+
+.bottomBorder.strongBorder {
+    border-bottom: 5px solid black;
 }
 
 .red { background-color: red; }

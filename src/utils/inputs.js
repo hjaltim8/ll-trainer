@@ -214,7 +214,7 @@ function getQuartets(input) {
         result.doubleLights = {}
         if (p1.lights.adjacent && p2.lights.adjacent) {
             if (p1.lights.adjacent === p2.lights.adjacent) {
-                result.adjacentDoubleLights = p1.lights.adjacent
+                // result.adjacentDoubleLights = p1.lights.adjacent
                 result.doubleLights.adjacent = p1.lights.adjacent
             } else {
                 result.doubleLights.adjacent = 'mixed'
@@ -277,7 +277,7 @@ function getQuartets(input) {
         result.diverse = 'right'
     }
 
-    const arr = pair.split('')
+    const arr = (deNormalize(pair)).split('')
 
     if (arr[0] === arr[5]) result.bookends = true
 
@@ -392,6 +392,143 @@ function getQuartets(input) {
     // 
     
     return result
+  }
+
+  export function getRecognitions(pair) {
+      const p = getSidePairPatterns(pair)
+      const result = {}
+
+      if (p.solved) {
+          result.category = '3-Bar'
+          if (p.lights) {
+              result.lookFor = 'lights'
+              result.cases = 'U'
+          } else if (p.bar) {
+              result.lookFor = '2-bar'
+              result.cases = 'J'
+          } else {
+              result.lookFor = '4-colors'
+              result.cases = 'F'
+          }
+      } else if (p.doubleLights) {
+          result.category = 'Double Lights'
+          if (p.checkerBoard) {
+              result.lookFor = '2-color 6-checker'
+              result.cases = 'Z'
+          } else if (p.colorCount === 4 && p.doubleLights.adjacent) {
+              result.lookFor = 'adj edges & 4-colors'
+              result.cases = 'Z'
+          } else if (p.colorCount === 4 && p.doubleLights.opposite) {
+              result.lookFor = 'opp edges & 4-colors'
+              result.cases = 'H'
+          } else {
+              result.lookFor = '2:1 pattern & 3-colors'
+              result.cases = 'U'
+          }
+      } else if (p.lights && p.bar) {
+          result.category = 'Lights + 2-Bar'
+          if (p.innerBar && p.colorCount === 3) {
+              result.lookFor = 'inside bar & 3-colors'
+              result.cases = 'T'
+          } else if (p.innerBar) {
+              result.lookFor = 'inside bar & 4-colors'
+              result.cases = 'R'
+          } else if (p.outerBar && p.colorCount === 3) {
+              result.lookFor = 'outer bar & 3-colors'
+              result.cases = 'A'
+          } else {
+              result.lookFor = 'outer bar & 4-colors'
+              result.cases = 'Ga/c'
+          }
+      } else if (p.lights) {
+          result.category = 'Lone Lights'
+          if (p.checker && p.checker.length === 5) {
+              result.lookFor = '5-checker'
+              result.cases = 'R'
+          } else if (p.checker && p.checker.length === 4) {
+            result.lookFor = '4-checker'
+            result.cases = 'Ga/c'
+          } else if (p.lights.opposite) {
+            result.lookFor = 'lights enclose opp'
+            result.cases = 'Gb/d'
+          } else {
+            result.lookFor = 'lights enclose adj (but no checker)'
+            result.cases = 'A'
+          }
+      } else if (p.doubleBar) {
+          result.category = 'Double Bar'
+          if (p.doubleBar.outer) {
+            result.lookFor = 'both outside'
+            result.cases = 'Y'
+          } else if (p.doubleBar.inner && p.bookends) {
+            result.lookFor = 'both inside & bookends'
+            result.cases = 'A'
+          } else if (p.doubleBar.inner) {
+            result.lookFor = 'bothn inside & no bookends'
+            result.cases = 'V'
+          } else if (p.bookends) {
+            result.lookFor = 'same side & bookends'
+            result.cases = 'J'
+          } else {
+            result.lookFor = 'same side & no bookends'
+            result.cases = 'N'
+          }
+      } else if (p.outerBar) {
+          result.category = 'Outside 2-Bar'
+          if (!p.bookends) {
+            result.lookFor = 'no bookends'
+            result.cases = 'V'
+          } else if (p.partialInnerChecker && p.partialInnerChecker.adjacent) {
+            result.lookFor = 'adj appears twice'
+            result.cases = 'R'
+          } else if (p.partialInnerChecker) {
+            result.lookFor = 'opp appears twice'
+            result.cases = 'Gb/d'
+          } else if (p.bar.adjacent) {
+            result.lookFor = 'adj by bar & 4-colors'
+            result.cases = 'T'
+          } else {
+            result.lookFor = 'opp by bar & 4-colors'
+            result.cases = 'A'
+          }
+      } else if (p.innerBar) {
+          result.category = 'Inside 2-Bar'
+          if (p.bookends && p.bar.adjacent) {
+            result.lookFor = 'bookends adj color'
+            result.cases = 'Ga/c'
+          } else if (p.bookends) {
+            result.lookFor = 'bookends opp color'
+            result.cases = 'Gb/d'
+          } else {
+            result.lookFor = 'no bookends'
+            result.cases = 'Y'
+          }
+      } else if (p.bookends) {
+          result.category = 'Bookends'
+          if (p.innerChecker) {
+            result.lookFor = 'enclosed 4-checker'
+            result.cases = 'F'
+          } else if (p.partialInnerChecker && p.partialInnerChecker.adjacent) {
+            result.lookFor = 'adj appears twice'
+            result.cases = 'R'
+          } else {
+            result.lookFor = 'opp appears twice'
+            result.cases = 'Ga/c'
+          }
+      } else {
+          result.category = 'No Bookends'
+          if (p.innerChecker) {
+            result.lookFor = 'inner 4-checker'
+            result.cases = 'V'
+          } else if (p.outerChecker) {
+            result.lookFor = 'outer 4-checker'
+            result.cases = 'Y'
+          } else {
+            result.lookFor = '5-checker w/opp middle'
+            result.cases = 'E'
+          }
+      }
+      return result
   }
   
 //   function getPllFromPatterns(pattern) {
@@ -739,3 +876,6 @@ function testing(pll, input) {
 
 console.log(testing('F', 'gbobogogbrrr'))
 getRandomPll()
+
+// Ra: OBOBORGRBRGG
+console.log('recognition (Ra) frfflrflbfrr', getRecognitions('frfflrflbfrr'), getSidePairPatterns('frfflrflbfrr'))
