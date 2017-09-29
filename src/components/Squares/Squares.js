@@ -15,6 +15,7 @@ class Squares extends Component {
                 right: last || strong,
             },
             size: this.props.size,
+            light: !strong,
         }
         return <Square key={id} {...props} />
     }
@@ -57,7 +58,7 @@ class Squares extends Component {
             false)
         const rb = this.renderSquare(
             'rb',
-            this.props.cases['rf'].strong,
+            this.props.cases['rc'].strong,
             this.props.cases['rb'].color,
             this.props.cases['rb'].strong,
             false,

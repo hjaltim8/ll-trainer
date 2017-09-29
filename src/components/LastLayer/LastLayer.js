@@ -51,6 +51,22 @@ class LastLayer extends Component {
         return <Squares cases={x} size={50} />
     }
 
+    renderCategorySquares = () => {
+        const sides = ['fl', 'fc', 'fr', 'rf', 'rc', 'rb']
+        const bold = this.state.recognition.category.bold
+        let index = -1
+        const cases = sides.map(v => {
+            index += 1
+            return {
+                id: v,
+                strong: bold[index],
+                color: this.state.colors[index]
+            }
+        })
+        const x = _.mapKeys(cases, 'id')
+        return <Squares cases={x} size={50} />
+    }
+
     render() {
         if (_.isEmpty(this.state.pll)) return null
         // const squares = this.state.colors.map(c => <Square color={c} />)
@@ -65,6 +81,7 @@ class LastLayer extends Component {
         const left = this.state.pll.colored.slice(9,12).split('').map(c => <Square color={c} />)
 
         const squares = this.renderSquares()
+        const categorySquares = this.renderCategorySquares()
 
         return (
             <div>
@@ -92,7 +109,8 @@ class LastLayer extends Component {
                 </div>
                 <h2>Lights: {this.state.pll.lightsOn}</h2>
                 <h2>Solved sides: {this.state.pll.solvedOn}</h2>
-                <h2>Recognize first by: {this.state.recognition.category}</h2>
+                <h2>Recognize first by: {this.state.recognition.category.name}</h2>
+                {categorySquares}
                 <h2>Then look for: {this.state.recognition.lookFor}</h2>
                 <h2>This recognition works for: {this.state.recognition.cases}</h2>
                 <h2>Patterns: {JSON.stringify(this.state.patterns)}</h2>

@@ -399,7 +399,12 @@ function getQuartets(input) {
       const result = {}
 
       if (p.solved) {
-          result.category = '3-Bar'
+          result.category = {
+              name: '3-Bar',
+              bold: p.solved === 'front'
+                ? [true, true, true, false, false, false]
+                : [false, false, false, true, true, true],
+          }
           if (p.lights) {
               result.lookFor = 'lights'
               result.cases = 'U'
@@ -411,7 +416,10 @@ function getQuartets(input) {
               result.cases = 'F'
           }
       } else if (p.doubleLights) {
-          result.category = 'Double Lights'
+          result.category = {
+              name: 'Double Lights',
+              bold: [true, false, true, true, false, true],
+          }
           if (p.checkerBoard) {
               result.lookFor = '2-color 6-checker'
               result.cases = 'Z'
@@ -426,7 +434,12 @@ function getQuartets(input) {
               result.cases = 'U'
           }
       } else if (p.lights && p.bar) {
-          result.category = 'Lights + 2-Bar'
+          result.category = {
+              name: 'Lights + 2-Bar',
+              bold: p.bar.front
+                ? p.outerBar ? [true, true, false, true, false, true] : [false, true, true, true, false, true]
+                : p.outerBar ? [true, false, true, false, true, true] : [true, false, true, true, true, false],
+          }
           if (p.innerBar && p.colorCount === 3) {
               result.lookFor = 'inside bar & 3-colors'
               result.cases = 'T'
@@ -441,7 +454,12 @@ function getQuartets(input) {
               result.cases = 'Ga/c'
           }
       } else if (p.lights) {
-          result.category = 'Lone Lights'
+          result.category = {
+              name: 'Lone Lights',
+              bold: p.lights === 'front'
+                ? [true, false, true, false, false, false]
+                : [false, false, false, true, false, true]
+          }
           if (p.checker && p.checker.length === 5) {
               result.lookFor = '5-checker'
               result.cases = 'R'
@@ -456,7 +474,16 @@ function getQuartets(input) {
             result.cases = 'A'
           }
       } else if (p.doubleBar) {
-          result.category = 'Double Bar'
+          result.category = {
+              name: 'Double Bar',
+              bold: p.doubleBar.outer
+                ? [true, true, false, false, true, true]
+                : p.doubleBar.inner
+                    ? [false, true, true, true, true, false]
+                    : p.doubleBar.sameSide === 'left'
+                        ? [true, true, false, true, true, false]
+                        : [false, true, true, false, true, true],
+          }
           if (p.doubleBar.outer) {
             result.lookFor = 'both outside'
             result.cases = 'Y'
@@ -474,7 +501,12 @@ function getQuartets(input) {
             result.cases = 'N'
           }
       } else if (p.outerBar) {
-          result.category = 'Outside 2-Bar'
+          result.category = {
+              name: 'Outside 2-Bar',
+              bold: p.bar === 'front'
+                ? [true, true, false, false, false, false]
+                : [false, false, false, false, true, true],
+          }
           if (!p.bookends) {
             result.lookFor = 'no bookends'
             result.cases = 'V'
@@ -492,7 +524,12 @@ function getQuartets(input) {
             result.cases = 'A'
           }
       } else if (p.innerBar) {
-          result.category = 'Inside 2-Bar'
+          result.category = {
+              name: 'Inside 2-Bar',
+              bold: p.bar.front
+                ? [false, true, true, false, false, false]
+                : [false, false, false, true, true, false],
+          }
           if (p.bookends && p.bar.adjacent) {
             result.lookFor = 'bookends adj color'
             result.cases = 'Ga/c'
@@ -504,7 +541,10 @@ function getQuartets(input) {
             result.cases = 'Y'
           }
       } else if (p.bookends) {
-          result.category = 'Bookends'
+          result.category = {
+              name: 'Bookends',
+              bold: [true, false, false, false, false, true],
+          }
           if (p.innerChecker) {
             result.lookFor = 'enclosed 4-checker'
             result.cases = 'F'
@@ -516,7 +556,10 @@ function getQuartets(input) {
             result.cases = 'Ga/c'
           }
       } else {
-          result.category = 'No Bookends'
+          result.category = {
+              name: 'No Bookends',
+              bold: [true, false, false, false, false, true],
+          }
           if (p.innerChecker) {
             result.lookFor = 'inner 4-checker'
             result.cases = 'V'

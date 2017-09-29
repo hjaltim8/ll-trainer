@@ -58,10 +58,15 @@
     border-bottom: 5px solid black;
 }
 
+.lighten { opacity: 0.65; }
 .red { background-color: red; }
+/* .red.lighten { opacity: 0.65; } */
 .green { background-color: limegreen; }
+/* .green.lighten { background-color: lighten(limegreen, 50%); } */
 .blue { background-color: blue; }
+/* .blue.lighten { background-color: lighten(blue, 50%); } */
 .orange { background-color: orange; }
+/* .orange.lighten { background-color: lighten(orange, 50%); } */
 
 .front {
     margin: 5px 0 5px 5px;
