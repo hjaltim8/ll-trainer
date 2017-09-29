@@ -456,7 +456,7 @@ function getQuartets(input) {
       } else if (p.lights) {
           result.category = {
               name: 'Lone Lights',
-              bold: p.lights === 'front'
+              bold: p.lights.front
                 ? [true, false, true, false, false, false]
                 : [false, false, false, true, false, true]
           }
@@ -503,7 +503,7 @@ function getQuartets(input) {
       } else if (p.outerBar) {
           result.category = {
               name: 'Outside 2-Bar',
-              bold: p.bar === 'front'
+              bold: p.bar.front
                 ? [true, true, false, false, false, false]
                 : [false, false, false, false, true, true],
           }
