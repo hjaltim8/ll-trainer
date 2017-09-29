@@ -398,15 +398,32 @@ function getQuartets(input) {
       const p = getSidePairPatterns(pair)
       const result = {}
 
+      const bold = {
+          none: [false, false, false],
+          solved: [true, true, true],
+          bar: {
+              left: [true, true, false],
+              right: [false, true, true],
+          },
+          lights: [true, false, true],
+          bookends: [true, false, false, false, false, true],
+      }
+
       if (p.solved) {
           result.category = {
               name: '3-Bar',
               bold: p.solved === 'front'
-                ? [true, true, true, false, false, false]
-                : [false, false, false, true, true, true],
+                ? bold.solved.concat(bold.none)
+                : bold.none.concat(bold.solved),
           }
           if (p.lights) {
-              result.lookFor = 'lights'
+            //   result.lookFor = {
+            //       description: 'lights',
+            //       bold: p.lights.front
+            //         ? bold.lights.concat(bold.none)
+            //         : bold.none.concat(bold.lights),
+            //   }
+              result.lookFor = 'lights',
               result.cases = 'U'
           } else if (p.bar) {
               result.lookFor = '2-bar'
@@ -418,7 +435,7 @@ function getQuartets(input) {
       } else if (p.doubleLights) {
           result.category = {
               name: 'Double Lights',
-              bold: [true, false, true, true, false, true],
+              bold: bold.lights.concat(bold.lights),
           }
           if (p.checkerBoard) {
               result.lookFor = '2-color 6-checker'
@@ -437,8 +454,8 @@ function getQuartets(input) {
           result.category = {
               name: 'Lights + 2-Bar',
               bold: p.bar.front
-                ? p.outerBar ? [true, true, false, true, false, true] : [false, true, true, true, false, true]
-                : p.outerBar ? [true, false, true, false, true, true] : [true, false, true, true, true, false],
+                ? p.outerBar ? bold.bar.left.concat(bold.lights) : bold.bar.right.concat(bold.lights)
+                : p.outerBar ? bold.lights.concat(bold.bar.right) : bold.lights.concat(bold.bar.left),
           }
           if (p.innerBar && p.colorCount === 3) {
               result.lookFor = 'inside bar & 3-colors'
@@ -457,8 +474,8 @@ function getQuartets(input) {
           result.category = {
               name: 'Lone Lights',
               bold: p.lights.front
-                ? [true, false, true, false, false, false]
-                : [false, false, false, true, false, true]
+                ? bold.lights.concat(bold.none)
+                : bold.none.concat(bold.lights)
           }
           if (p.checker && p.checker.length === 5) {
               result.lookFor = '5-checker'
@@ -477,12 +494,12 @@ function getQuartets(input) {
           result.category = {
               name: 'Double Bar',
               bold: p.doubleBar.outer
-                ? [true, true, false, false, true, true]
+                ? bold.bar.left.concat(bold.bar.right)
                 : p.doubleBar.inner
-                    ? [false, true, true, true, true, false]
+                    ? bold.bar.right.concat(bold.bar.left)
                     : p.doubleBar.sameSide === 'left'
-                        ? [true, true, false, true, true, false]
-                        : [false, true, true, false, true, true],
+                        ? bold.bar.left.concat(bold.bar.left)
+                        : bold.bar.right.concat(bold.bar.right),
           }
           if (p.doubleBar.outer) {
             result.lookFor = 'both outside'
@@ -504,8 +521,8 @@ function getQuartets(input) {
           result.category = {
               name: 'Outside 2-Bar',
               bold: p.bar.front
-                ? [true, true, false, false, false, false]
-                : [false, false, false, false, true, true],
+                ? bold.bar.left.concat(bold.none)
+                : bold.none.concat(bold.bar.right),
           }
           if (!p.bookends) {
             result.lookFor = 'no bookends'
@@ -527,8 +544,8 @@ function getQuartets(input) {
           result.category = {
               name: 'Inside 2-Bar',
               bold: p.bar.front
-                ? [false, true, true, false, false, false]
-                : [false, false, false, true, true, false],
+                ? bold.bar.right.concat(bold.none)
+                : bold.none.concat(bold.bar.left),
           }
           if (p.bookends && p.bar.adjacent) {
             result.lookFor = 'bookends adj color'
@@ -543,7 +560,7 @@ function getQuartets(input) {
       } else if (p.bookends) {
           result.category = {
               name: 'Bookends',
-              bold: [true, false, false, false, false, true],
+              bold: bold.bookends,
           }
           if (p.innerChecker) {
             result.lookFor = 'enclosed 4-checker'
@@ -558,7 +575,7 @@ function getQuartets(input) {
       } else {
           result.category = {
               name: 'No Bookends',
-              bold: [true, false, false, false, false, true],
+              bold: bold.bookends,
           }
           if (p.innerChecker) {
             result.lookFor = 'inner 4-checker'
