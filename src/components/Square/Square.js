@@ -18,6 +18,7 @@ class Square extends Component {
         if (this.props.border.top) className += ' topBorder'
         if (this.props.border.bottom) className += ' bottomBorder'
         if (this.props.light) className += ' lighten'
+        if (this.props.neutral) className += ' neutral'
         className += (this.props.border.strong ? ' strongBorder' : ' weakBorder')
 
         const styles = {
@@ -40,6 +41,7 @@ Square.propTypes = {
     }),
     size: PropTypes.number,
     light: PropTypes.bool,
+    neutral: PropTypes.bool,
 }
 
 export default Square

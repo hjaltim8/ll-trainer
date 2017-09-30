@@ -48,19 +48,21 @@ class LastLayer extends Component {
             }
         })
         const x = _.mapKeys(cases, 'id')
-        return <Squares cases={x} size={50} />
+        return <Squares cases={x} size={100} />
     }
 
     renderCategorySquares = () => {
         const sides = ['fl', 'fc', 'fr', 'rf', 'rc', 'rb']
         const bold = this.state.recognition.category.bold
+        const colored = this.state.recognition.category.colored
         let index = -1
         const cases = sides.map(v => {
             index += 1
             return {
                 id: v,
                 strong: bold[index],
-                color: this.state.colors[index]
+                color: this.state.colors[index],
+                neutral: !colored[index]
             }
         })
         const x = _.mapKeys(cases, 'id')
@@ -70,13 +72,15 @@ class LastLayer extends Component {
     renderLookForSquares = () => {
         const sides = ['fl', 'fc', 'fr', 'rf', 'rc', 'rb']
         const bold = this.state.recognition.lookFor.bold
+        const colored = this.state.recognition.lookFor.colored
         let index = -1
         const cases = sides.map(v => {
             index += 1
             return {
                 id: v,
                 strong: bold[index],
-                color: this.state.colors[index]
+                color: this.state.colors[index],
+                neutral: !colored[index]
             }
         })
         const x = _.mapKeys(cases, 'id')
@@ -102,7 +106,7 @@ class LastLayer extends Component {
 
         return (
             <div>
-                {squares}
+                {/* {squares} */}
                 <h1>{this.state.pll.id}</h1>
                 <div className="container">
                     <div className="front">

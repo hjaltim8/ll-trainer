@@ -726,7 +726,7 @@ function getQuartets(input) {
           }
       }
       result.category.colored = [...result.category.bold]
-      result.lookFor.colored = getColored(result.category.bold, result.lookFor)
+      result.lookFor.colored = getColored(result.category.bold, result.lookFor.bold)
       return result
   }
   

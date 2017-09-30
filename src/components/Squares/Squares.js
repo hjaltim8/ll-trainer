@@ -4,7 +4,7 @@ import Square from '../Square'
 
 class Squares extends Component {
 
-    renderSquare = (id, leftStrong, color, strong, first, last) => {
+    renderSquare = (id, leftStrong, color, strong, neutral, first, last) => {
         const props = {
             color,
             border: {
@@ -16,6 +16,7 @@ class Squares extends Component {
             },
             size: this.props.size,
             light: !strong,
+            neutral: neutral,
         }
         return <Square key={id} {...props} />
     }
@@ -26,6 +27,7 @@ class Squares extends Component {
             false,
             this.props.cases['fl'].color,
             this.props.cases['fl'].strong,
+            this.props.cases['fl'].neutral,
             true,
             false)
         const fc = this.renderSquare(
@@ -33,6 +35,7 @@ class Squares extends Component {
             this.props.cases['fl'].strong,
             this.props.cases['fc'].color,
             this.props.cases['fc'].strong,
+            this.props.cases['fc'].neutral,
             false,
             false)
         const fr = this.renderSquare(
@@ -40,6 +43,7 @@ class Squares extends Component {
             this.props.cases['fc'].strong,
             this.props.cases['fr'].color,
             this.props.cases['fr'].strong,
+            this.props.cases['fr'].neutral,
             false,
             false)
         const rf = this.renderSquare(
@@ -47,6 +51,7 @@ class Squares extends Component {
             this.props.cases['fr'].strong,
             this.props.cases['rf'].color,
             this.props.cases['rf'].strong,
+            this.props.cases['rf'].neutral,
             false,
             false)
         const rc = this.renderSquare(
@@ -54,6 +59,7 @@ class Squares extends Component {
             this.props.cases['rf'].strong,
             this.props.cases['rc'].color,
             this.props.cases['rc'].strong,
+            this.props.cases['rc'].neutral,
             false,
             false)
         const rb = this.renderSquare(
@@ -61,6 +67,7 @@ class Squares extends Component {
             this.props.cases['rc'].strong,
             this.props.cases['rb'].color,
             this.props.cases['rb'].strong,
+            this.props.cases['rb'].neutral,
             false,
             true)
         return (<div>
@@ -76,6 +83,7 @@ Squares.propTypes = {
             id: PropTypes.oneOf(['fl', 'fc', 'fr', 'rf', 'rc', 'rb']),
             strong: PropTypes.bool,
             color: PropTypes.oneOf(['R', 'G', 'B', 'O', 'Y', 'W', 'X']),
+            neutral: PropTypes.bool,
         }),
     }),
     size: PropTypes.number,
