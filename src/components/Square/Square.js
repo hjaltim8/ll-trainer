@@ -21,6 +21,8 @@ class Square extends Component {
         if (this.props.neutral) className += ' neutral'
         className += (this.props.border.strong ? ' strongBorder' : ' weakBorder')
 
+        console.log('props in Square: ', this.props)
+
         const styles = {
             width: this.props.size + 'px',
             height: this.props.size + 'px',

@@ -39,16 +39,17 @@ class LastLayer extends Component {
     renderSquares = () => {
         const sides = ['fl', 'fc', 'fr', 'rf', 'rc', 'rb']
         let index = -1
-        const cases = sides.map(v => {
+        const squares = sides.map(v => {
             index += 1
             return {
                 id: v,
                 strong: true,
-                color: this.state.colors[index]
+                color: this.state.colors[index],
+                neutral: false,
             }
         })
-        const x = _.mapKeys(cases, 'id')
-        return <Squares cases={x} size={100} />
+        console.log('squares from ll: ', squares)
+        return <Squares squares={squares} size={100} />
     }
 
     renderCategorySquares = () => {
@@ -56,7 +57,7 @@ class LastLayer extends Component {
         const bold = this.state.recognition.category.bold
         const colored = this.state.recognition.category.colored
         let index = -1
-        const cases = sides.map(v => {
+        const squares = sides.map(v => {
             index += 1
             return {
                 id: v,
@@ -65,8 +66,7 @@ class LastLayer extends Component {
                 neutral: !colored[index]
             }
         })
-        const x = _.mapKeys(cases, 'id')
-        return <Squares cases={x} size={50} />
+        return <Squares squares={squares} size={50} />
     }
 
     renderLookForSquares = () => {
@@ -74,7 +74,7 @@ class LastLayer extends Component {
         const bold = this.state.recognition.lookFor.bold
         const colored = this.state.recognition.lookFor.colored
         let index = -1
-        const cases = sides.map(v => {
+        const squares = sides.map(v => {
             index += 1
             return {
                 id: v,
@@ -83,8 +83,7 @@ class LastLayer extends Component {
                 neutral: !colored[index]
             }
         })
-        const x = _.mapKeys(cases, 'id')
-        return <Squares cases={x} size={50} />
+        return <Squares squares={squares} size={50} />
     }
 
     render() {
