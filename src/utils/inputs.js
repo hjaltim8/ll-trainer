@@ -394,7 +394,18 @@ function getQuartets(input) {
     return result
   }
 
+  // todo add isNormalized og isNeutralized functionum
+
+  function getColored(categoryBold, lookForBold) {
+      const result = []
+      for (let i=0; i<6; i++) {
+          result.push(categoryBold[i] || lookForBold[i])
+      }
+      return result
+  }
+
   export function getRecognitions(pair) {
+      console.log('getRecognitions', pair)
       const p = getSidePairPatterns(pair)
       const result = {}
 
@@ -406,8 +417,15 @@ function getQuartets(input) {
               right: [false, true, true],
           },
           lights: [true, false, true],
-          bookends: [true, false, false, false, false, true],
+          left: [true, false, false],
+          middle: [false, true, false],
+          right: [false, false, true],
       }
+      bold.bookends = bold.left.concat(bold.right)
+
+      // todo: colorless er svo haegt ad reikna ut
+      // thad eru their sem eru false baedi i bold undir
+      // categoriunni og undir lookforinu
 
       if (p.solved) {
           result.category = {
@@ -417,19 +435,28 @@ function getQuartets(input) {
                 : bold.none.concat(bold.solved),
           }
           if (p.lights) {
-            //   result.lookFor = {
-            //       description: 'lights',
-            //       bold: p.lights.front
-            //         ? bold.lights.concat(bold.none)
-            //         : bold.none.concat(bold.lights),
-            //   }
-              result.lookFor = 'lights',
+              result.lookFor = {
+                  description: 'lights',
+                  bold: p.lights.front
+                    ? bold.lights.concat(bold.none)
+                    : bold.none.concat(bold.lights),
+              }
               result.cases = 'U'
           } else if (p.bar) {
-              result.lookFor = '2-bar'
+              result.lookFor = {
+                  description: '2-bar',
+                  bold: p.bar.front
+                    ? p.bar.inner ? bold.bar.right.concat(bold.none) : bold.bar.left.concat(bold.none)
+                    : p.bar.inner ? bold.none.concat(bold.bar.left) : bold.none.concat(bold.bar.right)
+              }
               result.cases = 'J'
           } else {
-              result.lookFor = '4-colors'
+              result.lookFor = {
+                  description: '4-colors',
+                  bold: p.solved === 'front'
+                    ? bold.none.concat(bold.solved)
+                    : bold.solved.concat(bold.none),
+              }
               result.cases = 'F'
           }
       } else if (p.doubleLights) {
@@ -438,16 +465,30 @@ function getQuartets(input) {
               bold: bold.lights.concat(bold.lights),
           }
           if (p.checkerBoard) {
-              result.lookFor = '2-color 6-checker'
+              result.lookFor = {
+                  description: '2-color 6-checker',
+                  bold: bold.solved.concat(bold.solved),
+              }
               result.cases = 'Z'
           } else if (p.colorCount === 4 && p.doubleLights.adjacent) {
-              result.lookFor = 'adj edges & 4-colors'
+              result.lookFor = {
+                  description: 'adj edges & 4-colors',
+                  bold: bold.middle.concat(bold.middle),
+              }
               result.cases = 'Z'
           } else if (p.colorCount === 4 && p.doubleLights.opposite) {
-              result.lookFor = 'opp edges & 4-colors'
+              result.lookFor = {
+                description: 'opp edges & 4-colors',
+                bold: bold.middle.concat(bold.middle),
+              }
               result.cases = 'H'
           } else {
-              result.lookFor = '2:1 pattern & 3-colors'
+              result.lookFor = {
+                  description: '2:1 pattern & 3-colors',
+                  bold: p.twoOne === 'front'
+                    ? bold.lights.concat(bold.middle)
+                    : bold.middle.concat(bold.lights),
+              }
               result.cases = 'U'
           }
       } else if (p.lights && p.bar) {
@@ -457,17 +498,22 @@ function getQuartets(input) {
                 ? p.outerBar ? bold.bar.left.concat(bold.lights) : bold.bar.right.concat(bold.lights)
                 : p.outerBar ? bold.lights.concat(bold.bar.right) : bold.lights.concat(bold.bar.left),
           }
+          result.lookFor = {
+            bold: p.bar.front
+              ? p.innerBar ? bold.left.concat(bold.middle) : bold.right.concat(bold.middle)
+              : p.innerBar ? bold.middle.concat(bold.right) : bold.middle.concat(bold.left),
+          }
           if (p.innerBar && p.colorCount === 3) {
-              result.lookFor = 'inside bar & 3-colors'
+              result.lookFor.description = 'inside bar & 3-colors'
               result.cases = 'T'
           } else if (p.innerBar) {
-              result.lookFor = 'inside bar & 4-colors'
+              result.lookFor.description = 'inside bar & 4-colors'
               result.cases = 'R'
           } else if (p.outerBar && p.colorCount === 3) {
-              result.lookFor = 'outer bar & 3-colors'
+              result.lookFor.description = 'outer bar & 3-colors'
               result.cases = 'A'
           } else {
-              result.lookFor = 'outer bar & 4-colors'
+              result.lookFor.description = 'outer bar & 4-colors'
               result.cases = 'Ga/c'
           }
       } else if (p.lights) {
@@ -478,16 +524,36 @@ function getQuartets(input) {
                 : bold.none.concat(bold.lights)
           }
           if (p.checker && p.checker.length === 5) {
-              result.lookFor = '5-checker'
+              result.lookFor = {
+                  description: '5-checker',
+                  bold: p.checker.front
+                    ? bold.solved.concat(bold.bar.left)
+                    : bold.bar.right.concat(bold.solved),
+              }
               result.cases = 'R'
           } else if (p.checker && p.checker.length === 4) {
-            result.lookFor = '4-checker'
+            result.lookFor = {
+                description: '4-checker',
+                bold: p.checker.front
+                  ? bold.solved.concat(bold.left)
+                  : bold.right.concat(bold.solved),
+            }
             result.cases = 'Ga/c'
           } else if (p.lights.opposite) {
-            result.lookFor = 'lights enclose opp'
+            result.lookFor = {
+                description: 'lights enclose opp',
+                bold: p.lights.front
+                  ? bold.middle.concat(bold.none)
+                  : bold.none.concat(bold.middle),
+            }
             result.cases = 'Gb/d'
           } else {
-            result.lookFor = 'lights enclose adj (but no checker)'
+            result.lookFor = {
+                description: 'lights enclose adj (but no checker)',
+                bold: p.lights.front
+                  ? bold.middle.concat(bold.none)
+                  : bold.none.concat(bold.middle),
+            }
             result.cases = 'A'
           }
       } else if (p.doubleBar) {
@@ -502,19 +568,38 @@ function getQuartets(input) {
                         : bold.bar.right.concat(bold.bar.right),
           }
           if (p.doubleBar.outer) {
-            result.lookFor = 'both outside'
+            result.lookFor = {
+                description: 'both outside',
+                bold: bold.bar.left.concat(bold.bar.right),
+            }
             result.cases = 'Y'
           } else if (p.doubleBar.inner && p.bookends) {
-            result.lookFor = 'both inside & bookends'
+            result.lookFor = {
+                description: 'both inside & bookends',
+                bold: bold.bookends,
+            }
             result.cases = 'A'
           } else if (p.doubleBar.inner) {
-            result.lookFor = 'bothn inside & no bookends'
+            result.lookFor = {
+                description: 'bothn inside & no bookends',
+                bold: bold.bookends,
+            }
             result.cases = 'V'
           } else if (p.bookends) {
-            result.lookFor = 'same side & bookends'
+            result.lookFor = {
+                description: 'same side & bookends',
+                bold: p.doubleBar.sameSide === 'left'
+                  ? bold.bar.left.concat(bold.right)
+                  : bold.left.concat(bold.bar.right),
+            }
             result.cases = 'J'
           } else {
-            result.lookFor = 'same side & no bookends'
+            result.lookFor = {
+                description: 'same side & no bookends',
+                bold: p.doubleBar.sameSide === 'left'
+                  ? bold.bar.left.concat(bold.right)
+                  : bold.left.concat(bold.bar.right),
+            }
             result.cases = 'N'
           }
       } else if (p.outerBar) {
@@ -525,19 +610,44 @@ function getQuartets(input) {
                 : bold.none.concat(bold.bar.right),
           }
           if (!p.bookends) {
-            result.lookFor = 'no bookends'
+            result.lookFor = {
+                description: 'no bookends',
+                bold: p.bar.front
+                  ? bold.bar.left.concat(bold.right)
+                  : bold.left.concat(bold.bar.right),
+            }
             result.cases = 'V'
           } else if (p.partialInnerChecker && p.partialInnerChecker.adjacent) {
-            result.lookFor = 'adj appears twice'
+            result.lookFor = {
+                description: 'adj appears twice',
+                bold: p.bar.front
+                  ? bold.right.concat(bold.middle)
+                  : bold.middle.concat(bold.left),
+            }
             result.cases = 'R'
           } else if (p.partialInnerChecker) {
-            result.lookFor = 'opp appears twice'
+            result.lookFor = {
+                description: 'opp appears twice',
+                bold: p.bar.front
+                ? bold.right.concat(bold.middle)
+                : bold.middle.concat(bold.left),
+            }
             result.cases = 'Gb/d'
           } else if (p.bar.adjacent) {
-            result.lookFor = 'adj by bar & 4-colors'
+            result.lookFor = {
+                description: 'adj by bar & 4-colors',
+                bold: p.bar.front
+                  ? bold.right.concat(bold.none)
+                  : bold.none.concat(bold.left),
+            }
             result.cases = 'T'
           } else {
-            result.lookFor = 'opp by bar & 4-colors'
+            result.lookFor = {
+                description: 'opp by bar & 4-colors',
+                bold: p.bar.front
+                  ? bold.right.concat(bold.none)
+                  : bold.none.concat(bold.left),
+            }
             result.cases = 'A'
           }
       } else if (p.innerBar) {
@@ -547,14 +657,17 @@ function getQuartets(input) {
                 ? bold.bar.right.concat(bold.none)
                 : bold.none.concat(bold.bar.left),
           }
+          result.lookFor = {
+              bold: bold.bookends
+          }
           if (p.bookends && p.bar.adjacent) {
-            result.lookFor = 'bookends adj color'
+            result.lookFor.description = 'bookends adj color'
             result.cases = 'Ga/c'
           } else if (p.bookends) {
-            result.lookFor = 'bookends opp color'
+            result.lookFor.description = 'bookends opp color'
             result.cases = 'Gb/d'
           } else {
-            result.lookFor = 'no bookends'
+            result.lookFor.description = 'no bookends'
             result.cases = 'Y'
           }
       } else if (p.bookends) {
@@ -563,13 +676,26 @@ function getQuartets(input) {
               bold: bold.bookends,
           }
           if (p.innerChecker) {
-            result.lookFor = 'enclosed 4-checker'
+            result.lookFor = {
+                description: 'enclosed 4-checker',
+                bold: bold.bar.right.concat(bold.bar.left),
+            }
             result.cases = 'F'
           } else if (p.partialInnerChecker && p.partialInnerChecker.adjacent) {
-            result.lookFor = 'adj appears twice'
+            result.lookFor = {
+                description: 'adj appears twice',
+                bold: p.partialInnerChecker.front
+                  ? bold.middle.concat(bold.left)
+                  : bold.right.concat(bold.middle),
+            }
             result.cases = 'R'
           } else {
-            result.lookFor = 'opp appears twice'
+            result.lookFor = {
+                description: 'opp appears twice',
+                bold: p.partialInnerChecker.front
+                  ? bold.middle.concat(bold.left)
+                  : bold.right.concat(bold.middle),
+            }
             result.cases = 'Ga/c'
           }
       } else {
@@ -578,16 +704,29 @@ function getQuartets(input) {
               bold: bold.bookends,
           }
           if (p.innerChecker) {
-            result.lookFor = 'inner 4-checker'
+            result.lookFor = {
+                description: 'inner 4-checker',
+                bold: bold.bar.right.concat(bold.bar.left),
+            }
             result.cases = 'V'
           } else if (p.outerChecker) {
-            result.lookFor = 'outer 4-checker'
+            result.lookFor = {
+                description: 'outer 4-checker',
+                bold: bold.bar.left.concat(bold.bar.right),
+            }
             result.cases = 'Y'
           } else {
-            result.lookFor = '5-checker w/opp middle'
+            result.lookFor = {
+                description: '5-checker w/opp middle',
+                bold: p.oddMiddleChecker === 'front'
+                  ? bold.solved.concat(bold.bar.left)
+                  : bold.bar.right.concat(bold.solved),
+            }
             result.cases = 'E'
           }
       }
+      result.category.colored = [...result.category.bold]
+      result.lookFor.colored = getColored(result.category.bold, result.lookFor)
       return result
   }
   

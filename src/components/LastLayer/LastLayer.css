@@ -68,6 +68,8 @@
 .orange { background-color: orange; }
 /* .orange.lighten { background-color: lighten(orange, 50%); } */
 
+.neutral { background-color: grey; }
+
 .front {
     margin: 5px 0 5px 5px;
     padding: 5px 0 5px 5px;
