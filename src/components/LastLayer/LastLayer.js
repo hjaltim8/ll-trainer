@@ -44,6 +44,7 @@ class LastLayer extends Component {
     renderCategorySquares = () => {
         return (
             <Halfie
+                showTitle={false}
                 colors={this.state.colors}
                 bold={this.state.recognition.category.bold}
                 colored={this.state.recognition.category.colored}
@@ -54,6 +55,7 @@ class LastLayer extends Component {
     renderLookForSquares = () => {
         return (
             <Halfie
+                showTitle={false}
                 colors={this.state.colors}
                 bold={this.state.recognition.lookFor.bold}
                 colored={this.state.recognition.lookFor.colored}

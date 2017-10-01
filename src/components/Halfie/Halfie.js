@@ -48,14 +48,22 @@ class Halfie extends Component {
         front = <Squares squares={front} size={size} />
         right = <Squares squares={right} size={size} />
 
+        const frontText = this.props.showTitle
+            ? <h3>{this.props.textFront}</h3>
+            : null
+
+        const rightText = this.props.showTitle
+            ? <h3>{this.props.textRight}</h3>
+            : null
+
         return (
             <div className="container">
                 <div className="front">
-                    <h3>Front</h3>
+                    {frontText}
                     {front}
                 </div>
                 <div className="right">
-                    <h3>Right</h3>
+                    {rightText}
                     {right}
                 </div>
             </div>
@@ -76,6 +84,15 @@ Halfie.propTypes = {
     colored: PropTypes.arrayOf(PropTypes.bool),
     neutral: PropTypes.arrayOf(PropTypes.bool),
     size: PropTypes.number,
+    textFront: PropTypes.string,
+    textRight: PropTypes.string,
+    showTitle: PropTypes.bool,
+}
+
+Halfie.defaultProps = {
+    textFront: 'Front',
+    textRight: 'Right',
+    showTitle: true,
 }
 
 export default Halfie
