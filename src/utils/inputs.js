@@ -1,4 +1,6 @@
 import _ from 'lodash'
+import data from './data.json'
+
 
 // List of all possible single sides
 //  const possibleSides = {
@@ -128,6 +130,10 @@ function getQuartets(input) {
     }, []).join('')
   }
   
+  export function getRandomColors(neutralizedInput, colorOnTop = 'Y') {
+      return deNeutralize(neutralizedInput, _.sample(['R','G','B','O']), 'Y')
+  }
+
   function deNeutralize(neutralizedInput, startOn, colorOnTop = 'Y') {
       const deNeutralizationMaps = {
       Y: {
@@ -1056,14 +1062,46 @@ function toPll(input) {
 }
 
 export function getRandomPll() {
-    const random = _.sample(_.keys(q4))
-    const deNormalized = deNormalize(random)
-    const deNeutralized = deNeutralize(deNormalized, _.sample(['R','G','B','O']), 'Y')
-    // lbrbllfrfrfb GRBRGGOBOBOR returning undefined but should return Ra
-    const pll = toPll(deNeutralized)
-    console.log('random', random, deNormalized, deNeutralized, pll)
-    pll.colored = deNeutralized
-    return pll
+    return _.sample(data)
+
+
+    // const random = _.sample(_.keys(q4))
+    // const deNormalized = deNormalize(random)
+    // const deNeutralized = deNeutralize(deNormalized, _.sample(['R','G','B','O']), 'Y')
+    // // lbrbllfrfrfb GRBRGGOBOBOR returning undefined but should return Ra
+    // const pll = toPll(deNeutralized)
+    // console.log('random', random, deNormalized, deNeutralized, pll)
+    // pll.colored = deNeutralized
+    // return pll
+}
+
+function getAllPlls() {
+    let result = _.keys(q4).map(v => {
+        const denorm = deNormalize(v)
+        const deneut = deNeutralize(denorm, _.sample(['R', 'G', 'B', 'O']))
+        const pll = toPll(deneut)
+        const patterns = getSidePairPatterns(pll.match.slice(0,6))
+        const recognitions = getRecognitions(pll.match.slice(0,6))
+        return {
+                pll: pll.id,
+                normalized: pll.match.slice(0, 6),
+                neutralized: denorm.slice(0, 6),
+                lightsOn: pll.lightsOn,
+                solvedOn: pll.solvedOn,
+                recognitions,
+                patterns,
+                // what about remainder...
+        }
+    })
+
+    result = _.mapKeys(result, 'normalized')
+
+    // result = data // JSON.parse(data)
+
+    console.log('===============================')
+    console.log(result)
+    console.log('===============================')
+    console.log(JSON.stringify(result))
 }
 
 function testing(pll, input) {
@@ -1078,3 +1116,5 @@ getRandomPll()
 
 // Ra: OBOBORGRBRGG
 console.log('recognition (Ra) frfflrflbfrr', getRecognitions('frfflrflbfrr'), getSidePairPatterns('frfflrflbfrr'))
+
+getAllPlls()

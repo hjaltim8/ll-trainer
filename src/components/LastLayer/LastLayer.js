@@ -6,6 +6,7 @@ import {
     getRandomPll,
     getSidePairPatterns,
     getRecognitions,
+    getRandomColors,
 } from '../../utils/inputs'
 import './LastLayer.css'
 
@@ -21,20 +22,21 @@ class LastLayer extends Component {
 
     componentDidMount() {
         const pll = getRandomPll()
-        const patterns = getSidePairPatterns(pll.match.slice(0,6))
-        const recogn = getRecognitions(pll.match.slice(0,6))
-        console.log('cdm', pll, patterns, recogn)
+        console.log(pll)
+        // const patterns = getSidePairPatterns(pll.match.slice(0,6))
+        // const recogn = getRecognitions(pll.match.slice(0,6))
+        // console.log('cdm', pll, patterns, recogn)
         this.setState({
-            colors: pll.colored.slice(0,6).split(''),
+            colors: getRandomColors(pll.neutralized).split(''),//.slice(0,6).split(''),
             pll,
-            patterns,
-            recognition: recogn,
+            patterns: pll.patterns,
+            recognition: pll.recognitions, //recogn,
         })
 
-        console.log('colors: ', pll.colored.slice(0,6).split(''))
+        console.log('colors: ', pll.colored)//.slice(0,6).split(''))
         console.log('pll: ', pll)
-        console.log('patterns: ', patterns)
-        console.log('recognition: ', recogn)    
+        console.log('patterns: ', pll.patterns)
+        console.log('recognition: ', pll.recognition)    
     }
 
     renderSquares = () => {
@@ -72,7 +74,7 @@ class LastLayer extends Component {
 
         return (
             <div>
-            <h1>{this.state.pll.id}</h1>
+            <h1>{this.state.pll.pll}</h1>
                 {squares}
                 <h2>Lights: {this.state.pll.lightsOn}</h2>
                 <h2>Solved sides: {this.state.pll.solvedOn}</h2>
