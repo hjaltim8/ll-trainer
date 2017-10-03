@@ -12,22 +12,21 @@ import data from './data.json'
 //  create this list programmatically and then store it for use as lookups
 
 function getSolvedSide(input) {
-    const values = { 0: 'Front', 3: 'Right', 6: 'Back', 9: 'Left' }
+    const values = [false, false, false, false]
     const arr = input.split('')
     for (let i = 0; i < 12; i += 3) {
-        if (arr[i] === arr[i+1] && arr[i] === arr[i+2]) return values[i]    
+        values[i/3] = arr[i] === arr[i+1] && arr[i] === arr[i+2]
     }
-    return 'None'
+    return values
 }
 
 function getLights(input) {
-    const values = { 0: 'Front', 3: 'Right', 6: 'Back', 9: 'Left' }
+    const values = [false, false, false, false]
     const arr = input.split('')
-    if (arr[0] === arr[2] && arr[3] === arr[5]) return 'All'
     for (let i = 0; i < 12; i += 3) {
-        if (arr[i] === arr[i+2]) return values[i]    
+        values[i/3] = arr[i] === arr[i+2] && arr[i] !== arr[i+1]
     }
-    return 'None'
+    return values
 }
 
 function shift(input, by) {
@@ -411,7 +410,7 @@ function getQuartets(input) {
   }
 
   export function getRecognitions(pair) {
-      console.log('getRecognitions', pair)
+    //   console.log('getRecognitions', pair)
       const p = getSidePairPatterns(pair)
       const result = {}
 
@@ -452,8 +451,8 @@ function getQuartets(input) {
               result.lookFor = {
                   description: '2-bar',
                   bold: p.bar.front
-                    ? p.bar.inner ? bold.bar.right.concat(bold.none) : bold.bar.left.concat(bold.none)
-                    : p.bar.inner ? bold.none.concat(bold.bar.left) : bold.none.concat(bold.bar.right)
+                    ? p.innerBar ? bold.bar.right.concat(bold.none) : bold.bar.left.concat(bold.none)
+                    : p.innerBar ? bold.none.concat(bold.bar.left) : bold.none.concat(bold.bar.right)
               }
               result.cases = 'J'
           } else {
@@ -1075,26 +1074,84 @@ export function getRandomPll() {
     // return pll
 }
 
+function getDescription(arr) {
+    if (!arr[0] && !arr[1] && !arr[2] && !arr[3]) return 'None'
+    if (arr[0] && arr[1] && arr[2] && arr[3]) return 'All'
+
+    let result = []
+    if (arr[0]) result.push('Front')
+    if (arr[1]) result.push('Right')
+    if (arr[2]) result.push('Back')
+    if (arr[3]) result.push('Left')
+    return result.join(', ')
+}
+
 function getAllPlls() {
+    // const bold = {
+    //     none: Array(12).fill(false),
+    //     // solved: Array(12).fill(true),
+    //     // lights: [true, false, true],
+    // }
+    const bold = {
+        none: [false, false, false],
+        lights: [true, false, true],
+        solved: [true, true, true]   
+    }
     let result = _.keys(q4).map(v => {
+        const lbase = Array(12).fill(false)
+        let sbase = Array(12).fill(false)    
         const denorm = deNormalize(v)
         const deneut = deNeutralize(denorm, _.sample(['R', 'G', 'B', 'O']))
         const pll = toPll(deneut)
         const patterns = getSidePairPatterns(pll.match.slice(0,6))
         const recognitions = getRecognitions(pll.match.slice(0,6))
+        const lights = { description: getDescription(pll.lightsOn) }
+        let lb = []
+        // let res = []
+        lb = lb.concat(pll.lightsOn[0] ? [...bold.lights] : [...bold.none])
+        lb = lb.concat(pll.lightsOn[1] ? [...bold.lights] : [...bold.none])
+        lb = lb.concat(pll.lightsOn[2] ? [...bold.lights] : [...bold.none])
+        lb = lb.concat(pll.lightsOn[3] ? [...bold.lights] : [...bold.none])
+        lights.bold = lb
+        // switch(pll.lightsOn) {
+        //     case 'All': lbase[0] = true; lbase[2] = true; lbase[3] = true; lbase[5] = true; lbase[6] = true; lbase[8] = true; lbase[9] = true; lbase[11] = true; break
+        //     case 'Front': lbase[0] = true; lbase[2] = true; break
+        //     case 'Right': lbase[3] = true; lbase[5] = true; break
+        //     case 'Back': lbase[6] = true; lbase[8] = true; break
+        //     case 'Left': lbase[9] = true; lbase[11] = true; break
+        //     default: break
+        // }
+        // lights.bold = res
+        const solved = { description: getDescription(pll.solvedOn) }
+        let sb = []
+        sb = sb.concat(pll.solvedOn[0] ? [...bold.solved] : [...bold.none])
+        sb = sb.concat(pll.solvedOn[1] ? [...bold.solved] : [...bold.none])
+        sb = sb.concat(pll.solvedOn[2] ? [...bold.solved] : [...bold.none])
+        sb = sb.concat(pll.solvedOn[3] ? [...bold.solved] : [...bold.none])
+        solved.bold = sb
+        // switch(pll.solvedOn) {
+        //     case 'All': sbase = sbase.map(v => true); break
+        //     case 'Front': sbase[0] = true; sbase[1] = true; sbase[2] = true; break
+        //     case 'Right': sbase[3] = true; sbase[4] = true; sbase[5] = true; break
+        //     case 'Back': sbase[6] = true; sbase[7] = true; sbase[8] = true; break
+        //     case 'Left': sbase[9] = true; sbase[10] = true; sbase[11] = true; break
+        //     default: break
+        // }
+        // solved.bold = [...sbase]
         return {
+                id: denorm.slice(0, 6),
                 pll: pll.id,
-                normalized: pll.match.slice(0, 6),
-                neutralized: denorm.slice(0, 6),
-                lightsOn: pll.lightsOn,
-                solvedOn: pll.solvedOn,
+                normalized: v,//pll.match.slice(0, 6),
+                neutralized: denorm,//.slice(0, 6),
+                lights,
+                solved,
                 recognitions,
                 patterns,
                 // what about remainder...
         }
     })
 
-    result = _.mapKeys(result, 'normalized')
+    result = _.mapKeys(result, 'id')
 
     // result = data // JSON.parse(data)
 
@@ -1117,4 +1174,4 @@ getRandomPll()
 // Ra: OBOBORGRBRGG
 console.log('recognition (Ra) frfflrflbfrr', getRecognitions('frfflrflbfrr'), getSidePairPatterns('frfflrflbfrr'))
 
-getAllPlls()
+// getAllPlls()

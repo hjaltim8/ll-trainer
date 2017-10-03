@@ -8,6 +8,10 @@
     border-bottom: 5px solid black; */
 }
 
+.container h3 {
+    margin-top: 0;
+}
+
 .ct {
     display: flex;
     flex-direction: column;
@@ -89,15 +93,15 @@
 .back {
     margin: 5px 0 5px 5px;
     padding: 5px 0 5px 5px;
-    border-top: 1px solid black;
+    /* border-top: 1px solid black;
     border-left: 1px solid black;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid black; */
 }
 
 .left {
-    margin: 5px 5px 5px -5px;
+    margin: 5px 5px 5px 0;
     padding: 5px 5px 5px 0;
-    border-top: 1px solid black;
+    /* border-top: 1px solid black;
     border-right: 1px solid black;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid black; */
 }
