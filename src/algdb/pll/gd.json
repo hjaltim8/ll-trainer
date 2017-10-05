@@ -1,0 +1,18 @@
+{
+	"pll": "Gd",
+	"neutral": "BORGGBRBGORO",
+	"url": "http://algdb.net/Set/PLL/Gd",
+	"solutions": [{
+		"alg": "R U R' y' R2 u' R U' R' U R' u R2",
+		"date": "10/8/2013",
+		"count": 159
+	}, {
+		"alg": "R U R' U' D R2 U' R U' R' U R' U R2 D'",
+		"date": "10/10/2013",
+		"count": 96
+	}, {
+		"alg": "D' R U R' U' D R2 U' R U' R' U R' U R2",
+		"date": "10/25/2013",
+		"count": 13
+	}]
+}

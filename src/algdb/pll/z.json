@@ -1,0 +1,18 @@
+{
+	"pll": "Z",
+	"neutral": "GOGOGOBRBRBR",
+	"url": "http://algdb.net/Set/PLL/Z",
+	"solutions": [{
+		"alg": "M2 U M2 U M' U2 M2 U2 M'",
+		"date": "10/8/2013",
+		"count": 199
+	}, {
+		"alg": "y M2' U' M2' U' M' U2' M2' U2' M'",
+		"date": "12/24/2014",
+		"count": 79
+	}, {
+		"alg": "M' U' M2' U' M2' U' M' U2' M2'",
+		"date": "12/24/2014",
+		"count": 37
+	}]
+}

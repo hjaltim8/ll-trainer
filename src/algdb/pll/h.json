@@ -1,0 +1,18 @@
+{
+	"pll": "H",
+	"neutral": "BGBRORGBGORO",
+	"url": "http://algdb.net/Set/PLL/H",
+	"solutions": [{
+		"alg": "M2 U M2 U2 M2 U M2",
+		"date": "10/8/2013",
+		"count": 225
+	}, {
+		"alg": "M2 U' M2 U2 M2 U' M2",
+		"date": "10/8/2013",
+		"count": 150
+	}, {
+		"alg": "R2 U2 R U2 R2 U2 R2 U2 R U2 R2",
+		"date": "10/8/2013",
+		"count": 24
+	}]
+}

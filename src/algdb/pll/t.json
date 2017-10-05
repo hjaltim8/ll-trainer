@@ -1,0 +1,18 @@
+{
+	"pll": "T",
+	"neutral": "BBRGOBRGGORO",
+	"url": "http://algdb.net/Set/PLL/T",
+	"solutions": [{
+		"alg": "R U R' U' R' F R2 U' R' U' R U R' F'",
+		"date": "10/8/2013",
+		"count": 342
+	}, {
+		"alg": "R U R' U' R' F R2 U' R' U F' L' U L",
+		"date": "10/9/2013",
+		"count": 24
+	}, {
+		"alg": "R2 U R2 U' R2 U' D R2 U' R2 U R2 D'",
+		"date": "10/13/2013",
+		"count": 7
+	}]
+}

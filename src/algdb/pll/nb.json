@@ -1,0 +1,18 @@
+{
+	"pll": "Nb",
+	"neutral": "RROBBGOORGGB",
+	"url": "http://algdb.net/Set/PLL/Nb",
+	"solutions": [{
+		"alg": "R' U L' U2 R U' L R' U L' U2 R U' L",
+		"date": "10/8/2013",
+		"count": 101
+	}, {
+		"alg": "R' U R U' R' F' U' F R U R' F R' F' R U' R",
+		"date": "10/10/2013",
+		"count": 83
+	}, {
+		"alg": "z D' R U' R2 D R' U D' R U' R2 D R' U z'",
+		"date": "10/10/2013",
+		"count": 32
+	}]
+}

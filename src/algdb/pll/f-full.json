@@ -1,0 +1,82 @@
+{
+	"pll": "F",
+	"neutral": "OOOBGRGRBRBG",
+	"url": "http://algdb.net/Set/PLL/F",
+	"solutions": [{
+		"alg": "y R' U' F' R U R' U' R' F R2 U' R' U' R U R' U R",
+		"date": "5/8/2015",
+		"count": 226
+	}, {
+		"alg": "y2 R' U2 R' d' R' F' R2 U' R' U R' F R U' F",
+		"date": "5/8/2015",
+		"count": 34
+	}, {
+		"alg": "R' U R U' R2 F' U' F U R F R' F' R2",
+		"date": "10/8/2013",
+		"count": 10
+	}, {
+		"alg": "M' U2 L F' R U2 r' U r' R2 U2 R2",
+		"date": "10/10/2013",
+		"count": 8
+	}, {
+		"alg": "R' U R U' R2 y' R' U' R U y x R U R' U' R2 x'",
+		"date": "10/14/2013",
+		"count": 4
+	}, {
+		"alg": "y2 R' U2 R' U' y R' F' R2 U' R' U R' F R U' F",
+		"date": "5/8/2015",
+		"count": 2
+	}, {
+		"alg": "y R2' F R F' R' U' F' U F R2 U R' U' R",
+		"date": "5/8/2015",
+		"count": 2
+	}, {
+		"alg": "y' x D' l2 D' l' z' R' F' R2 U' R' U R' F R U' f",
+		"date": "10/15/2014",
+		"count": 1
+	}, {
+		"alg": "y R2 U R2' U D R2 U2 D' R2' U2 R2 U R2' D R2 U' D' R2'",
+		"date": "5/8/2015",
+		"count": 1
+	}, {
+		"alg": "r U R' U' z U' l' U2 r' U' r U2 l' U l' R'",
+		"date": "5/8/2015",
+		"count": 1
+	}, {
+		"alg": "y' F r2 R' U2 r U' r' U2 l R U' R' U r2 u'",
+		"date": "5/8/2015",
+		"count": 0
+	}, {
+		"alg": "y2 R' U2 R' U' x2 y' R' U R' U' l2 F' R' F R U' F",
+		"date": "5/8/2015",
+		"count": 0
+	}, {
+		"alg": "y2 R U' R' U R2 y R U R' U' x U' R' U R U2",
+		"date": "5/8/2015",
+		"count": 0
+	}, {
+		"alg": "y2 R' U2 R' U' R D' R' D R' U D' R2 U' R2' D R U' R",
+		"date": "5/8/2015",
+		"count": 0
+	}, {
+		"alg": "y x U R2' F R2 U' R' U R' x U2 r U' r' U l R U' x'",
+		"date": "5/8/2015",
+		"count": 0
+	}, {
+		"alg": "M U x' R2 U2' R2' r U' r U2' l' U r'",
+		"date": "5/8/2015",
+		"count": 0
+	}, {
+		"alg": "y R U2 R' U' r U2 R' F R U2' r2' F R2 U2' r' M2'",
+		"date": "12/26/2015",
+		"count": 0
+	}, {
+		"alg": "y' z D' U2 R' U' R' U2 R U R U2 R U' R2 D R' U",
+		"date": "3/6/2016",
+		"count": 0
+	}, {
+		"alg": "R U R' U L' U L U2 R' L' U L U' R U R U' R'",
+		"date": "5/29/2016",
+		"count": 0
+	}]
+}

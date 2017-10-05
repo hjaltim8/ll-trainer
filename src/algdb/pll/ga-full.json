@@ -1,0 +1,102 @@
+{
+	"pll": "Ga",
+	"neutral": "BRRGOBRBGOGO",
+	"url": "http://algdb.net/Set/PLL/Ga",
+	"solutions": [{
+		"alg": "R2 u R' U R' U' R u' R2 y' R' U R",
+		"date": "10/8/2013",
+		"count": 216
+	}, {
+		"alg": "R2 U R' U R' U' R U' R2 D U' R' U R D'",
+		"date": "10/10/2013",
+		"count": 58
+	}, {
+		"alg": "R2 u R' U R' U' R u' R2 F' U F",
+		"date": "10/28/2014",
+		"count": 21
+	}, {
+		"alg": "D' R2 U R' U R' U' R U' R2 U' D R' U R",
+		"date": "10/18/2013",
+		"count": 11
+	}, {
+		"alg": "R2 u R' U R' U' R u' R2 y L' U L",
+		"date": "3/8/2015",
+		"count": 9
+	}, {
+		"alg": "y2 R U' R U R2 D R' U' R D' R' U2 R U' R' U' R2",
+		"date": "10/8/2014",
+		"count": 4
+	}, {
+		"alg": "R2 S2 U l2 U' l2 u R2 U' r2 F2",
+		"date": "10/9/2013",
+		"count": 3
+	}, {
+		"alg": "F2 R2 L2 U R2 U' R2 D R2 D' L2 F2",
+		"date": "10/9/2013",
+		"count": 3
+	}, {
+		"alg": "y R U R' F' R U R' U' R' F R U' R' F R2 U' R' U' R U R' F'",
+		"date": "4/21/2015",
+		"count": 2
+	}, {
+		"alg": "y2 L2 u L' U L' U' L u' L2 y' L' U L",
+		"date": "6/5/2016",
+		"count": 2
+	}, {
+		"alg": "R2 U' R2 U R2 U' D' R2 U2 R2 U' R2 U R2 U2 R2 U' D",
+		"date": "10/23/2013",
+		"count": 1
+	}, {
+		"alg": "L2 F2 L' U2 L' U2 L F' L' U' L U L F' L2",
+		"date": "5/21/2014",
+		"count": 1
+	}, {
+		"alg": "R U R' U' R' U F R U R U' R' F' U R' U2 R",
+		"date": "1/19/2015",
+		"count": 1
+	}, {
+		"alg": "r U2 R U' r' F U R' U' F' r U' r'",
+		"date": "3/25/2015",
+		"count": 1
+	}, {
+		"alg": "R2 u R' U R' U' R u' R2 b' R b",
+		"date": "1/1/2016",
+		"count": 1
+	}, {
+		"alg": "L' U R' U2 L U' R y' L R U2 L' R'",
+		"date": "10/10/2013",
+		"count": 0
+	}, {
+		"alg": "R' U r U2 r' U R U' R' r U2 x' U' R U L'",
+		"date": "10/11/2013",
+		"count": 0
+	}, {
+		"alg": "L U' R' U x U2 r' R U R' U' r U2 r' U' R",
+		"date": "10/11/2013",
+		"count": 0
+	}, {
+		"alg": "l U2 R' r U r' F' D R U' R' D' R U' l'",
+		"date": "10/11/2013",
+		"count": 0
+	}, {
+		"alg": "y2 R l U2 l' U2 R' U2 l U' R' F' R F R U' R2",
+		"date": "10/24/2014",
+		"count": 0
+	}, {
+		"alg": "R2 u R' U R' U' R u' R2 b' R F",
+		"date": "11/2/2014",
+		"count": 0
+	}, {
+		"alg": "y2 x' R2 U2 R' F2 R' F2 R U' R' F' R F R U' R2",
+		"date": "4/18/2015",
+		"count": 0
+	}, {
+		"alg": "R2 u R' U R' U' R u' R2 z x U' R U",
+		"date": "9/25/2015",
+		"count": 0
+	}, {
+		"alg": "y' R U2 R' U' F' R U R2 U' R' F R U R2 U2 R'",
+		"date": "11/24/2015",
+		"count": 0
+	}]
+}

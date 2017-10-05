@@ -1,0 +1,18 @@
+{
+	"pll": "Gb",
+	"neutral": "BGRGBBROGORO",
+	"url": "http://algdb.net/Set/PLL/Gb",
+	"solutions": [{
+		"alg": "R' U' R y R2 u R' U R U' R u' R2",
+		"date": "10/8/2013",
+		"count": 159
+	}, {
+		"alg": "R' U' R U D' R2 U R' U R U' R U' R2 D",
+		"date": "10/10/2013",
+		"count": 60
+	}, {
+		"alg": "y F' U' F R2 u R' U R U' R u' R2",
+		"date": "12/24/2014",
+		"count": 50
+	}]
+}

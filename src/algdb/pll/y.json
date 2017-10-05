@@ -1,0 +1,18 @@
+{
+	"pll": "Y",
+	"neutral": "BBGORRGOBRGO",
+	"url": "http://algdb.net/Set/PLL/Y",
+	"solutions": [{
+		"alg": "F R U' R' U' R U R' F' R U R' U' R' F R F'",
+		"date": "10/8/2013",
+		"count": 314
+	}, {
+		"alg": "F R' F R2 U' R' U' R U R' F' R U R' U' F'",
+		"date": "10/10/2013",
+		"count": 22
+	}, {
+		"alg": "R2 U' R2' U' R2 U R' F' R U R2' U' R' F R",
+		"date": "1/8/2014",
+		"count": 5
+	}]
+}

@@ -1,0 +1,18 @@
+{
+	"pll": "V",
+	"neutral": "OORGRBRBOBGG",
+	"url": "http://algdb.net/Set/PLL/V",
+	"solutions": [{
+		"alg": "R' U R' d' R' F' R2 U' R' U R' F R F",
+		"date": "10/8/2013",
+		"count": 191
+	}, {
+		"alg": "R' U R' U' y R' F' R2 U' R' U R' F R F",
+		"date": "11/20/2014",
+		"count": 54
+	}, {
+		"alg": "z D' R2 D R2' U R' D' R U' R U R' D R U'",
+		"date": "10/25/2013",
+		"count": 43
+	}]
+}

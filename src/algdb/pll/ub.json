@@ -1,0 +1,18 @@
+{
+	"pll": "Ub",
+	"neutral": "BBBRORGRGOGO",
+	"url": "http://algdb.net/Set/PLL/Ub",
+	"solutions": [{
+		"alg": "y2 R2' U R U R' U' R' U' R' U R'",
+		"date": "12/24/2014",
+		"count": 125
+	}, {
+		"alg": "R' U R' U' R' U' R' U R U R2",
+		"date": "10/8/2013",
+		"count": 120
+	}, {
+		"alg": "y2 M2 U' M U2 M' U' M2",
+		"date": "10/10/2013",
+		"count": 94
+	}]
+}

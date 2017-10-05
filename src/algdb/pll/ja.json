@@ -1,0 +1,18 @@
+{
+	"pll": "Ja",
+	"neutral": "OOBRRRGGOBBG",
+	"url": "http://algdb.net/Set/PLL/Ja",
+	"solutions": [{
+		"alg": "R' U L' U2 R U' R' U2 R L",
+		"date": "10/8/2013",
+		"count": 194
+	}, {
+		"alg": "L' U' L F L' U' L U L F' L2 U L",
+		"date": "10/10/2013",
+		"count": 73
+	}, {
+		"alg": "R' U2 R U R' U2 L U' R U L'",
+		"date": "10/9/2013",
+		"count": 24
+	}]
+}

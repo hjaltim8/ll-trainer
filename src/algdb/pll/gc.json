@@ -1,0 +1,18 @@
+{
+	"pll": "Gc",
+	"neutral": "BGRGOBRRGOBO",
+	"url": "http://algdb.net/Set/PLL/Gc",
+	"solutions": [{
+		"alg": "R2 u' R U' R U R' u R2 y R U' R'",
+		"date": "10/8/2013",
+		"count": 138
+	}, {
+		"alg": "y2 R2' F2 R U2 R U2' R' F R U R' U' R' F R2",
+		"date": "12/24/2014",
+		"count": 87
+	}, {
+		"alg": "R2 u' R U' R U R' u R2 f R' f'",
+		"date": "5/3/2014",
+		"count": 27
+	}]
+}

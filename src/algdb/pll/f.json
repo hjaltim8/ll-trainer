@@ -1,0 +1,18 @@
+{
+	"pll": "F",
+	"neutral": "OOOBGRGRBRBG",
+	"url": "http://algdb.net/Set/PLL/F",
+	"solutions": [{
+		"alg": "y R' U' F' R U R' U' R' F R2 U' R' U' R U R' U R",
+		"date": "5/8/2015",
+		"count": 226
+	}, {
+		"alg": "y2 R' U2 R' d' R' F' R2 U' R' U R' F R U' F",
+		"date": "5/8/2015",
+		"count": 34
+	}, {
+		"alg": "R' U R U' R2 F' U' F U R F R' F' R2",
+		"date": "10/8/2013",
+		"count": 10
+	}]
+}

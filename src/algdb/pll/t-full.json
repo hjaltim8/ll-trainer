@@ -1,0 +1,62 @@
+{
+	"pll": "T",
+	"neutral": "BBRGOBRGGORO",
+	"url": "http://algdb.net/Set/PLL/T",
+	"solutions": [{
+		"alg": "R U R' U' R' F R2 U' R' U' R U R' F'",
+		"date": "10/8/2013",
+		"count": 342
+	}, {
+		"alg": "R U R' U' R' F R2 U' R' U F' L' U L",
+		"date": "10/9/2013",
+		"count": 24
+	}, {
+		"alg": "R2 U R2 U' R2 U' D R2 U' R2 U R2 D'",
+		"date": "10/13/2013",
+		"count": 7
+	}, {
+		"alg": "y F2 D R2 U' R2' F2 D' r2 D r2",
+		"date": "4/21/2015",
+		"count": 2
+	}, {
+		"alg": "R U R' U' R2 D R' U' R' U' R U R2 D' R",
+		"date": "10/30/2013",
+		"count": 0
+	}, {
+		"alg": "y F2 D R2 U' R2 F2 D' L2 U L2 U'",
+		"date": "12/24/2014",
+		"count": 0
+	}, {
+		"alg": "R2' u' R2 U R2' y R2 u R2' U' R2",
+		"date": "4/21/2015",
+		"count": 0
+	}, {
+		"alg": "D' R2 U R2 U' R2 U' D R2 U' R2 U R2",
+		"date": "4/29/2015",
+		"count": 0
+	}, {
+		"alg": "R U R' U' R U' R' U' R U R' F' R U R' U' R' F R U R U' R'",
+		"date": "8/1/2015",
+		"count": 0
+	}, {
+		"alg": "S2 D' M2 R' U' F' R U R' U' R' F R2 U' R' U' R U R' U R M2 D S2",
+		"date": "8/9/2015",
+		"count": 0
+	}, {
+		"alg": "R U' R' U2 L R U' R' U' R' U2 R U2 L' U' R' U R",
+		"date": "4/27/2016",
+		"count": 0
+	}, {
+		"alg": "R2 u R2 U' R2 F2 D' r2 D r2",
+		"date": "4/27/2016",
+		"count": 0
+	}, {
+		"alg": "y' R' U R' F2 r F' r' F2 R2 U' M U2 M'",
+		"date": "7/4/2016",
+		"count": 0
+	}, {
+		"alg": "y' M' R' U R' F2 r F' r' F2 R2 U' M",
+		"date": "7/4/2016",
+		"count": 0
+	}]
+}

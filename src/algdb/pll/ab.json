@@ -1,0 +1,18 @@
+{
+	"pll": "Ab",
+	"neutral": "BBRGRGOGBROO",
+	"url": "http://algdb.net/Set/PLL/Ab",
+	"solutions": [{
+		"alg": "l' R' D2 R U R' D2 R U' R x'",
+		"date": "10/8/2013",
+		"count": 142
+	}, {
+		"alg": "x R2' D2 R U R' D2 R U' R x'",
+		"date": "4/21/2015",
+		"count": 93
+	}, {
+		"alg": "y x' R U' R D2 R' U R D2 R2",
+		"date": "9/10/2014",
+		"count": 41
+	}]
+}

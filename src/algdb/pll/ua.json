@@ -1,0 +1,18 @@
+{
+	"pll": "Ua",
+	"neutral": "BBBRGRGOGORO",
+	"url": "http://algdb.net/Set/PLL/Ua",
+	"solutions": [{
+		"alg": "y2 R U' R U R U R U' R' U' R2",
+		"date": "12/24/2014",
+		"count": 163
+	}, {
+		"alg": "R2 U' R' U' R U R U R U' R",
+		"date": "10/8/2013",
+		"count": 121
+	}, {
+		"alg": "y2 M2 U M U2 M' U M2",
+		"date": "10/9/2013",
+		"count": 73
+	}]
+}

@@ -1,0 +1,18 @@
+{
+	"pll": "Aa",
+	"neutral": "BBGORBRGRGOO",
+	"url": "http://algdb.net/Set/PLL/Aa",
+	"solutions": [{
+		"alg": "l' U R' D2 R U' R' D2 R2",
+		"date": "10/8/2013",
+		"count": 263
+	}, {
+		"alg": "x R' U R' D2 R U' R' D2 R2",
+		"date": "3/25/2014",
+		"count": 166
+	}, {
+		"alg": "R' F R' B2 R F' R' B2 R2",
+		"date": "10/8/2013",
+		"count": 49
+	}]
+}

@@ -1,0 +1,18 @@
+{
+	"pll": "Ga",
+	"neutral": "BRRGOBRBGOGO",
+	"url": "http://algdb.net/Set/PLL/Ga",
+	"solutions": [{
+		"alg": "R2 u R' U R' U' R u' R2 y' R' U R",
+		"date": "10/8/2013",
+		"count": 216
+	}, {
+		"alg": "R2 U R' U R' U' R U' R2 D U' R' U R D'",
+		"date": "10/10/2013",
+		"count": 58
+	}, {
+		"alg": "R2 u R' U R' U' R u' R2 F' U F",
+		"date": "10/28/2014",
+		"count": 21
+	}]
+}

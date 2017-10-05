@@ -72,7 +72,7 @@ class LastLayer extends Component {
         console.log('lights: ', this.state.pll.lights)
         return (
             <Combo
-                showTitle={true}
+                showTitle={false}
                 colors={this.state.colored}
                 bold={this.state.pll.lights.bold}
                 size={25}
@@ -84,7 +84,7 @@ class LastLayer extends Component {
         console.log('solved: ', this.state.pll.solved)
         return (
             <Combo
-                showTitle={true}
+                showTitle={false}
                 colors={this.state.colored}
                 bold={this.state.pll.solved.bold}
                 size={25}

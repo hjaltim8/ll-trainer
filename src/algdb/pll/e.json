@@ -1,0 +1,18 @@
+{
+	"pll": "E",
+	"neutral": "RBOBRGOGRGOB",
+	"url": "http://algdb.net/Set/PLL/E",
+	"solutions": [{
+		"alg": "y x' R U' R' D R U R' D' R U R' D R U' R' D' x",
+		"date": "5/8/2015",
+		"count": 231
+	}, {
+		"alg": "R2 U R' U' y R U R' U' R U R' U' R U R' y' R U' R2",
+		"date": "10/8/2013",
+		"count": 42
+	}, {
+		"alg": "z U2' R2' F R U R' U' R U R' U' R U R' U' F' R2 U2'",
+		"date": "5/8/2015",
+		"count": 20
+	}]
+}
