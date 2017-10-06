@@ -1,5 +1,6 @@
 import _ from 'lodash'
 import data from './data.json'
+import all from '../algdb/pll/pll.json'
 
 
 // List of all possible single sides
@@ -1074,6 +1075,51 @@ export function getRandomPll() {
     // return pll
 }
 
+function cancelSetupMoves(alg, setupMove) {
+    let arr = alg.split(' ')
+    const first = arr[0].toUpperCase()
+    switch (first) {
+        case 'Y':
+        case 'U': {
+            if (setupMove === 'U') {
+                arr[0] = 'U2'
+            } else if (setupMove === 'U2') {
+                arr[0] = 'U\''
+            } else if (setupMove === 'U\'') {
+                arr[0] = ''
+            }
+            break
+        }
+
+        case 'Y2':
+        case 'U2': {
+            if (setupMove === 'U') {
+                arr[0] = 'U\''
+            } else if (setupMove === 'U2') {
+                arr[0] = ''
+            } else if (setupMove === 'U\'') {
+                arr[0] = 'U'
+            }
+            break
+        }
+
+        case 'Y\'':
+        case 'U\'': {
+            if (setupMove === 'U') {
+                arr[0] = ''
+            } else if (setupMove === 'U2') {
+                arr[0] = 'U'
+            } else if (setupMove === 'U\'') {
+                arr[0] = 'U2'
+            }
+            break
+        }
+
+        default: return alg
+    }
+    return arr.join(' ').trim()
+}
+
 function getDescription(arr) {
     if (!arr[0] && !arr[1] && !arr[2] && !arr[3]) return 'None'
     if (arr[0] && arr[1] && arr[2] && arr[3]) return 'All'
@@ -1138,6 +1184,56 @@ function getAllPlls() {
         //     default: break
         // }
         // solved.bold = [...sbase]
+        const algs = all[pll.id]
+        let setupMove
+        // console.log(algs.neutral)
+        // console.log(normalize(algs.neutral))
+        // console.log(normalize(shift(algs.neutral, 3)))
+        // console.log(normalize(shift(algs.neutral, 6)))
+        // console.log(normalize(shift(algs.neutral, 9)))
+
+        let setup = {
+            // v,
+            none: v,
+            u: normalize(shift(v, 3)),
+            u2: normalize(shift(v, 6)),
+            uprime: normalize(shift(v, 9)),
+        }
+        const vv = normalize(algs.neutral)
+        if (setup.none === vv) {
+            setupMove = ''
+        }
+        else if (setup.u === vv) {
+            setupMove = 'U'
+            // loop through all the algs and see if the first char is u|u'|u2|y|y'|y2
+            // and update accordingliy
+        }
+        else if (setup.u2 === vv) {
+            setupMove = 'U2'
+            // loop through all the algs and see if the first char is u|u'|u2|y|y'|y2
+            // and update accordingliy
+        }
+        else if (setup.uprime === vv) {
+            setupMove = 'U\''
+            // loop through all the algs and see if the first char is u|u'|u2|y|y'|y2
+            // and update accordingliy
+        }
+        else {
+            setupMove = 'WUT???'
+        }
+
+        algs.solutions = algs.solutions.map(alg => {
+            alg.alg = cancelSetupMoves(alg.alg, setupMove)
+            return alg
+        })
+
+        // if (normalize(algs.neutral) === v) setupMove = ''
+        // else if (normalize(shift(algs.neutral, 3)) === v) setupMove = 'U'
+        // else if (normalize(shift(algs.neutral, 6)) === v) setupMove = 'U2'
+        // else if (normalize(shift(algs.neutral, 9)) === v) setupMove = 'U\''
+        // else setupMove = 'WUT???'
+        setup.move = setupMove
+        algs.setupMove = setupMove
         return {
                 id: denorm.slice(0, 6),
                 pll: pll.id,
@@ -1147,6 +1243,7 @@ function getAllPlls() {
                 solved,
                 recognitions,
                 patterns,
+                algs,
                 // what about remainder...
         }
     })

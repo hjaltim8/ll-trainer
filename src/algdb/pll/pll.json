@@ -1,0 +1,1860 @@
+{
+	"Aa": {
+		"pll": "Aa",
+		"neutral": "ffblrfrbrbll",
+		"url": "http://algdb.net/Set/PLL/Aa",
+		"solutions": [{
+			"alg": "l' U R' D2 R U' R' D2 R2",
+			"date": "10/8/2013",
+			"count": 263
+		}, {
+			"alg": "x R' U R' D2 R U' R' D2 R2",
+			"date": "3/25/2014",
+			"count": 166
+		}, {
+			"alg": "R' F R' B2 R F' R' B2 R2",
+			"date": "10/8/2013",
+			"count": 49
+		}, {
+			"alg": "y x' R2 D2' R' U' R D2' R' U R'",
+			"date": "4/7/2014",
+			"count": 21
+		}, {
+			"alg": "x' R' D R' U2 R D' R' U2 R2",
+			"date": "4/28/2014",
+			"count": 20
+		}, {
+			"alg": "y' R U R' F' r U R' U' r' F R2 U' R'",
+			"date": "12/20/2013",
+			"count": 12
+		}, {
+			"alg": "y' x L2 D2 L' U' L D2 L' U L'",
+			"date": "7/2/2014",
+			"count": 11
+		}, {
+			"alg": "y2 x' L' U L' D2 L U' L' D2 L2",
+			"date": "3/5/2015",
+			"count": 7
+		}, {
+			"alg": "R' D' R U2 R' D R U' R' D' R U' R' D R",
+			"date": "10/14/2013",
+			"count": 4
+		}, {
+			"alg": "y2 r' U L' D2 L U' L' D2 L2",
+			"date": "12/20/2013",
+			"count": 4
+		}, {
+			"alg": "y' r U r' U' r' F r2 U' r' U' r U r' F'",
+			"date": "12/19/2015",
+			"count": 4
+		}, {
+			"alg": "l' U R' u2 L U' L' u2 l R",
+			"date": "10/28/2014",
+			"count": 2
+		}, {
+			"alg": "y' r U r' U' r' F r2 U' r' U' r U r' F'",
+			"date": "12/19/2015",
+			"count": 2
+		}, {
+			"alg": "U' r U r' U' r' F r2 U' r' U' r U r' F'",
+			"date": "8/14/2016",
+			"count": 2
+		}, {
+			"alg": "l' U R' z r2 U R' U' r2 u2",
+			"date": "12/17/2014",
+			"count": 1
+		}, {
+			"alg": "y2 R' D' R U' R' D R U' R D' R U2 R' D R",
+			"date": "3/25/2015",
+			"count": 1
+		}, {
+			"alg": "y2 r' U r' B2 r U' r' B2 r2",
+			"date": "9/28/2016",
+			"count": 1
+		}, {
+			"alg": "R' F l' D2 R U' R' D2 R2",
+			"date": "5/1/2014",
+			"count": 0
+		}, {
+			"alg": "y2 L' B L' F2 L B' L' F2 L2",
+			"date": "2/21/2015",
+			"count": 0
+		}, {
+			"alg": "y x R2 U2 R' D' R U2 R' D R'",
+			"date": "2/22/2016",
+			"count": 0
+		}, {
+			"alg": "L' U R' D2 R U' R' D2 R L",
+			"date": "6/10/2016",
+			"count": 0
+		}, {
+			"alg": "R2 U D R2' U' R2 U R2' D' R2 U' R2 U R2' U' R2",
+			"date": "7/24/2016",
+			"count": 0
+		}, {
+			"alg": "U' r U r' U' r' F r2 U' r' U' r U r' F' U2",
+			"date": "8/21/2016",
+			"count": 0
+		}, {
+			"alg": "y' r U R' F' r U R' U' r' F R2 U' r'",
+			"date": "8/24/2016",
+			"count": 0
+		}, {
+			"alg": "y' R' D' R U' R' D R U2 R' D' R U' R' D R",
+			"date": "9/4/2016",
+			"count": 0
+		}]
+	},
+	"Ab": {
+		"pll": "Ab",
+		"neutral": "ffrbrblbfrll",
+		"url": "http://algdb.net/Set/PLL/Ab",
+		"solutions": [{
+			"alg": "l' R' D2 R U R' D2 R U' R x'",
+			"date": "10/8/2013",
+			"count": 142
+		}, {
+			"alg": "x R2' D2 R U R' D2 R U' R x'",
+			"date": "4/21/2015",
+			"count": 93
+		}, {
+			"alg": "y x' R U' R D2 R' U R D2 R2",
+			"date": "9/10/2014",
+			"count": 41
+		}, {
+			"alg": "y l U' R D2 R' U R D2 R2",
+			"date": "10/8/2013",
+			"count": 35
+		}, {
+			"alg": "y' x L U' L D2 L' U L D2 L2",
+			"date": "3/25/2014",
+			"count": 22
+		}, {
+			"alg": "y' r U' L D2 L' U L D2 L2",
+			"date": "10/9/2013",
+			"count": 19
+		}, {
+			"alg": "x' R2 U2 R D R' U2 R D' R",
+			"date": "8/13/2014",
+			"count": 15
+		}, {
+			"alg": "R2 B2 R F R' B2 R F' R",
+			"date": "7/17/2014",
+			"count": 11
+		}, {
+			"alg": "y R B' R F2 R' B R F2 R2",
+			"date": "12/6/2015",
+			"count": 5
+		}, {
+			"alg": "l' U' l U l F' l2 U l U l' U' l F",
+			"date": "10/19/2013",
+			"count": 4
+		}, {
+			"alg": "y' x' L D' L U2 L' D L U2 L2",
+			"date": "10/8/2014",
+			"count": 3
+		}, {
+			"alg": "y x R D' R U2 R' D R U2 R2",
+			"date": "4/21/2015",
+			"count": 3
+		}, {
+			"alg": "y' L F' r D2 L' U L D2 r2",
+			"date": "5/1/2014",
+			"count": 2
+		}, {
+			"alg": "y l U' R z r2 U' R U r2 u2",
+			"date": "12/26/2014",
+			"count": 1
+		}, {
+			"alg": "L' U' L F l' U' L U l F' L2 U L",
+			"date": "4/7/2015",
+			"count": 1
+		}, {
+			"alg": "y2 r' L' D2 L U L' D2 L U' L",
+			"date": "12/11/2015",
+			"count": 1
+		}, {
+			"alg": "l' R' D2 R U R' D2 R U' l",
+			"date": "8/17/2016",
+			"count": 1
+		}, {
+			"alg": "L' U' L F l' U' L U R U' r2 F r",
+			"date": "12/20/2013",
+			"count": 0
+		}, {
+			"alg": "y x' R U' R z' R2' U' r B R2' B2'",
+			"date": "4/7/2014",
+			"count": 0
+		}, {
+			"alg": "y' r U' L u2' R' U R u2 r L",
+			"date": "10/28/2014",
+			"count": 0
+		}, {
+			"alg": "R2 D' R2 U R2 U' D R2 U R2 D' R2 D",
+			"date": "6/16/2015",
+			"count": 0
+		}, {
+			"alg": "y2 r2' B2' r U r' B2' r U' r",
+			"date": "3/24/2016",
+			"count": 0
+		}, {
+			"alg": "y' R U R2' U' R' F R U R U' R' F' R U R U' R'",
+			"date": "7/22/2016",
+			"count": 0
+		}, {
+			"alg": "y' x L U' L D2' L' U L D2' L2'",
+			"date": "8/14/2016",
+			"count": 0
+		}, {
+			"alg": "y z U R' D r2 U' R U r2' U' D'",
+			"date": "10/3/2016",
+			"count": 0
+		}, {
+			"alg": "U2 r U r2' U' r' F r U r U' r' F' r U r U' r'",
+			"date": "10/21/2016",
+			"count": 0
+		}]
+	},
+	"E": {
+		"pll": "E",
+		"neutral": "flblfrbrfrbl",
+		"url": "http://algdb.net/Set/PLL/E",
+		"solutions": [{
+			"alg": "y x' R U' R' D R U R' D' R U R' D R U' R' D' x",
+			"date": "5/8/2015",
+			"count": 231
+		}, {
+			"alg": "R2 U R' U' y R U R' U' R U R' U' R U R' y' R U' R2",
+			"date": "10/8/2013",
+			"count": 42
+		}, {
+			"alg": "z U2' R2' F R U R' U' R U R' U' R U R' U' F' R2 U2'",
+			"date": "5/8/2015",
+			"count": 20
+		}, {
+			"alg": "y x' R U' R' D R U R' u2 R' U R D R' U' R x",
+			"date": "5/8/2015",
+			"count": 8
+		}, {
+			"alg": "F' r U R' U' r' F R U2 r U R' U' r' F R F'",
+			"date": "8/26/2015",
+			"count": 6
+		}, {
+			"alg": "R2 U R2 U D R2 U' R2 U R2 U' D' R2 U R2 U2 R2",
+			"date": "10/23/2013",
+			"count": 5
+		}, {
+			"alg": "y R' U' R' D' R U' R' D R U R' D' R U R' D R2",
+			"date": "5/8/2015",
+			"count": 3
+		}, {
+			"alg": "y R2' D' R U' R' D R U' R' D' R U R' D R U R",
+			"date": "5/8/2015",
+			"count": 2
+		}, {
+			"alg": "y l U' R' D R U R' D' R U R' D R U' R' D' x",
+			"date": "5/8/2015",
+			"count": 2
+		}, {
+			"alg": "x U R' U' L U R U' L' U R U' L U R' U' r'",
+			"date": "4/27/2014",
+			"count": 1
+		}, {
+			"alg": "y R U R' U R' U' R F' R U R' U' R' F R2 U' R2' U R",
+			"date": "1/14/2015",
+			"count": 1
+		}, {
+			"alg": "l' U' r' F R F' R U R' U' L U R U' R' F",
+			"date": "4/11/2015",
+			"count": 1
+		}, {
+			"alg": "L U' R D2 R' U R L' U' L D2 L' U R'",
+			"date": "4/21/2015",
+			"count": 1
+		}, {
+			"alg": "y R U R D R' U R D' R' U' R D R' U' R D' R2",
+			"date": "5/8/2015",
+			"count": 1
+		}, {
+			"alg": "R2 D R' U2 R D' R' U' R D R' U R D' R' U2 R'",
+			"date": "5/30/2015",
+			"count": 1
+		}, {
+			"alg": "R U' L D2 L' U R' L U' R D2 R' U L'",
+			"date": "6/16/2016",
+			"count": 1
+		}, {
+			"alg": "L R' U' R U L' U' R' U R r U R' U' r' F R F'",
+			"date": "10/8/2013",
+			"count": 0
+		}, {
+			"alg": "l' U' L' U R U' L U R' U' L U R U' L' U",
+			"date": "4/3/2014",
+			"count": 0
+		}, {
+			"alg": "x U R' U' L U R U' r2 U' R U L U' R' U",
+			"date": "8/13/2014",
+			"count": 0
+		}, {
+			"alg": "R2 U R' y R U' R' U R U' R' U R U' R' U F U' F2",
+			"date": "2/9/2015",
+			"count": 0
+		}, {
+			"alg": "y x R' U R D' R' U' R D R' U' R D' R' U R D x'",
+			"date": "5/8/2015",
+			"count": 0
+		}, {
+			"alg": "y x R D' R' U R D R' U' R D R' U R D' R' U' x'",
+			"date": "5/8/2015",
+			"count": 0
+		}, {
+			"alg": "y x R' U R' D2 R U' R' D2 R2 z' R' U R' D2 R U' R' D2 R2",
+			"date": "5/13/2015",
+			"count": 0
+		}, {
+			"alg": "R' U L' D2 L U' R L' U R' D2 R U' L",
+			"date": "6/16/2016",
+			"count": 0
+		}, {
+			"alg": "L' U R' D2 R U' L R' U L' D2 L U' R",
+			"date": "6/16/2016",
+			"count": 0
+		}, {
+			"alg": "L U' R D2 R' U L' R U' L D2 L' U R'",
+			"date": "6/16/2016",
+			"count": 0
+		}, {
+			"alg": "y' l U' R' D R U R' D' R U' R' D R U' R' D'",
+			"date": "10/10/2016",
+			"count": 0
+		}]
+	},
+	"F": {
+		"pll": "F",
+		"neutral": "fffrlblbrbrl",
+		"url": "http://algdb.net/Set/PLL/F",
+		"solutions": [{
+			"alg": "y R' U' F' R U R' U' R' F R2 U' R' U' R U R' U R",
+			"date": "5/8/2015",
+			"count": 226
+		}, {
+			"alg": "y2 R' U2 R' d' R' F' R2 U' R' U R' F R U' F",
+			"date": "5/8/2015",
+			"count": 34
+		}, {
+			"alg": "R' U R U' R2 F' U' F U R F R' F' R2",
+			"date": "10/8/2013",
+			"count": 10
+		}, {
+			"alg": "M' U2 L F' R U2 r' U r' R2 U2 R2",
+			"date": "10/10/2013",
+			"count": 8
+		}, {
+			"alg": "R' U R U' R2 y' R' U' R U y x R U R' U' R2 x'",
+			"date": "10/14/2013",
+			"count": 4
+		}, {
+			"alg": "y2 R' U2 R' U' y R' F' R2 U' R' U R' F R U' F",
+			"date": "5/8/2015",
+			"count": 2
+		}, {
+			"alg": "y R2' F R F' R' U' F' U F R2 U R' U' R",
+			"date": "5/8/2015",
+			"count": 2
+		}, {
+			"alg": "y' x D' l2 D' l' z' R' F' R2 U' R' U R' F R U' f",
+			"date": "10/15/2014",
+			"count": 1
+		}, {
+			"alg": "y R2 U R2' U D R2 U2 D' R2' U2 R2 U R2' D R2 U' D' R2'",
+			"date": "5/8/2015",
+			"count": 1
+		}, {
+			"alg": "r U R' U' z U' l' U2 r' U' r U2 l' U l' R'",
+			"date": "5/8/2015",
+			"count": 1
+		}, {
+			"alg": "y' F r2 R' U2 r U' r' U2 l R U' R' U r2 u'",
+			"date": "5/8/2015",
+			"count": 0
+		}, {
+			"alg": "y2 R' U2 R' U' x2 y' R' U R' U' l2 F' R' F R U' F",
+			"date": "5/8/2015",
+			"count": 0
+		}, {
+			"alg": "y2 R U' R' U R2 y R U R' U' x U' R' U R U2",
+			"date": "5/8/2015",
+			"count": 0
+		}, {
+			"alg": "y2 R' U2 R' U' R D' R' D R' U D' R2 U' R2' D R U' R",
+			"date": "5/8/2015",
+			"count": 0
+		}, {
+			"alg": "y x U R2' F R2 U' R' U R' x U2 r U' r' U l R U' x'",
+			"date": "5/8/2015",
+			"count": 0
+		}, {
+			"alg": "M U x' R2 U2' R2' r U' r U2' l' U r'",
+			"date": "5/8/2015",
+			"count": 0
+		}, {
+			"alg": "y R U2 R' U' r U2 R' F R U2' r2' F R2 U2' r' M2'",
+			"date": "12/26/2015",
+			"count": 0
+		}, {
+			"alg": "y' z D' U2 R' U' R' U2 R U R U2 R U' R2 D R' U",
+			"date": "3/6/2016",
+			"count": 0
+		}, {
+			"alg": "R U R' U L' U L U2 R' L' U L U' R U R U' R'",
+			"date": "5/29/2016",
+			"count": 0
+		}]
+	},
+	"Ga": {
+		"pll": "Ga",
+		"neutral": "frrblfrfblbl",
+		"url": "http://algdb.net/Set/PLL/Ga",
+		"solutions": [{
+			"alg": "R2 u R' U R' U' R u' R2 y' R' U R",
+			"date": "10/8/2013",
+			"count": 216
+		}, {
+			"alg": "R2 U R' U R' U' R U' R2 D U' R' U R D'",
+			"date": "10/10/2013",
+			"count": 58
+		}, {
+			"alg": "R2 u R' U R' U' R u' R2 F' U F",
+			"date": "10/28/2014",
+			"count": 21
+		}, {
+			"alg": "D' R2 U R' U R' U' R U' R2 U' D R' U R",
+			"date": "10/18/2013",
+			"count": 11
+		}, {
+			"alg": "R2 u R' U R' U' R u' R2 y L' U L",
+			"date": "3/8/2015",
+			"count": 9
+		}, {
+			"alg": "y2 R U' R U R2 D R' U' R D' R' U2 R U' R' U' R2",
+			"date": "10/8/2014",
+			"count": 4
+		}, {
+			"alg": "R2 S2 U l2 U' l2 u R2 U' r2 F2",
+			"date": "10/9/2013",
+			"count": 3
+		}, {
+			"alg": "F2 R2 L2 U R2 U' R2 D R2 D' L2 F2",
+			"date": "10/9/2013",
+			"count": 3
+		}, {
+			"alg": "y R U R' F' R U R' U' R' F R U' R' F R2 U' R' U' R U R' F'",
+			"date": "4/21/2015",
+			"count": 2
+		}, {
+			"alg": "y2 L2 u L' U L' U' L u' L2 y' L' U L",
+			"date": "6/5/2016",
+			"count": 2
+		}, {
+			"alg": "R2 U' R2 U R2 U' D' R2 U2 R2 U' R2 U R2 U2 R2 U' D",
+			"date": "10/23/2013",
+			"count": 1
+		}, {
+			"alg": "L2 F2 L' U2 L' U2 L F' L' U' L U L F' L2",
+			"date": "5/21/2014",
+			"count": 1
+		}, {
+			"alg": "R U R' U' R' U F R U R U' R' F' U R' U2 R",
+			"date": "1/19/2015",
+			"count": 1
+		}, {
+			"alg": "r U2 R U' r' F U R' U' F' r U' r'",
+			"date": "3/25/2015",
+			"count": 1
+		}, {
+			"alg": "R2 u R' U R' U' R u' R2 b' R b",
+			"date": "1/1/2016",
+			"count": 1
+		}, {
+			"alg": "L' U R' U2 L U' R y' L R U2 L' R'",
+			"date": "10/10/2013",
+			"count": 0
+		}, {
+			"alg": "R' U r U2 r' U R U' R' r U2 x' U' R U L'",
+			"date": "10/11/2013",
+			"count": 0
+		}, {
+			"alg": "L U' R' U x U2 r' R U R' U' r U2 r' U' R",
+			"date": "10/11/2013",
+			"count": 0
+		}, {
+			"alg": "l U2 R' r U r' F' D R U' R' D' R U' l'",
+			"date": "10/11/2013",
+			"count": 0
+		}, {
+			"alg": "y2 R l U2 l' U2 R' U2 l U' R' F' R F R U' R2",
+			"date": "10/24/2014",
+			"count": 0
+		}, {
+			"alg": "R2 u R' U R' U' R u' R2 b' R F",
+			"date": "11/2/2014",
+			"count": 0
+		}, {
+			"alg": "y2 x' R2 U2 R' F2 R' F2 R U' R' F' R F R U' R2",
+			"date": "4/18/2015",
+			"count": 0
+		}, {
+			"alg": "R2 u R' U R' U' R u' R2 z x U' R U",
+			"date": "9/25/2015",
+			"count": 0
+		}, {
+			"alg": "y' R U2 R' U' F' R U R2 U' R' F R U R2 U2 R'",
+			"date": "11/24/2015",
+			"count": 0
+		}]
+	},
+	"Gb": {
+		"pll": "Gb",
+		"neutral": "fbrbffrlblrl",
+		"url": "http://algdb.net/Set/PLL/Gb",
+		"solutions": [{
+			"alg": "R' U' R y R2 u R' U R U' R u' R2",
+			"date": "10/8/2013",
+			"count": 159
+		}, {
+			"alg": "R' U' R U D' R2 U R' U R U' R U' R2 D",
+			"date": "10/10/2013",
+			"count": 60
+		}, {
+			"alg": "y F' U' F R2 u R' U R U' R u' R2",
+			"date": "12/24/2014",
+			"count": 50
+		}, {
+			"alg": "R' d' F R2 u R' U R U' R u' R2",
+			"date": "7/2/2014",
+			"count": 18
+		}, {
+			"alg": "y2 L' U' L y' R2 u R' U R U' R u' R2",
+			"date": "12/24/2014",
+			"count": 6
+		}, {
+			"alg": "D R' U' R U D' R2 U R' U R U' R U' R2'",
+			"date": "10/25/2013",
+			"count": 5
+		}, {
+			"alg": "R' U' y F R2 u R' U R U' R u' R2",
+			"date": "7/28/2015",
+			"count": 3
+		}, {
+			"alg": "y2 L' U' L y L2 u L' U L U' L u' L2",
+			"date": "12/24/2014",
+			"count": 2
+		}, {
+			"alg": "R' U2 R U' F R U R' U' R' F' U' R U R U' R'",
+			"date": "1/19/2015",
+			"count": 2
+		}, {
+			"alg": "y R U R' F' r U R' U' r' F R F' R U R' U' R' F R2 U' R'",
+			"date": "10/24/2014",
+			"count": 1
+		}, {
+			"alg": "y' l U R' D R U R' D' F r U' r' R U2 l'",
+			"date": "12/24/2014",
+			"count": 1
+		}, {
+			"alg": "y' R' U L' U2 R U' L y' L R U2 L' R'",
+			"date": "10/10/2013",
+			"count": 0
+		}, {
+			"alg": "y r U r' F U R U' F' r U R' U2 r'",
+			"date": "12/24/2014",
+			"count": 0
+		}]
+	},
+	"Gc": {
+		"pll": "Gc",
+		"neutral": "fbrblfrrblfl",
+		"url": "http://algdb.net/Set/PLL/Gc",
+		"solutions": [{
+			"alg": "R2 u' R U' R U R' u R2 y R U' R'",
+			"date": "10/8/2013",
+			"count": 138
+		}, {
+			"alg": "y2 R2' F2 R U2 R U2' R' F R U R' U' R' F R2",
+			"date": "12/24/2014",
+			"count": 87
+		}, {
+			"alg": "R2 u' R U' R U R' u R2 f R' f'",
+			"date": "5/3/2014",
+			"count": 27
+		}, {
+			"alg": "R2 U' R U' R U R' U R2 D' U R U' R' D",
+			"date": "10/10/2013",
+			"count": 24
+		}, {
+			"alg": "y2 L2 u' L U' L U L' u L2 y L U' L'",
+			"date": "12/24/2014",
+			"count": 10
+		}, {
+			"alg": "D R2 U' R U' R U R' U R2 U D' R U' R'",
+			"date": "10/25/2013",
+			"count": 6
+		}, {
+			"alg": "R2' u' R U' R U R' u R2 B U' B'",
+			"date": "10/28/2014",
+			"count": 4
+		}, {
+			"alg": "R2 u' R U' R U R' D x' U2 r U' r'",
+			"date": "5/12/2014",
+			"count": 3
+		}, {
+			"alg": "y2 L2 U' L U' L U L' U L2 D' U L U' L' D",
+			"date": "8/4/2016",
+			"count": 3
+		}, {
+			"alg": "y2 L2 u' L U' L U L' u L2 F U' F'",
+			"date": "8/8/2015",
+			"count": 1
+		}, {
+			"alg": "y' L' R' U2 L R y L U' R U2 L' U R'",
+			"date": "10/10/2013",
+			"count": 0
+		}, {
+			"alg": "D R2' U' R U' R U R' U R2 D' U R U' R'",
+			"date": "10/25/2013",
+			"count": 0
+		}, {
+			"alg": "R2' u' R U' R U R' u R2 f R' f'",
+			"date": "8/24/2014",
+			"count": 0
+		}, {
+			"alg": "y F2 R2 L2 U' L2 U L2 D' L2 D R2 F2",
+			"date": "12/24/2014",
+			"count": 0
+		}, {
+			"alg": "y F2 D' L U' L U L' D F2 R U' R'",
+			"date": "1/15/2015",
+			"count": 0
+		}, {
+			"alg": "R2 S2 U' l2' U l2 u' R2' U r2 B2",
+			"date": "6/14/2016",
+			"count": 0
+		}, {
+			"alg": "y L' U' L F L' U' L U L F' L' U L F' L2' U L U L' U' L F",
+			"date": "8/8/2016",
+			"count": 0
+		}, {
+			"alg": "R2' F2 R U2 M F r U2 R' U' F2 R",
+			"date": "9/11/2016",
+			"count": 0
+		}]
+	},
+	"Gd": {
+		"pll": "Gd",
+		"neutral": "flrbbfrfblrl",
+		"url": "http://algdb.net/Set/PLL/Gd",
+		"solutions": [{
+			"alg": "R U R' y' R2 u' R U' R' U R' u R2",
+			"date": "10/8/2013",
+			"count": 159
+		}, {
+			"alg": "R U R' U' D R2 U' R U' R' U R' U R2 D'",
+			"date": "10/10/2013",
+			"count": 96
+		}, {
+			"alg": "D' R U R' U' D R2 U' R U' R' U R' U R2",
+			"date": "10/25/2013",
+			"count": 13
+		}, {
+			"alg": "f R f' R2 u' R U' R' U R' u R2",
+			"date": "1/26/2014",
+			"count": 10
+		}, {
+			"alg": "y2 L U L' B2 D' R U' R' U R' u R2",
+			"date": "10/5/2014",
+			"count": 5
+		}, {
+			"alg": "y R2 F' R U R U' R' F' R U2 R' U2 R' F2 R2",
+			"date": "12/24/2014",
+			"count": 5
+		}, {
+			"alg": "R U R' F' R U R' U R U' R' U' R' F R2 U R' U' R U' R'",
+			"date": "10/9/2013",
+			"count": 3
+		}, {
+			"alg": "y2 L U L' y' L2 u' L U' L' U L' u L2",
+			"date": "12/6/2015",
+			"count": 3
+		}, {
+			"alg": "y2 L U r' U2' x D' R U' R' U R' u R2",
+			"date": "10/24/2014",
+			"count": 2
+		}, {
+			"alg": "y F U F' L2 u' L U' L' U L' u L2",
+			"date": "8/8/2015",
+			"count": 2
+		}, {
+			"alg": "y2 L U L' U' D L2 U' L U' L' U L' U L2 D'",
+			"date": "8/4/2016",
+			"count": 2
+		}, {
+			"alg": "y2 x' r U r' U2' x D' R U' R' U R' u R2",
+			"date": "4/7/2014",
+			"count": 1
+		}, {
+			"alg": "F2 R2 D' L2 D L2 U' L2 U M2 B2",
+			"date": "10/12/2014",
+			"count": 1
+		}, {
+			"alg": "y R U' L U2 R' U L' y' L' R' U2 L R",
+			"date": "10/10/2013",
+			"count": 0
+		}, {
+			"alg": "R U R' y' R2 u' R U' R' U R' D B2",
+			"date": "2/21/2016",
+			"count": 0
+		}, {
+			"alg": "R U R' y L2 u' L U' L' U L' u L2",
+			"date": "9/17/2016",
+			"count": 0
+		}]
+	},
+	"H": {
+		"pll": "H",
+		"neutral": "fbfrlrbfblrl",
+		"url": "http://algdb.net/Set/PLL/H",
+		"solutions": [{
+			"alg": "M2 U M2 U2 M2 U M2",
+			"date": "10/8/2013",
+			"count": 225
+		}, {
+			"alg": "M2 U' M2 U2 M2 U' M2",
+			"date": "10/8/2013",
+			"count": 150
+		}, {
+			"alg": "R2 U2 R U2 R2 U2 R2 U2 R U2 R2",
+			"date": "10/8/2013",
+			"count": 24
+		}, {
+			"alg": "M2' U' M2' U2' M2' U' M2'",
+			"date": "10/28/2014",
+			"count": 24
+		}, {
+			"alg": "R2 U2 R' U2 R2 U2 R2 U2 R' U2 R2",
+			"date": "12/20/2014",
+			"count": 7
+		}, {
+			"alg": "R2 U2 R2 U2 R2 U' R2 U2 R2 U2 R2",
+			"date": "1/7/2015",
+			"count": 5
+		}, {
+			"alg": "M2 U2' M2 U' M2 U2' M2",
+			"date": "3/27/2015",
+			"count": 3
+		}, {
+			"alg": "R L U2 L' R' y L' R' U2 R L",
+			"date": "4/11/2015",
+			"count": 2
+		}, {
+			"alg": "M2' u' M2' u2' M2' u' M2'",
+			"date": "4/21/2015",
+			"count": 2
+		}, {
+			"alg": "M2 u M2 u2 M2 u M2",
+			"date": "1/14/2016",
+			"count": 2
+		}, {
+			"alg": "M2 U M2 U M2 U M2 U M2 U M2",
+			"date": "8/19/2016",
+			"count": 2
+		}, {
+			"alg": "x' R r U2 r' R' U' u' R2 U D",
+			"date": "10/26/2013",
+			"count": 0
+		}, {
+			"alg": "R U F' R U R' U R2 U2 R' F U' R' U R' U2 R",
+			"date": "1/20/2014",
+			"count": 0
+		}, {
+			"alg": "r' R y' R U2 R2 U2 R2 U2 R S'",
+			"date": "4/11/2015",
+			"count": 0
+		}, {
+			"alg": "S R U2 R2 U2 R2 U2 R S'",
+			"date": "4/18/2015",
+			"count": 0
+		}, {
+			"alg": "R U R' U2 R U' R' U' R U' R' U2 R U' R' U' R U2 R'",
+			"date": "4/21/2015",
+			"count": 0
+		}, {
+			"alg": "F B' U' R2 U2 R2 U2 R2 U' F' B",
+			"date": "1/25/2016",
+			"count": 0
+		}]
+	},
+	"Ja": {
+		"pll": "Ja",
+		"neutral": "ffrbbbllfrrl",
+		"url": "http://algdb.net/Set/PLL/Ja",
+		"solutions": [{
+			"alg": "R' U L' U2 R U' R' U2 R L",
+			"date": "10/8/2013",
+			"count": 194
+		}, {
+			"alg": "L' U' L F L' U' L U L F' L2 U L",
+			"date": "10/10/2013",
+			"count": 73
+		}, {
+			"alg": "R' U2 R U R' U2 L U' R U L'",
+			"date": "10/9/2013",
+			"count": 24
+		}, {
+			"alg": "x U2 r' U' r U2 l' U R' U' R2",
+			"date": "10/8/2013",
+			"count": 23
+		}, {
+			"alg": "L' U2 L U L' U2 R U' L U R'",
+			"date": "10/8/2013",
+			"count": 19
+		}, {
+			"alg": "x R2' F R F' R U2' r' U r U2' x'",
+			"date": "9/6/2014",
+			"count": 18
+		}, {
+			"alg": "L' U R' z R2 U R' U' R2 U D",
+			"date": "10/25/2013",
+			"count": 12
+		}, {
+			"alg": "y2 F U' R' F R2 U' R' U' R U R' F' R U R' F'",
+			"date": "4/8/2015",
+			"count": 12
+		}, {
+			"alg": "R U' L' U R' U2 L U' L' U2 L",
+			"date": "10/23/2013",
+			"count": 10
+		}, {
+			"alg": "y2 R' U2 R U R' z R2 U R' D R U'",
+			"date": "12/6/2015",
+			"count": 8
+		}, {
+			"alg": "L U' R' U L' U2 R U' R' U2 R",
+			"date": "9/6/2014",
+			"count": 6
+		}, {
+			"alg": "y R D' R U' R' U' R U R' F' R U R' U' R' F R D R'",
+			"date": "2/20/2015",
+			"count": 5
+		}, {
+			"alg": "y2 F2 L' U' r U2 l' U R' U' R2",
+			"date": "4/16/2015",
+			"count": 4
+		}, {
+			"alg": "y' z U' R D' R2 U R' U' R2 U D R'",
+			"date": "6/6/2015",
+			"count": 3
+		}, {
+			"alg": "y2 R' F R F' r U R' U' r' U2 R U R' U R",
+			"date": "1/23/2015",
+			"count": 2
+		}, {
+			"alg": "F U' R' F R2 U' R' U' R U R' F' R U R' F'",
+			"date": "7/5/2016",
+			"count": 2
+		}, {
+			"alg": "y2 L U' R' U L' U2 R U' R' U2 R",
+			"date": "11/6/2016",
+			"count": 2
+		}, {
+			"alg": "R' U' R' D R2 U' R' U R2 D' R2 U R",
+			"date": "10/8/2013",
+			"count": 1
+		}, {
+			"alg": "y x' R2 u' R' u R2 x' y' R' U R' U' R2",
+			"date": "10/14/2013",
+			"count": 1
+		}, {
+			"alg": "R2' F2 U' F2 D R2 D' R2' U R2",
+			"date": "1/2/2014",
+			"count": 1
+		}, {
+			"alg": "L' R' U2 R U R' U2 L U' R",
+			"date": "7/9/2016",
+			"count": 1
+		}, {
+			"alg": "R2 U' D R2 U' R2 U R2 D' R2 U R2",
+			"date": "10/1/2016",
+			"count": 1
+		}, {
+			"alg": "D' R2 U2 R2 D R2 U2 D' R2 U R2 U R2 U' R2 D R2",
+			"date": "10/25/2013",
+			"count": 0
+		}, {
+			"alg": "R' U2 z D R D' R2 U R' D R U'",
+			"date": "7/2/2014",
+			"count": 0
+		}, {
+			"alg": "l' R' F R F' R U2' r' U r U2' x'",
+			"date": "9/7/2014",
+			"count": 0
+		}, {
+			"alg": "z D' R2 D R D' R2 U R' D R U'",
+			"date": "12/20/2014",
+			"count": 0
+		}, {
+			"alg": "y2 R2 U' R' U R' U' R' F R2 U' R' U' R U R' F' R2 U R2",
+			"date": "1/8/2015",
+			"count": 0
+		}, {
+			"alg": "y F2 L' U' r U2 l' U R' U' l2",
+			"date": "3/19/2015",
+			"count": 0
+		}, {
+			"alg": "y2 F2 D' L2 D L2 U' L2 U L2 F2 U",
+			"date": "4/29/2016",
+			"count": 0
+		}, {
+			"alg": "U2 L U' R' U L' U2 R U' R' U2 R U2",
+			"date": "5/23/2016",
+			"count": 0
+		}, {
+			"alg": "y2 R' U' R B R' U' R U R B' R2' U R U",
+			"date": "6/25/2016",
+			"count": 0
+		}, {
+			"alg": "r2 U D' r2 U' r2 D r2 D' r2 D r2",
+			"date": "7/23/2016",
+			"count": 0
+		}]
+	},
+	"Jb": {
+		"pll": "Jb",
+		"neutral": "frrbffrbblll",
+		"url": "http://algdb.net/Set/PLL/Jb",
+		"solutions": [{
+			"alg": "R U R' F' R U R' U' R' F R2 U' R' U'",
+			"date": "10/8/2013",
+			"count": 297
+		}, {
+			"alg": "R U2 R' U' R U2 L' U R' U' r x",
+			"date": "10/8/2013",
+			"count": 21
+		}, {
+			"alg": "R U2 R' U' R U2 L' U R' U' L",
+			"date": "1/30/2015",
+			"count": 11
+		}, {
+			"alg": "L' U R U' L U2' R' U R U2' R'",
+			"date": "1/7/2015",
+			"count": 8
+		}, {
+			"alg": "y' L U' R U2 L' U L U2 R' L'",
+			"date": "4/6/2015",
+			"count": 3
+		}, {
+			"alg": "B2 L U L' B2 R D' R D R2",
+			"date": "10/16/2013",
+			"count": 1
+		}, {
+			"alg": "y R U' L U2 R' U R U2 L' R'",
+			"date": "3/19/2015",
+			"count": 1
+		}, {
+			"alg": "y2 R' U2' R U R' F' R U R' U' R' F R2 U' R' U R",
+			"date": "2/19/2016",
+			"count": 1
+		}, {
+			"alg": "R L U2 R' U' R U2 L' U R'",
+			"date": "5/4/2016",
+			"count": 1
+		}, {
+			"alg": "y2 R' U L U' R U2 L' U L U2 L'",
+			"date": "11/6/2016",
+			"count": 1
+		}, {
+			"alg": "R2 U R2 U R2 U' R2 D R2 D' R2 U' R2 D R2 D'",
+			"date": "10/23/2013",
+			"count": 0
+		}, {
+			"alg": "R U l' U' l U R' U' l' U l R U' R' U'",
+			"date": "10/9/2014",
+			"count": 0
+		}, {
+			"alg": "y' L r U2' R2' F R F' R U2' r' U L'",
+			"date": "12/24/2014",
+			"count": 0
+		}, {
+			"alg": "r' F R F' r U2' R' U R U2' R'",
+			"date": "1/12/2015",
+			"count": 0
+		}, {
+			"alg": "U2 R' U L U' R U2 L' U L U2 L' U2",
+			"date": "5/23/2016",
+			"count": 0
+		}]
+	},
+	"Na": {
+		"pll": "Na",
+		"neutral": "fbblrrbffrll",
+		"url": "http://algdb.net/Set/PLL/Na",
+		"solutions": [{
+			"alg": "R U R' U R U R' F' R U R' U' R' F R2 U' R' U2 R U' R'",
+			"date": "10/9/2013",
+			"count": 167
+		}, {
+			"alg": "z U R' D R2 U' R D' U R' D R2 U' R D' z'",
+			"date": "10/10/2013",
+			"count": 52
+		}, {
+			"alg": "L U' R U2 L' U R' L U' R U2 L' U R'",
+			"date": "10/8/2013",
+			"count": 46
+		}, {
+			"alg": "r' D r U2 r' D r U2 r' D r U2 r' D r U2 r' D r",
+			"date": "10/8/2014",
+			"count": 27
+		}, {
+			"alg": "R U' L U2 R' U L' R U' L U2 R' U L'",
+			"date": "10/10/2013",
+			"count": 8
+		}, {
+			"alg": "z D R' U R2 D' R U' D R' U R2 D' R U' z'",
+			"date": "10/10/2013",
+			"count": 5
+		}, {
+			"alg": "z R' U R' D R2 U' R U D' R' D R2 U' R D'",
+			"date": "3/19/2014",
+			"count": 5
+		}, {
+			"alg": "F' R U R' U' R' F R2 F U' R' U' R U F' R'",
+			"date": "3/23/2014",
+			"count": 3
+		}, {
+			"alg": "R U R' U R U2 R' U' R U2 L' U R' U' L U' R U' R'",
+			"date": "10/14/2013",
+			"count": 2
+		}, {
+			"alg": "L U' L' U L F U F' L' U' L F' L F L' U L'",
+			"date": "5/6/2015",
+			"count": 2
+		}, {
+			"alg": "R U' R' U l U F U' R' F' R U' R U R' F R'",
+			"date": "7/2/2014",
+			"count": 1
+		}, {
+			"alg": "F' R2 U R2 U' R2 F U2 F' R2 U R2 U' R2 F",
+			"date": "10/10/2013",
+			"count": 0
+		}, {
+			"alg": "R' U R2 B2 U R' B2 R U' B2 R2 U' R U'",
+			"date": "10/14/2013",
+			"count": 0
+		}, {
+			"alg": "D' U R2 D R D' R2 U R' D U2 R' U2 R U2 R",
+			"date": "6/11/2015",
+			"count": 0
+		}, {
+			"alg": "l F' R' U' R z' R U' R' U' r U l' U R' U' R2",
+			"date": "7/17/2015",
+			"count": 0
+		}, {
+			"alg": "L U' R U2 r' F M' U' R U2 r' F l'",
+			"date": "2/6/2016",
+			"count": 0
+		}, {
+			"alg": "z2 L D L' D L D L' F' L D L' D' L' F L2 D' L' D2 L D' L'",
+			"date": "7/29/2016",
+			"count": 0
+		}, {
+			"alg": "R U2 R U2' R' U2 D R' U R2 D' R D R2 U' D'",
+			"date": "9/18/2016",
+			"count": 0
+		}, {
+			"alg": "L U' R U2 L' U R' L U' R U2 L' U R' U'",
+			"date": "11/6/2016",
+			"count": 0
+		}]
+	},
+	"Nb": {
+		"pll": "Nb",
+		"neutral": "ffbllrbbfrrl",
+		"url": "http://algdb.net/Set/PLL/Nb",
+		"solutions": [{
+			"alg": "R' U L' U2 R U' L R' U L' U2 R U' L",
+			"date": "10/8/2013",
+			"count": 101
+		}, {
+			"alg": "R' U R U' R' F' U' F R U R' F R' F' R U' R",
+			"date": "10/10/2013",
+			"count": 83
+		}, {
+			"alg": "z D' R U' R2 D R' U D' R U' R2 D R' U z'",
+			"date": "10/10/2013",
+			"count": 32
+		}, {
+			"alg": "z U' R D' R2 U R' D U' R D' R2 U R' D z'",
+			"date": "10/10/2013",
+			"count": 22
+		}, {
+			"alg": "r D r' U2 r D r' U2 r D r' U2 r D r' U2 r D r'",
+			"date": "10/12/2014",
+			"count": 17
+		}, {
+			"alg": "L' U' L U' L' U' L F L' U' L U L F' L2 U L U2 L' U L",
+			"date": "11/17/2013",
+			"count": 9
+		}, {
+			"alg": "R' U R' F R F' R U' R' F' U F R U R' U' R",
+			"date": "10/9/2013",
+			"count": 6
+		}, {
+			"alg": "L' U R' U2 L U' R L' U R' U2 L U' R",
+			"date": "3/25/2014",
+			"count": 5
+		}, {
+			"alg": "z U' R2 U R U R' F' R U R' U' R' F R2 U' R' U2 R2 U",
+			"date": "10/9/2013",
+			"count": 3
+		}, {
+			"alg": "R' U L' U2 R U' M' B r' U2 R U' L",
+			"date": "7/20/2014",
+			"count": 3
+		}, {
+			"alg": "L' U' L R' U L' U2 R U' R' U2 L R U' L' U L",
+			"date": "2/21/2016",
+			"count": 2
+		}, {
+			"alg": "z U' R' U D' R U' R2 D R' D' R2 U D R' U' R U z'",
+			"date": "9/7/2014",
+			"count": 1
+		}, {
+			"alg": "L' U R' U2 L U' L' R U R' U2 L U' R",
+			"date": "12/22/2014",
+			"count": 1
+		}, {
+			"alg": "r' D' F r U' r' F' D r2 U r' U' L' U r U'",
+			"date": "12/31/2014",
+			"count": 1
+		}, {
+			"alg": "R' U R U' R' F' U' F R U R' U' R d' R U R'",
+			"date": "2/24/2016",
+			"count": 1
+		}, {
+			"alg": "L U' L2 B2 U' L B2 L' U B2 L2 U L' U",
+			"date": "10/14/2013",
+			"count": 0
+		}, {
+			"alg": "R' U R U' R' F' U' F R U R' U' R U' f R f'",
+			"date": "9/6/2014",
+			"count": 0
+		}, {
+			"alg": "r' D' F r U' r' F' D r2 U r' U' r' F r F'",
+			"date": "12/31/2014",
+			"count": 0
+		}, {
+			"alg": "L' U' L U R' U2 R U R' U2 z U R' D R U' R' U' R U z'",
+			"date": "1/17/2015",
+			"count": 0
+		}, {
+			"alg": "L' U' L F L' U' L U L F' L2 U L U' L' U' L F L' U' L U L F' L2 U L",
+			"date": "1/24/2015",
+			"count": 0
+		}, {
+			"alg": "R' F R F' U2 R U R' U' R' F R F' R U' R' F R U R' U' R U R' U' F'",
+			"date": "5/10/2015",
+			"count": 0
+		}, {
+			"alg": "R' U' R U' F U' R' F R2 U' R' U' R U R' F' R U R' F' U R' U R",
+			"date": "7/21/2016",
+			"count": 0
+		}]
+	},
+	"Ra": {
+		"pll": "Ra",
+		"neutral": "flfrrblbrbfl",
+		"url": "http://algdb.net/Set/PLL/Ra",
+		"solutions": [{
+			"alg": "L U2 L' U2 L F' L' U' L U L F L2",
+			"date": "10/8/2013",
+			"count": 114
+		}, {
+			"alg": "y R U R' F' R U2 R' U2 R' F R U R U2 R'",
+			"date": "12/24/2014",
+			"count": 110
+		}, {
+			"alg": "y R U' R' U' R U R D R' U' R D' R' U2 R'",
+			"date": "12/24/2014",
+			"count": 60
+		}, {
+			"alg": "y2 R U2 R' U2 R B' R' U' R U R B R2 U",
+			"date": "11/2/2014",
+			"count": 18
+		}, {
+			"alg": "y2 R U2 R D R' U R D' R' U' R' U R U R'",
+			"date": "12/24/2014",
+			"count": 3
+		}, {
+			"alg": "y2 R U2 R' U' R' F' R U2 R U2 R' F R U' R'",
+			"date": "12/24/2014",
+			"count": 3
+		}, {
+			"alg": "y2 R U' R2 D' R U R' D R U' R U' R' U R U R'",
+			"date": "12/24/2014",
+			"count": 2
+		}, {
+			"alg": "R U R' F' U' F R U R' F R' F' R2 U2 R'",
+			"date": "5/4/2016",
+			"count": 2
+		}, {
+			"alg": "y R l U' l' U' R' U l U l' U2 R U2' R'",
+			"date": "5/7/2014",
+			"count": 1
+		}, {
+			"alg": "y' L2 F' L' U' L' U L F L' U2 L U2 L'",
+			"date": "10/19/2013",
+			"count": 0
+		}, {
+			"alg": "L U2 L' U F R' F' L F R F' U L'",
+			"date": "5/7/2014",
+			"count": 0
+		}, {
+			"alg": "R U2 R2' F R F' R U' R' F' U F R U' R'",
+			"date": "10/24/2014",
+			"count": 0
+		}, {
+			"alg": "y2 R U2 R' U2 l U' l' U' R U l U R2",
+			"date": "12/24/2014",
+			"count": 0
+		}, {
+			"alg": "y2 R U' R F2 U R U R U' R' U' F2 R2",
+			"date": "12/24/2014",
+			"count": 0
+		}, {
+			"alg": "y2 R U2 R' U2 R B' R' U' R U R B R2",
+			"date": "4/17/2015",
+			"count": 0
+		}, {
+			"alg": "y' z U2 R2 U' r' U r U' r' U' r d' R U' R' U' F2 U2",
+			"date": "6/20/2015",
+			"count": 0
+		}, {
+			"alg": "y R U' R' U' R U R' U R' D' R U' R' D R2 U R'",
+			"date": "11/26/2015",
+			"count": 0
+		}, {
+			"alg": "R2 F2 U R U R' U' R' U' F2 R' U R' U'",
+			"date": "11/6/2016",
+			"count": 0
+		}]
+	},
+	"Rb": {
+		"pll": "Rb",
+		"neutral": "frfrfblbrbll",
+		"url": "http://algdb.net/Set/PLL/Rb",
+		"solutions": [{
+			"alg": "R' U2 R U2 R' F R U R' U' R' F' R2",
+			"date": "10/8/2013",
+			"count": 258
+		}, {
+			"alg": "R' U2 R' D' R U' R' D R U R U' R' U' R",
+			"date": "10/8/2013",
+			"count": 29
+		}, {
+			"alg": "y' R U2' R' U2 R' F R2 U' R' U' R U R' F' R U R' U R U2 R'",
+			"date": "4/11/2015",
+			"count": 2
+		}, {
+			"alg": "y R2 F R U R U' R' F' R U2 R' U2 R",
+			"date": "12/24/2014",
+			"count": 1
+		}, {
+			"alg": "y2 r' F2 r F R U' R' U' F' U' r U' r' F",
+			"date": "5/20/2015",
+			"count": 1
+		}, {
+			"alg": "y' L' U L U L' U' L' D' L U L' D L U2 L",
+			"date": "11/6/2016",
+			"count": 1
+		}, {
+			"alg": "y2 R U R' U2 r' U2 R' f' U' f R2 U2 r",
+			"date": "12/24/2014",
+			"count": 0
+		}, {
+			"alg": "y2 R U R' U' f' U2 F2 R U R' U' F2 U2 f",
+			"date": "12/24/2014",
+			"count": 0
+		}, {
+			"alg": "y2 L' U L' F2 U' L' U' L' U L U F2 L2",
+			"date": "12/24/2014",
+			"count": 0
+		}, {
+			"alg": "R' U2 R U' x U' r x' U R' U' L' U x' U' R",
+			"date": "1/16/2015",
+			"count": 0
+		}, {
+			"alg": "R' U' R U R' F' R U R' U' R' F R2 U2 F' r U R' U' r' F R U",
+			"date": "12/8/2015",
+			"count": 0
+		}, {
+			"alg": "y2 x r' U r' D2 r U' r' D2 r2 x' U R' L F2 L' R",
+			"date": "12/23/2015",
+			"count": 0
+		}]
+	},
+	"T": {
+		"pll": "T",
+		"neutral": "ffrblfrbblrl",
+		"url": "http://algdb.net/Set/PLL/T",
+		"solutions": [{
+			"alg": "R U R' U' R' F R2 U' R' U' R U R' F'",
+			"date": "10/8/2013",
+			"count": 342
+		}, {
+			"alg": "R U R' U' R' F R2 U' R' U F' L' U L",
+			"date": "10/9/2013",
+			"count": 24
+		}, {
+			"alg": "R2 U R2 U' R2 U' D R2 U' R2 U R2 D'",
+			"date": "10/13/2013",
+			"count": 7
+		}, {
+			"alg": "y F2 D R2 U' R2' F2 D' r2 D r2",
+			"date": "4/21/2015",
+			"count": 2
+		}, {
+			"alg": "R U R' U' R2 D R' U' R' U' R U R2 D' R",
+			"date": "10/30/2013",
+			"count": 0
+		}, {
+			"alg": "y F2 D R2 U' R2 F2 D' L2 U L2 U'",
+			"date": "12/24/2014",
+			"count": 0
+		}, {
+			"alg": "R2' u' R2 U R2' y R2 u R2' U' R2",
+			"date": "4/21/2015",
+			"count": 0
+		}, {
+			"alg": "D' R2 U R2 U' R2 U' D R2 U' R2 U R2",
+			"date": "4/29/2015",
+			"count": 0
+		}, {
+			"alg": "R U R' U' R U' R' U' R U R' F' R U R' U' R' F R U R U' R'",
+			"date": "8/1/2015",
+			"count": 0
+		}, {
+			"alg": "S2 D' M2 R' U' F' R U R' U' R' F R2 U' R' U' R U R' U R M2 D S2",
+			"date": "8/9/2015",
+			"count": 0
+		}, {
+			"alg": "R U' R' U2 L R U' R' U' R' U2 R U2 L' U' R' U R",
+			"date": "4/27/2016",
+			"count": 0
+		}, {
+			"alg": "R2 u R2 U' R2 F2 D' r2 D r2",
+			"date": "4/27/2016",
+			"count": 0
+		}, {
+			"alg": "y' R' U R' F2 r F' r' F2 R2 U' M U2 M'",
+			"date": "7/4/2016",
+			"count": 0
+		}, {
+			"alg": "y' M' R' U R' F2 r F' r' F2 R2 U' M",
+			"date": "7/4/2016",
+			"count": 0
+		}]
+	},
+	"Ua": {
+		"pll": "Ua",
+		"neutral": "fffrbrblblrl",
+		"url": "http://algdb.net/Set/PLL/Ua",
+		"solutions": [{
+			"alg": "y2 R U' R U R U R U' R' U' R2",
+			"date": "12/24/2014",
+			"count": 163
+		}, {
+			"alg": "R2 U' R' U' R U R U R U' R",
+			"date": "10/8/2013",
+			"count": 121
+		}, {
+			"alg": "y2 M2 U M U2 M' U M2",
+			"date": "10/9/2013",
+			"count": 73
+		}, {
+			"alg": "M2 U M' U2 M U M2",
+			"date": "10/9/2013",
+			"count": 58
+		}, {
+			"alg": "R U R' U R' U' R2 U' R' U R' U R",
+			"date": "10/10/2013",
+			"count": 20
+		}, {
+			"alg": "y2 F2 U' L R' F2 L' R U' F2",
+			"date": "12/24/2014",
+			"count": 13
+		}, {
+			"alg": "y M2 u' M' u2 M' u' M2",
+			"date": "12/24/2014",
+			"count": 8
+		}, {
+			"alg": "R U R' U' L' U' L U2 R U' R' U' L' U L",
+			"date": "11/12/2014",
+			"count": 4
+		}, {
+			"alg": "y R2' U' F B' R2 B F' U' R2",
+			"date": "12/24/2014",
+			"count": 4
+		}, {
+			"alg": "L U' L U L U L U' L' U' L2'",
+			"date": "8/26/2016",
+			"count": 3
+		}, {
+			"alg": "y R U R' U' R' U2' R U R U' R2' U2' R",
+			"date": "1/17/2015",
+			"count": 1
+		}, {
+			"alg": "y' M2 u M' u2 M' u2 M' u2 M' u M2",
+			"date": "1/30/2015",
+			"count": 1
+		}, {
+			"alg": "y R2 D' M' U2 M U2 D R2",
+			"date": "4/21/2015",
+			"count": 1
+		}, {
+			"alg": "y2 F2 U' M' U2 M U' F2",
+			"date": "12/15/2015",
+			"count": 1
+		}, {
+			"alg": "y R2 U S R2 S' R2 U' R2",
+			"date": "1/3/2016",
+			"count": 1
+		}, {
+			"alg": "y2 M2' U' M U2' M' U' M2'",
+			"date": "8/14/2016",
+			"count": 1
+		}, {
+			"alg": "M U2 M' U M U2 M' U M U2 M'",
+			"date": "10/11/2013",
+			"count": 0
+		}, {
+			"alg": "y2 M' U2 M U M' U2 M U M' U2 M",
+			"date": "12/22/2014",
+			"count": 0
+		}, {
+			"alg": "y R2 U' S' U2 S U' R2",
+			"date": "12/24/2014",
+			"count": 0
+		}, {
+			"alg": "y F U R U' R' F' y2 F' L' U' L U F",
+			"date": "4/12/2015",
+			"count": 0
+		}, {
+			"alg": "R' U' R U' R' U2 R U' L U L' U L U2 L'",
+			"date": "4/21/2015",
+			"count": 0
+		}, {
+			"alg": "y F U R U' R' F' U2' F' L' U' L U F",
+			"date": "4/21/2015",
+			"count": 0
+		}, {
+			"alg": "y F U R U' R' F' f' U' L' U L f",
+			"date": "4/29/2015",
+			"count": 0
+		}, {
+			"alg": "y R2 U' F B' R2 F' B U' R2",
+			"date": "8/3/2016",
+			"count": 0
+		}]
+	},
+	"Ub": {
+		"pll": "Ub",
+		"neutral": "fffrlrbrblbl",
+		"url": "http://algdb.net/Set/PLL/Ub",
+		"solutions": [{
+			"alg": "y2 R2' U R U R' U' R' U' R' U R'",
+			"date": "12/24/2014",
+			"count": 125
+		}, {
+			"alg": "R' U R' U' R' U' R' U R U R2",
+			"date": "10/8/2013",
+			"count": 120
+		}, {
+			"alg": "y2 M2 U' M U2 M' U' M2",
+			"date": "10/10/2013",
+			"count": 94
+		}, {
+			"alg": "M2 U' M' U2 M U' M2",
+			"date": "10/9/2013",
+			"count": 41
+		}, {
+			"alg": "y2 L' U L' U' L' U' L' U L U L2",
+			"date": "12/24/2014",
+			"count": 16
+		}, {
+			"alg": "y2 F2 U L R' F2 L' R U F2",
+			"date": "12/24/2014",
+			"count": 15
+		}, {
+			"alg": "y' M2' u M' u2 M' u M2'",
+			"date": "12/24/2014",
+			"count": 10
+		}, {
+			"alg": "y2 R' U' R U' R U R2 U R U' R U' R'",
+			"date": "10/10/2013",
+			"count": 3
+		}, {
+			"alg": "y R2 U F B' R2 F' B U R2",
+			"date": "7/20/2014",
+			"count": 3
+		}, {
+			"alg": "L2 U L U L' U' L' U' L' U L'",
+			"date": "2/15/2015",
+			"count": 3
+		}, {
+			"alg": "y2 F2 U' M' U2 M U' F2",
+			"date": "3/18/2015",
+			"count": 2
+		}, {
+			"alg": "L' U' L U R U R' U'2 L' U L U R U' R'",
+			"date": "9/1/2016",
+			"count": 2
+		}, {
+			"alg": "M U2 M' U' M U2 M' U' M U2 M'",
+			"date": "10/11/2013",
+			"count": 1
+		}, {
+			"alg": "L' U' L U R U R' U2 L' U L U R U' R'",
+			"date": "11/12/2014",
+			"count": 1
+		}, {
+			"alg": "L U L' U L U2 L' U R' U' R U' R' U2 R U'",
+			"date": "11/23/2014",
+			"count": 1
+		}, {
+			"alg": "R U R' F' R U R' U' M' U R U' r' F R U' R'",
+			"date": "10/24/2014",
+			"count": 0
+		}, {
+			"alg": "L' U' L U' L U L2' U L U' L U' L'",
+			"date": "3/29/2015",
+			"count": 0
+		}, {
+			"alg": "R U R' U' R' U' R' U R d' M' U2 M",
+			"date": "5/7/2015",
+			"count": 0
+		}, {
+			"alg": "y R2' U R2' S R2' S' U' R2'",
+			"date": "11/26/2015",
+			"count": 0
+		}, {
+			"alg": "y R2 U' S R2 S' R2 U R2",
+			"date": "1/3/2016",
+			"count": 0
+		}]
+	},
+	"V": {
+		"pll": "V",
+		"neutral": "ffblbrbrfrll",
+		"url": "http://algdb.net/Set/PLL/V",
+		"solutions": [{
+			"alg": "R' U R' d' R' F' R2 U' R' U R' F R F",
+			"date": "10/8/2013",
+			"count": 191
+		}, {
+			"alg": "R' U R' U' y R' F' R2 U' R' U R' F R F",
+			"date": "11/20/2014",
+			"count": 54
+		}, {
+			"alg": "z D' R2 D R2' U R' D' R U' R U R' D R U'",
+			"date": "10/25/2013",
+			"count": 43
+		}, {
+			"alg": "R U2 R' D R U' R U' R U R2 D R' U' R D2",
+			"date": "10/8/2013",
+			"count": 24
+		}, {
+			"alg": "R' U2 R U2 L U' R' U L' U L U' R U L'",
+			"date": "10/14/2013",
+			"count": 8
+		}, {
+			"alg": "R2 U' B2 U B2 R D' R D R' U R U' R",
+			"date": "12/24/2014",
+			"count": 6
+		}, {
+			"alg": "R' U R' U' R D' R' D R' U D' R2 U' R2' D R2",
+			"date": "12/28/2013",
+			"count": 4
+		}, {
+			"alg": "y R F R2 U' R' U R' U' R2 U R F' R' U' R U R'",
+			"date": "5/30/2015",
+			"count": 2
+		}, {
+			"alg": "R' U R' U' R D' R' D R' y R2 U' R2 U F2",
+			"date": "10/16/2013",
+			"count": 1
+		}, {
+			"alg": "R2' D' R2 U R2' U' D R D' R D R' U R U' R",
+			"date": "5/26/2014",
+			"count": 1
+		}, {
+			"alg": "y2 R U' L' U R' U' R U' L U R' U2 L' U2 L",
+			"date": "9/8/2015",
+			"count": 1
+		}, {
+			"alg": "R2 U' f2 D f2 R D' R D R' U R U' R",
+			"date": "6/13/2016",
+			"count": 1
+		}, {
+			"alg": "R' U l' f' l' U l' B' l2 U' R' U R U",
+			"date": "8/8/2016",
+			"count": 1
+		}, {
+			"alg": "R' U R' U' R D' R' D R' B2 U' B2 U R2",
+			"date": "10/16/2013",
+			"count": 0
+		}, {
+			"alg": "R' U R' U' R D' R' D R' y R2 U' R2 d R2",
+			"date": "10/20/2013",
+			"count": 0
+		}, {
+			"alg": "R' U R' U' y x2 R' U R' U' x' R2 U' R' U R U",
+			"date": "5/7/2014",
+			"count": 0
+		}, {
+			"alg": "R' U' R y' R' U' F' R U R' U' R' F R2 U' R' U' R U R' U R y R' U R",
+			"date": "11/12/2014",
+			"count": 0
+		}, {
+			"alg": "y2 R U' R U R' D R D' R U' D R2 U R2 D' R2",
+			"date": "12/24/2014",
+			"count": 0
+		}, {
+			"alg": "y z U' R D R' U R U' R D' R' U R2 D R2 D' z'",
+			"date": "12/24/2014",
+			"count": 0
+		}, {
+			"alg": "y' z D' R U R' D R D' R U' R' D R2 U R2 U' z'",
+			"date": "12/24/2014",
+			"count": 0
+		}, {
+			"alg": "R' U R' U' y x R' U' R2 B' R' B R' U R U",
+			"date": "4/18/2015",
+			"count": 0
+		}, {
+			"alg": "R' U R' U' y x R' F R' F' R2 U' R' U R U",
+			"date": "12/26/2015",
+			"count": 0
+		}, {
+			"alg": "F R' U' R' F' U' F R U2 R U' R' F R2 F' R' F'",
+			"date": "4/23/2016",
+			"count": 0
+		}, {
+			"alg": "y R U R' U R U' R' U L' U2 R U2 R' U2 L R U2 R' U",
+			"date": "6/18/2016",
+			"count": 0
+		}, {
+			"alg": "y R U R' U R' U' F' R U R' U' R' F R2 U' R' U' R U R' U R U' R U' R'",
+			"date": "8/20/2016",
+			"count": 0
+		}, {
+			"alg": "y' R' U L U' R U R' U L' U' R U2 L U2 L'",
+			"date": "9/17/2016",
+			"count": 0
+		}, {
+			"alg": "x R' U R' D2 R U' R' D2 F R F' R U2 r' U r U2 x'",
+			"date": "6/11/2017",
+			"count": 0
+		}, {
+			"alg": "L U L' U' R' U' F' R U R' U' R' F' R2 U' R' U' R U' R' F' U L U' L'",
+			"date": "6/22/2017",
+			"count": 0
+		}]
+	},
+	"Y": {
+		"pll": "Y",
+		"neutral": "ffblrrblfrbl",
+		"url": "http://algdb.net/Set/PLL/Y",
+		"solutions": [{
+			"alg": "F R U' R' U' R U R' F' R U R' U' R' F R F'",
+			"date": "10/8/2013",
+			"count": 314
+		}, {
+			"alg": "F R' F R2 U' R' U' R U R' F' R U R' U' F'",
+			"date": "10/10/2013",
+			"count": 22
+		}, {
+			"alg": "R2 U' R2' U' R2 U R' F' R U R2' U' R' F R",
+			"date": "1/8/2014",
+			"count": 5
+		}, {
+			"alg": "R2 U' R2 U' R2 U y' R U R' B2 R U' R'",
+			"date": "10/9/2013",
+			"count": 4
+		}, {
+			"alg": "R' U' R F2 R' U R d R2 U' R2 U' R2",
+			"date": "11/23/2013",
+			"count": 3
+		}, {
+			"alg": "y2 R' U2 R' F' R2 U' R' F' U' F R U R' F U2' R",
+			"date": "12/20/2013",
+			"count": 3
+		}, {
+			"alg": "R2 U' R' U R U' y' x' L' U' R U' R' U' L U",
+			"date": "10/9/2013",
+			"count": 2
+		}, {
+			"alg": "F R U' R' U' R U y' R U R' B' R U' R2",
+			"date": "4/8/2015",
+			"count": 2
+		}, {
+			"alg": "R2 D' R2 U R2 U' R2 D R2 U' R2 U R2 U R2",
+			"date": "9/24/2015",
+			"count": 2
+		}, {
+			"alg": "F R U' R' U' R d R U R' B' R U' R2",
+			"date": "10/10/2013",
+			"count": 1
+		}, {
+			"alg": "F U F' R2 F U' F' U' R2 U R2 U R2",
+			"date": "10/16/2013",
+			"count": 1
+		}, {
+			"alg": "F R U r U2 R2 F R F' R U2 r' R' F'",
+			"date": "12/26/2014",
+			"count": 1
+		}, {
+			"alg": "F R U R U2 R' L' U R U' L U2 R2 F'",
+			"date": "4/29/2015",
+			"count": 1
+		}, {
+			"alg": "R' U' R U' R U R' F' R U R' U' R' F R2 U' R2' U R",
+			"date": "10/25/2013",
+			"count": 0
+		}, {
+			"alg": "R' U' l D2 l' U R d R2 U' R2 U' R2",
+			"date": "11/23/2013",
+			"count": 0
+		}, {
+			"alg": "F R' F' R U R U' R2' U' R U l U' R' U x",
+			"date": "9/6/2014",
+			"count": 0
+		}, {
+			"alg": "x U R' U l R U' R' U' R U R' F' R U R' U' F'",
+			"date": "10/14/2014",
+			"count": 0
+		}, {
+			"alg": "y' x' U' R U l' U' R' U R2 U R' U' R' F R F'",
+			"date": "12/24/2014",
+			"count": 0
+		}, {
+			"alg": "R2 U' R' U R U' x' U' z' U' R U' R' U' L U x",
+			"date": "1/16/2015",
+			"count": 0
+		}, {
+			"alg": "F R' F' R U R U' R' F R U' R' U R U R' F'",
+			"date": "7/5/2016",
+			"count": 0
+		}, {
+			"alg": "R' F' R U R' U' R' F R U' R U R2' D' R U R' D R2",
+			"date": "3/2/2017",
+			"count": 0
+		}]
+	},
+	"Z": {
+		"pll": "Z",
+		"neutral": "frfrfrblblbl",
+		"url": "http://algdb.net/Set/PLL/Z",
+		"solutions": [{
+			"alg": "M2 U M2 U M' U2 M2 U2 M'",
+			"date": "10/8/2013",
+			"count": 199
+		}, {
+			"alg": "y M2' U' M2' U' M' U2' M2' U2' M'",
+			"date": "12/24/2014",
+			"count": 79
+		}, {
+			"alg": "M' U' M2' U' M2' U' M' U2' M2'",
+			"date": "12/24/2014",
+			"count": 37
+		}, {
+			"alg": "y R' U' R U' R U R U' R' U R U R2 U' R'",
+			"date": "12/24/2014",
+			"count": 19
+		}, {
+			"alg": "R' U' R2 U R U R' U' R U R U' R U' R'",
+			"date": "10/10/2013",
+			"count": 17
+		}, {
+			"alg": "M2 U' M' U2 M2 U2 M' U M2",
+			"date": "7/17/2014",
+			"count": 7
+		}, {
+			"alg": "M2 U M2 U' E2 M E2 M",
+			"date": "10/9/2013",
+			"count": 6
+		}, {
+			"alg": "y M' U M2' U M2' U M' U2 M2'",
+			"date": "12/24/2014",
+			"count": 6
+		}, {
+			"alg": "R U R' U R' U' R' U R U' R' U' R2 U R",
+			"date": "10/10/2013",
+			"count": 4
+		}, {
+			"alg": "M2' U2' M U' M2' U' M2' U' M",
+			"date": "4/21/2015",
+			"count": 4
+		}, {
+			"alg": "M2 u M2 u' S M2 S'",
+			"date": "10/9/2013",
+			"count": 3
+		}, {
+			"alg": "R2 U R2 U2 R2 U R2 U' R2 U R2 U2 R2 U R2",
+			"date": "7/2/2014",
+			"count": 2
+		}, {
+			"alg": "M2' U M2' U M' U2 M2' U2 M'",
+			"date": "12/24/2014",
+			"count": 2
+		}, {
+			"alg": "y M2' U' M2' U' M' U2' M2' U2' M' U2'",
+			"date": "8/14/2016",
+			"count": 2
+		}, {
+			"alg": "R2 U R2 U R U2 R2 U2 R2 U2 R U' R2 U' R2",
+			"date": "10/8/2013",
+			"count": 1
+		}, {
+			"alg": "M2' U2 M' U M2' U M2' U M'",
+			"date": "2/21/2015",
+			"count": 1
+		}, {
+			"alg": "M2 U M2 U x' U2 M2 U2 M2",
+			"date": "4/11/2015",
+			"count": 1
+		}, {
+			"alg": "y R U R2 U' R' U' R U R' U' R' U R' U R",
+			"date": "12/24/2014",
+			"count": 0
+		}, {
+			"alg": "x' R U' R' U D R' D U' R' U R D2'",
+			"date": "4/18/2015",
+			"count": 0
+		}, {
+			"alg": "F' L' U' L U F R' U' F R' F' R U R",
+			"date": "4/21/2015",
+			"count": 0
+		}, {
+			"alg": "M2' U M2' U x M2' U2 M2' U2",
+			"date": "5/8/2015",
+			"count": 0
+		}, {
+			"alg": "R2 U' R2 U' R2 U' R2 U' R2 U' S R2 S'",
+			"date": "8/5/2015",
+			"count": 0
+		}, {
+			"alg": "y M2' U' M2' U' M U2' M2' U2' M U2'",
+			"date": "9/2/2016",
+			"count": 0
+		}]
+	}
+}

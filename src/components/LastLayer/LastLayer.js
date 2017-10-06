@@ -115,6 +115,7 @@ class LastLayer extends Component {
                 {lookForSquares}
                 <h2>This recognition works for: {this.state.recognition.cases}</h2>
                 <h2>Patterns: {JSON.stringify(this.state.patterns)}</h2>
+                <h2>Solutions: {JSON.stringify(this.state.pll.algs.solutions.slice(0, 3).map(alg => { return { alg: alg.alg, userCount: alg.count }}))}</h2>
             </div>
         )
     }
