@@ -1076,17 +1076,21 @@ export function getRandomPll() {
 }
 
 function cancelSetupMoves(alg, setupMove) {
-    let arr = alg.split(' ')
+    let arr = alg.trim().split(' ')
     const first = arr[0].toUpperCase()
+    let setup = ''
     switch (first) {
         case 'Y':
         case 'U': {
             if (setupMove === 'U') {
-                arr[0] = 'U2'
+                setup = 'U2'
             } else if (setupMove === 'U2') {
-                arr[0] = 'U\''
+                setup = 'U\''
             } else if (setupMove === 'U\'') {
-                arr[0] = ''
+                setup = ''
+            }
+            else {
+                setup = 'U'
             }
             break
         }
@@ -1094,11 +1098,13 @@ function cancelSetupMoves(alg, setupMove) {
         case 'Y2':
         case 'U2': {
             if (setupMove === 'U') {
-                arr[0] = 'U\''
+                setup = 'U\''
             } else if (setupMove === 'U2') {
-                arr[0] = ''
+                setup = ''
             } else if (setupMove === 'U\'') {
-                arr[0] = 'U'
+                setup = 'U'
+            } else {
+                setup = 'U2'
             }
             break
         }
@@ -1106,18 +1112,29 @@ function cancelSetupMoves(alg, setupMove) {
         case 'Y\'':
         case 'U\'': {
             if (setupMove === 'U') {
-                arr[0] = ''
+                setup = ''
             } else if (setupMove === 'U2') {
-                arr[0] = 'U'
+                setup = 'U'
             } else if (setupMove === 'U\'') {
-                arr[0] = 'U2'
+                setup = 'U2'
+            } else {
+                setup = 'U\''
             }
             break
         }
 
-        default: return alg
+        default: {
+            return {
+                setup: setupMove,
+                algorithm: alg.trim(),
+            }
+        }
     }
-    return arr.join(' ').trim()
+
+    return {
+        setup,
+        algorithm: arr.slice(1).join(' ').trim(),
+    }
 }
 
 function getDescription(arr) {
@@ -1184,7 +1201,7 @@ function getAllPlls() {
         //     default: break
         // }
         // solved.bold = [...sbase]
-        const algs = all[pll.id]
+        const algs = { ...all[pll.id] }
         let setupMove
         // console.log(algs.neutral)
         // console.log(normalize(algs.neutral))
@@ -1223,8 +1240,13 @@ function getAllPlls() {
         }
 
         algs.solutions = algs.solutions.map(alg => {
-            alg.alg = cancelSetupMoves(alg.alg, setupMove)
-            return alg
+            const newAlg = {}
+            const result = cancelSetupMoves(alg.alg, setupMove)
+            newAlg.setupMove = result.setup
+            newAlg.algorithm = result.algorithm
+            newAlg.userCount = alg.count
+            newAlg.date = alg.date
+            return newAlg
         })
 
         // if (normalize(algs.neutral) === v) setupMove = ''
@@ -1233,7 +1255,7 @@ function getAllPlls() {
         // else if (normalize(shift(algs.neutral, 9)) === v) setupMove = 'U\''
         // else setupMove = 'WUT???'
         setup.move = setupMove
-        algs.setupMove = setupMove
+        // algs.setupMove = setupMove
         return {
                 id: denorm.slice(0, 6),
                 pll: pll.id,

@@ -92,6 +92,30 @@ class LastLayer extends Component {
         )
     }
 
+    renderSolutions = () => {
+        const solutions = []
+        this.state.pll.algs.solutions.map(s => {
+            if (s.userCount > 10) {
+                solutions.push({
+                    setup: s.setupMove,
+                    alg: s.algorithm,
+                    userCount: s.userCount
+                })
+            }
+        })
+        const items = solutions.map(s => {
+            let text = `${s.alg} (${s.userCount})`
+            if (s.setup !== '') text = `[${s.setup}] ${text}`
+            return <li key={s.alg}>{text}</li>
+        })
+        return (
+            <div>
+                <h2>Solutions</h2>
+                <ul>{items}</ul>
+            </div>
+        )
+    }
+
     render() {
         if (_.isEmpty(this.state.pll)) return null
 
@@ -100,6 +124,7 @@ class LastLayer extends Component {
         const solved = this.renderSolved()
         const categorySquares = this.renderCategorySquares()
         const lookForSquares = this.renderLookForSquares()
+        const solutions = this.renderSolutions()
 
         return (
             <div>
@@ -115,7 +140,7 @@ class LastLayer extends Component {
                 {lookForSquares}
                 <h2>This recognition works for: {this.state.recognition.cases}</h2>
                 <h2>Patterns: {JSON.stringify(this.state.patterns)}</h2>
-                <h2>Solutions: {JSON.stringify(this.state.pll.algs.solutions.slice(0, 3).map(alg => { return { alg: alg.alg, userCount: alg.count }}))}</h2>
+                {solutions}
             </div>
         )
     }
