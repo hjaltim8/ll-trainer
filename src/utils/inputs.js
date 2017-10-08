@@ -1149,12 +1149,50 @@ function getDescription(arr) {
     return result.join(', ')
 }
 
+function toLinkVersion(move) {
+    const upped = move.toUpperCase()
+    switch (upped) {
+        case 'X\'':
+        case 'Y\'':
+        case 'Z\'':
+        case 'U\'':
+        case 'D\'':
+        case 'F\'':
+        case 'R\'':
+        case 'B\'':
+        case 'L\'': {
+            return `${move.charAt(0)}-`
+        }
+
+        case 'X2\'':
+        case 'Y2\'':
+        case 'Z2\'':
+        case 'U2\'':
+        case 'D2\'':
+        case 'F2\'':
+        case 'R2\'':
+        case 'B2\'':
+        case 'L2\'': {
+            return `${move.charAt(0)}2-`
+        }
+
+        default: {
+            return move
+        }
+    }
+}
+
+function toAlgLink(alg) {
+    return alg.split(' ').map(move => toLinkVersion(move)).join('_')
+}
+
 function getAllPlls() {
     // const bold = {
     //     none: Array(12).fill(false),
     //     // solved: Array(12).fill(true),
     //     // lights: [true, false, true],
     // }
+    const algLink = 'https://alg.cubing.net/?alg={alg}&title={title}&stage=PLL&type=alg&view=playback'
     const bold = {
         none: [false, false, false],
         lights: [true, false, true],
@@ -1222,18 +1260,12 @@ function getAllPlls() {
         }
         else if (setup.u === vv) {
             setupMove = 'U'
-            // loop through all the algs and see if the first char is u|u'|u2|y|y'|y2
-            // and update accordingliy
         }
         else if (setup.u2 === vv) {
             setupMove = 'U2'
-            // loop through all the algs and see if the first char is u|u'|u2|y|y'|y2
-            // and update accordingliy
         }
         else if (setup.uprime === vv) {
             setupMove = 'U\''
-            // loop through all the algs and see if the first char is u|u'|u2|y|y'|y2
-            // and update accordingliy
         }
         else {
             setupMove = 'WUT???'
@@ -1246,8 +1278,13 @@ function getAllPlls() {
             newAlg.algorithm = result.algorithm
             newAlg.userCount = alg.count
             newAlg.date = alg.date
+            let link = newAlg.algorithm
+            if (result.setup !== '') link = `${result.setup} ${link}`
+            newAlg.linkified = toAlgLink(link)
             return newAlg
         })
+
+        algs.linkTemplate = algLink.replace('{title}', `${pll.id}-Perm`)
 
         // if (normalize(algs.neutral) === v) setupMove = ''
         // else if (normalize(shift(algs.neutral, 3)) === v) setupMove = 'U'

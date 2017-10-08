@@ -1,0 +1,18 @@
+.algContainer{
+    display: block;
+}
+
+.algSetupMove{
+    color: grey;
+    font-weight: bold;
+    padding-right: 5px;
+}
+
+.algLink{
+    color: green;
+}
+
+.algUserCount{
+    padding-left: 5px;
+    font-style: italic;
+}

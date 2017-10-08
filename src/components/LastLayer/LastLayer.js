@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import Combo from '../Combo'
 import Halfie from '../Halfie'
 import Squares from '../Squares'
+import Algorithm from '../Algorithm'
 import {
     getRandomPll,
     getSidePairPatterns,
@@ -96,22 +97,16 @@ class LastLayer extends Component {
         const solutions = []
         this.state.pll.algs.solutions.map(s => {
             if (s.userCount > 10) {
-                solutions.push({
-                    setup: s.setupMove,
-                    alg: s.algorithm,
-                    userCount: s.userCount
-                })
+                solutions.push(s)
             }
         })
         const items = solutions.map(s => {
-            let text = `${s.alg} (${s.userCount})`
-            if (s.setup !== '') text = `[${s.setup}] ${text}`
-            return <li key={s.alg}>{text}</li>
+            return <Algorithm key={s.algorithm} {...s} title={this.state.pll.pll} />
         })
         return (
             <div>
                 <h2>Solutions</h2>
-                <ul>{items}</ul>
+                {items}
             </div>
         )
     }
