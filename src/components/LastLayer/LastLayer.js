@@ -1,9 +1,9 @@
 import _ from 'lodash'
 import React, { Component } from 'react'
-import Combo from '../Combo'
 import Halfie from '../Halfie'
 import Squares from '../Squares'
 import Algorithm from '../Algorithm'
+import Layer from '../Layer'
 import {
     getRandomPll,
     getSidePairPatterns,
@@ -44,7 +44,7 @@ class LastLayer extends Component {
     }
 
     renderSquares = () => {
-        return <Halfie colors={this.state.colors} size={50} />
+        return <Layer colors={this.state.colored} size={75} />
     }
 
     renderCategorySquares = () => {
@@ -72,7 +72,7 @@ class LastLayer extends Component {
     renderLights = () => {
         console.log('lights: ', this.state.pll.lights)
         return (
-            <Combo
+            <Layer
                 showTitle={false}
                 colors={this.state.colored}
                 bold={this.state.pll.lights.bold}
@@ -84,7 +84,7 @@ class LastLayer extends Component {
     renderSolved = () => {
         console.log('solved: ', this.state.pll.solved)
         return (
-            <Combo
+            <Layer
                 showTitle={false}
                 colors={this.state.colored}
                 bold={this.state.pll.solved.bold}

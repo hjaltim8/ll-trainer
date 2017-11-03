@@ -1,3 +1,6 @@
 * Add a function that returns a given Case
 * Each case should be able to do y, y2 and y' turns and that should of course link to the correct next part and that part should be colored accordingly
-* 
+* Left and back should maybe be visible but opaque
+* How to position the ll in respect to 2nd layer to make sure we end with a solved cube without a need for AUF
+* Combine solved and lights...
+* Use Layer instead of Squares (so we need the option to hide the extra sides)
