@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import LastLayer from './components/LastLayer'
-import logo from './logo.svg'
 import './App.css'
 import './utils/inputs'
 

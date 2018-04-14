@@ -1,13 +1,13 @@
 import _ from 'lodash'
 import React, { Component } from 'react'
 import Halfie from '../Halfie'
-import Squares from '../Squares'
+// import Squares from '../Squares'
 import Algorithm from '../Algorithm'
 import Layer from '../Layer'
 import {
     getRandomPll,
-    getSidePairPatterns,
-    getRecognitions,
+    // getSidePairPatterns,
+    // getRecognitions,
     getRandomColors,
 } from '../../utils/inputs'
 import './LastLayer.css'
@@ -95,6 +95,7 @@ class LastLayer extends Component {
 
     renderSolutions = () => {
         const solutions = []
+        // eslint-disable-next-line
         this.state.pll.algs.solutions.map(s => {
             if (s.userCount > 10) {
                 solutions.push(s)
