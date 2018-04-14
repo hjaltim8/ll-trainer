@@ -1,0 +1,18 @@
+language: node_js
+node_js:
+- '8'
+cache:
+  directories:
+  - node_modules
+script:
+- yarn build
+deploy:
+  provider: s3
+  skip_cleanup: true
+  local_dir: build
+  access_key_id: $S3_KEY_ID
+  secret_access_key:
+    secure: Y2ax8NgkPNXBLn8iKcTgX1UFrRUdqjbDCR0v/ERFZyGUy48Bg6/4FBhgkgFlM6XkY64+sVhxohcJ0ScI0aKxGI8xVcqNBJXESuSf5xskavP7E4HWTZZxWbzxfx+UXN3mF5oNOsmKbYC/xvNzwj0Syj2MXVXjWl5NKcyvUn6frKB4o0uX+iw1SsGPvrQ5omRhzZBmuq3vH6/w6qA+ZCS5ktyE5vgDH3/sFSu+Y6bKimS+Ky0YaQYsIhfwKcrEvELAM6CpU5UpdBGoQ0QWkg6LIHeJskhuzW3NhQhW6Cn6uNdolmwvzbyP4818WtLqml50xYrCZGbKjueNX6VDZbepXV7wA4VtdidYW56ySNcdPL3xuwpZvqzGgbJJTDi0k+gE7imuhMvvas3uynEu3sDdUAiuTmpyYVSY+XPISSX7/bjT2PvxYuv2P266yBZBxkECldHT051npOS/j3OSL6DqN6sFhM7y9IKbM4lU4UHZkT7uM9byVW+hC3bhSopw8UUEFfeUgyyAzVhEGq4al8WNQWozub+LXM0fITUX77Nl5yGD7Xd03cD0nk8qRSPLeVK7SErcXsGnmbL8KU3b4qO3PhKt9bQE7VEjUSOuVnxmgSmCYAT4q4cH7JLcKHaB2yyZaeDY0oEKKDAhaq114n/NOxJ5mkNec5fjfHC0OjFTeoE=
+  bucket: ll-trainer.kolbeinsson.se
+  region: eu-west-1
+  acl: public_read
